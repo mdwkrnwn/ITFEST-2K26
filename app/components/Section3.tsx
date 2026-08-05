@@ -17,15 +17,15 @@ interface ChartProps {
 const MiniBarChart = ({ isHovered, color }: ChartProps) => (
   <div className="flex items-end gap-1.5 sm:gap-2 h-10 mt-4">
     {[40, 70, 50, 90, 60].map((height, i) => (
-      <motion.div 
+      <motion.div
         key={i}
         initial={{ height: 0 }}
-        animate={{ 
+        animate={{
           height: isHovered ? [`${height}%`, `${Math.random() * 50 + 50}%`, `${height}%`] : `${height}%`,
-          backgroundColor: isHovered ? '#FFFFFF' : color 
+          backgroundColor: isHovered ? '#FFFFFF' : color
         }}
-        transition={{ 
-          duration: isHovered ? 0.3 : 1, 
+        transition={{
+          duration: isHovered ? 0.3 : 1,
           delay: isHovered ? i * 0.05 : 0.5 + (i * 0.1),
           repeat: isHovered ? Infinity : 0,
           ease: isHovered ? "circInOut" : "easeOut"
@@ -37,20 +37,20 @@ const MiniBarChart = ({ isHovered, color }: ChartProps) => (
 );
 
 const MiniRingChart = ({ isHovered, color }: ChartProps) => (
-  <motion.div 
+  <motion.div
     animate={{ rotate: isHovered ? 360 : 0 }}
     transition={{ duration: isHovered ? 1.5 : 1, repeat: isHovered ? Infinity : 0, ease: "linear" }}
     className="relative w-10 h-10 sm:w-12 sm:h-12 mt-2"
   >
     <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
       <path className="text-white/20" strokeWidth="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-      <motion.path 
-        animate={{ 
+      <motion.path
+        animate={{
           strokeDasharray: isHovered ? ["10, 100", "90, 100", "10, 100"] : "75, 100",
           color: isHovered ? '#FFFFFF' : color
         }}
         transition={{ duration: isHovered ? 1 : 1.5, repeat: isHovered ? Infinity : 0, ease: "easeInOut" }}
-        className="text-[#2D2A26]" strokeWidth="4" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+        className="text-[#2D2A26]" strokeWidth="4" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
       />
     </svg>
   </motion.div>
@@ -60,7 +60,7 @@ const MiniTrendLine = ({ isHovered }: ChartProps) => (
   <div className="w-20 h-8 sm:w-24 sm:h-10 mt-4 relative">
     <svg viewBox="0 0 100 40" className="w-full h-full overflow-visible">
       <motion.path
-        animate={{ 
+        animate={{
           pathLength: isHovered ? [0.2, 1, 0.2] : 1,
           stroke: isHovered ? '#FFFFFF' : '#2D2A26'
         }}
@@ -68,13 +68,13 @@ const MiniTrendLine = ({ isHovered }: ChartProps) => (
         d="M0,40 Q20,30 40,35 T80,15 T100,0"
         fill="none" strokeWidth="3" strokeLinecap="round"
       />
-      <motion.circle 
-        animate={{ 
+      <motion.circle
+        animate={{
           scale: isHovered ? [1, 1.5, 1] : 1,
-          fill: isHovered ? '#FFFFFF' : '#F28F3B'
+          fill: isHovered ? '#FFFFFF' : '#0026ff'
         }}
         transition={{ duration: isHovered ? 0.4 : 2, repeat: isHovered ? Infinity : 0 }}
-        cx="100" cy="0" r="4" 
+        cx="100" cy="0" r="4"
       />
     </svg>
   </div>
@@ -84,26 +84,29 @@ const MiniGaugeChart = ({ isHovered, color }: ChartProps) => (
   <div className="relative w-14 h-7 sm:w-16 sm:h-8 mt-4 overflow-visible">
     <svg viewBox="0 0 100 50" className="w-full h-full overflow-visible">
       <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke={isHovered ? "rgba(255,255,255,0.3)" : "rgba(242,143,59,0.2)"} strokeWidth="8" strokeLinecap="round" />
-      <motion.path 
-        animate={{ 
-          stroke: isHovered ? '#FFFFFF' : '#F28F3B', 
-          pathLength: isHovered ? [0.4, 0.9, 0.4] : 0.85 
+      <motion.path
+        animate={{
+          stroke: isHovered ? '#FFFFFF' : '#0026ff',
+          pathLength: isHovered ? [0, 1, 0] : 0.85
         }}
         transition={{ duration: isHovered ? 0.5 : 1.5, repeat: isHovered ? Infinity : 0, ease: "easeInOut" }}
-        d="M 10 50 A 40 40 0 0 1 90 50" fill="none" strokeWidth="8" strokeLinecap="round" 
+        d="M 10 50 A 40 40 0 0 1 90 50" fill="none" strokeWidth="8" strokeLinecap="round"
       />
-      <motion.line 
-        animate={{ 
-          rotate: isHovered ? [20, 100, 20] : 60,
+      <motion.line
+        animate={{
+          rotate: isHovered ? [0, 180, 0] : 0,
           stroke: isHovered ? '#FFFFFF' : '#2D2A26'
         }}
-        transition={{ duration: isHovered ? 0.3 : 1.5, repeat: isHovered ? Infinity : 0, type: isHovered ? "tween" : "spring", bounce: 0.4 }}
-        style={{ transformOrigin: "50px 50px" }}
-        x1="50" y1="50" x2="20" y2="20" strokeWidth="3" strokeLinecap="round" 
+        className={'origin-[32px_0px]!'}
+        transition={{ duration: isHovered ? 0.5 : 1.5, repeat: isHovered ? Infinity : 0, type: isHovered ? "tween" : "spring", bounce: 0.4 }}
+        // style={{ originX: '0.5', originY: '0.5' }}
+        x1="50" y1="50"
+        x2="15" y2="50"
+        strokeWidth="3" strokeLinecap="round"
       />
-      <motion.circle 
-        cx="50" cy="50" r="6" 
-        animate={{ fill: isHovered ? '#FFFFFF' : '#2D2A26' }} 
+      <motion.circle
+        cx="50" cy="50" r="6"
+        animate={{ fill: isHovered ? '#FFFFFF' : '#2D2A26' }}
       />
     </svg>
   </div>
@@ -118,9 +121,9 @@ const problemCardData = [
     description: "Global waste produced annually.",
     fullExplanation: "Sepertiga makanan global terbuang sia-sia karena logistik buruk dan standar retail berlebih. Ini memicu krisis pangan serius di tengah populasi kelaparan.",
     bgImage: "https://images.unsplash.com/photo-1553787499-6f9133860278?q=80&w=600",
-    color: "#F28F3B",
+    color: "#0026ff",
     icon: <Trash2 size={24} />,
-    pos: { left: "4%", top: "10%" }, 
+    pos: { left: "4%", top: "10%" },
     rotation: -4,
     floatDelay: 0,
     Visual: MiniBarChart,
@@ -137,7 +140,7 @@ const problemCardData = [
     bgImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600",
     color: "#2D2A26",
     icon: <CloudRain size={24} />,
-    pos: { right: "4%", top: "10%" }, 
+    pos: { right: "4%", top: "10%" },
     rotation: 5,
     floatDelay: 0.5,
     Visual: MiniRingChart,
@@ -154,7 +157,7 @@ const problemCardData = [
     bgImage: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=600",
     color: "#2D2A26",
     icon: <DollarSign size={24} />,
-    pos: { left: "6%", bottom: "16%" }, 
+    pos: { left: "6%", bottom: "16%" },
     rotation: 3,
     floatDelay: 1,
     Visual: MiniTrendLine,
@@ -169,7 +172,7 @@ const problemCardData = [
     description: "Methane traps heat far faster.",
     fullExplanation: "Tumpukan sampah makanan organik di TPA membusuk tanpa oksigen, menghasilkan gas metana dengan daya rusak atmosfer 25 kali lipat lebih agresif dari CO2.",
     bgImage: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600",
-    color: "#F28F3B",
+    color: "#0026ff",
     icon: <Flame size={24} />,
     pos: { right: "5%", bottom: "18%" },
     rotation: -5,
@@ -190,7 +193,7 @@ const repeatedReel1 = [...reelImages1, ...reelImages1, ...reelImages1, ...reelIm
 
 const AnimatedNumber = ({ value }: { value: number }) => {
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => 
+  const rounded = useTransform(count, (latest) =>
     value % 1 === 0 ? Math.floor(latest).toLocaleString() : latest.toFixed(1)
   );
 
@@ -208,10 +211,10 @@ const TiltCard = ({ children, className, isDesktop }: { children: React.ReactNod
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
-  
+
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], isDesktop ? ["12deg", "-12deg"] : ["0deg", "0deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], isDesktop ? ["-12deg", "12deg"] : ["0deg", "0deg"]);
-  
+
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["100%", "0%"]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["100%", "0%"]);
 
@@ -255,7 +258,7 @@ export default function Section3() {
   const leftEyeRef = useRef<HTMLDivElement>(null);
   const rightEyeRef = useRef<HTMLDivElement>(null);
   const smileyContainerRef = useRef<HTMLDivElement>(null);
-  
+
   const [isDesktop, setIsDesktop] = useState(true);
   const [isHoveringVideo, setIsHoveringVideo] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -284,7 +287,7 @@ export default function Section3() {
     const checkDevice = () => setIsDesktop(window.innerWidth >= 1024);
     checkDevice();
     window.addEventListener('resize', checkDevice);
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDesktop) return;
 
@@ -299,11 +302,11 @@ export default function Section3() {
         const distY = e.clientY - centerY;
         const distance = Math.hypot(distX, distY);
 
-        if (distance < 300) { 
-          magnetX.set(distX * 0.4); 
+        if (distance < 300) {
+          magnetX.set(distX * 0.4);
           magnetY.set(distY * 0.4);
         } else {
-          magnetX.set(0); 
+          magnetX.set(0);
           magnetY.set(0);
         }
 
@@ -311,7 +314,7 @@ export default function Section3() {
         eyes.forEach((eye) => {
           if (!eye) return;
           const rect = eye.getBoundingClientRect();
-          const angle = Math.atan2(e.clientY - (rect.top + rect.height/2), e.clientX - (rect.left + rect.width/2));
+          const angle = Math.atan2(e.clientY - (rect.top + rect.height / 2), e.clientX - (rect.left + rect.width / 2));
           const eyeDist = Math.min(8, distance / 10);
           gsap.to(eye, { x: Math.cos(angle) * eyeDist, y: Math.sin(angle) * eyeDist, duration: 0.3, ease: "power2.out" });
         });
@@ -336,7 +339,7 @@ export default function Section3() {
           scrollbar-width: none !important;
         }
       `}</style>
-      
+
       {isDesktop && (
         <motion.div
           style={{ x: cursorSpringX, y: cursorSpringY, translateX: "-50%", translateY: "-50%" }}
@@ -344,7 +347,7 @@ export default function Section3() {
             scale: isHoveringVideo && !showModal ? 1 : 0,
             opacity: isHoveringVideo && !showModal ? 1 : 0,
           }}
-          className="fixed top-0 left-0 z-150 w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-[#F28F3B] to-[#FF6B35] rounded-full flex flex-col items-center justify-center text-white shadow-[0_10px_30px_rgba(242,143,59,0.5)] pointer-events-none"
+          className="fixed top-0 left-0 z-150 w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-accent-light to-[#0026ff] rounded-full flex flex-col items-center justify-center text-white shadow-[0_10px_30px_rgba(6,92,225,0.5)] pointer-events-none"
         >
           <Play fill="white" size={32} className="ml-1" />
           <span className="text-[10px] font-black uppercase tracking-widest mt-1">Play</span>
@@ -352,9 +355,9 @@ export default function Section3() {
       )}
 
       <section className="relative lg:sticky lg:top-0 w-full max-w-full overflow-hidden min-h-screen z-20 flex flex-col pt-12 lg:pt-8 px-4 lg:px-0 pb-10">
-        
+
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -379,15 +382,15 @@ export default function Section3() {
 
           <div className="absolute inset-0 bg-[#F4F3EE]/85 z-0" />
           <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-          <motion.div animate={{ x: [0, 100, 0], y: [0, -50, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[5%] right-[5%] w-75 lg:w-150 h-75 lg:h-150 bg-[#F28F3B] rounded-full blur-[100px] lg:blur-[150px] opacity-20" />
+          <motion.div animate={{ x: [0, 100, 0], y: [0, -50, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[5%] right-[5%] w-75 lg:w-150 h-75 lg:h-150 bg-accent-light rounded-full blur-[100px] lg:blur-[150px] opacity-20" />
           <motion.div animate={{ x: [0, -100, 0], y: [0, 50, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[20%] left-[5%] w-75 lg:w-125 h-75 lg:h-125 bg-[#2D2A26] rounded-full blur-[100px] lg:blur-[150px] opacity-10" />
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="hidden lg:block absolute top-[30%] left-[25%] text-[#F28F3B]/10 z-0 pointer-events-none"
+            className="hidden lg:block absolute top-[30%] left-[25%] text-accent-light/10 z-0 pointer-events-none"
           >
             <motion.div animate={{ y: [0, -30, 0], rotate: [0, 15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
               <RiLeafLine size={80} />
@@ -396,7 +399,7 @@ export default function Section3() {
         </div>
 
         <div className="relative lg:absolute lg:top-0 w-full flex flex-col items-center justify-center text-center z-30 pt-16 lg:pt-24 mb-0 select-none">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.4, rotate: -20, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -3, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -405,9 +408,9 @@ export default function Section3() {
           >
             The Critical Chaos
           </motion.div>
-          
+
           <h2 className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center">
-            <motion.span 
+            <motion.span
               initial={{ y: 80, opacity: 0, scale: 0.9 }}
               whileInView={{ y: 0, opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -416,8 +419,8 @@ export default function Section3() {
             >
               THE PROBLEM
             </motion.span>
-            
-            <motion.span 
+
+            <motion.span
               initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 30 }}
               whileInView={{ scale: 1, opacity: 1, rotate: -1.5, y: 0 }}
               viewport={{ once: true }}
@@ -430,22 +433,22 @@ export default function Section3() {
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto flex flex-col lg:block h-auto lg:h-180 justify-center z-20 pt-20 lg:pt-36 overflow-hidden">
-          
+
           {isDesktop && (
             <svg viewBox="0 0 1200 800" className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
               <defs>
                 {problemCardData.map((card) => (
                   <linearGradient key={`grad-${card.id}`} id={`cableGrad-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F28F3B" stopOpacity="0.8" />
+                    <stop offset="0%" stopColor="#065ce1" stopOpacity="0.8" />
                     <stop offset="100%" stopColor={card.color} stopOpacity="1" />
                   </linearGradient>
                 ))}
               </defs>
-              
+
               {problemCardData.map((card) => {
                 const isHovered = hoveredCard === card.id;
                 return (
-                  <motion.g 
+                  <motion.g
                     key={`cable-group-${card.id}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -453,20 +456,20 @@ export default function Section3() {
                     transition={{ duration: 1, delay: card.floatDelay }}
                   >
                     <path d={card.cablePath} fill="none" stroke="#2D2A26" strokeWidth="2" strokeOpacity="0.1" />
-                    <motion.path 
-                      d={card.cablePath} 
-                      fill="none" 
+                    <motion.path
+                      d={card.cablePath}
+                      fill="none"
                       stroke={`url(#cableGrad-${card.id})`}
                       strokeWidth={isHovered ? "4" : "0"}
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: isHovered ? 1 : 0, strokeDasharray: isHovered ? "10, 5" : "0" }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className="drop-shadow-[0_0_8px_rgba(242,143,59,0.5)]"
+                      className="drop-shadow-[0_0_8px_rgba(6,92,225,0.5)]"
                     />
                     {isHovered && (
-                      <motion.path 
-                        d={card.cablePath} 
-                        fill="none" 
+                      <motion.path
+                        d={card.cablePath}
+                        fill="none"
                         stroke="#FFFFFF"
                         strokeWidth="2"
                         strokeDasharray="15, 150"
@@ -475,9 +478,9 @@ export default function Section3() {
                       />
                     )}
                     <circle cx={card.nodeX} cy={card.nodeY} r="8" fill="#2D2A26" fillOpacity="0.1" />
-                    <motion.circle 
-                      cx={card.nodeX} cy={card.nodeY} r="4" 
-                      fill={isHovered ? card.color : "#2D2A26"} 
+                    <motion.circle
+                      cx={card.nodeX} cy={card.nodeY} r="4"
+                      fill={isHovered ? card.color : "#2D2A26"}
                       animate={{ scale: isHovered ? [1, 1.5, 1] : 1, opacity: isHovered ? 1 : 0.3 }}
                       transition={{ duration: 1, repeat: isHovered ? Infinity : 0 }}
                     />
@@ -487,7 +490,7 @@ export default function Section3() {
             </svg>
           )}
 
-          <motion.div 
+          <motion.div
             ref={smileyContainerRef}
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -507,7 +510,7 @@ export default function Section3() {
               </motion.div>
             )}
 
-            <div className="relative w-36 h-36 sm:w-44 sm:h-44 xl:w-48 xl:h-48 rounded-full bg-linear-to-br from-[#F28F3B] to-[#FF6B35] shadow-[0_25px_50px_rgba(242,143,59,0.3)] flex flex-col items-center justify-center border-4 sm:border-[5px] border-white backdrop-blur-md cursor-none z-20 transition-transform duration-300">
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 xl:w-48 xl:h-48 rounded-full bg-linear-to-br from-accent-light to-[#0026ff] shadow-[0_25px_50px_rgba(6,92, 225,0.3)] flex flex-col items-center justify-center border-4 sm:border-[5px] border-white backdrop-blur-md cursor-none z-20 transition-transform duration-300">
               <div className="flex gap-4 sm:gap-5 xl:gap-6 mb-2 sm:mb-3">
                 <div className="w-7 h-7 sm:w-9 sm:h-9 xl:w-10 xl:h-10 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden border border-black/5">
                   <div ref={leftEyeRef} className="flex items-center justify-center w-full h-full">
@@ -520,10 +523,10 @@ export default function Section3() {
                   </div>
                 </div>
               </div>
-              <motion.div 
+              <motion.div
                 animate={{ width: hoveredCard ? "1.25rem" : "2.5rem", height: hoveredCard ? "1.75rem" : "0.65rem", borderRadius: hoveredCard ? "50%" : "9999px" }}
                 transition={{ duration: 0.3, type: "spring", bounce: 0.5 }}
-                className="mt-1.5 opacity-80 xl:h-3.5 sm:h-3 bg-[#2D2A26]" 
+                className="mt-1.5 opacity-80 xl:h-3.5 sm:h-3 bg-[#2D2A26]"
               />
             </div>
           </motion.div>
@@ -533,17 +536,17 @@ export default function Section3() {
               const isHovered = hoveredCard === card.id;
 
               return (
-                <motion.div 
+                <motion.div
                   key={card.id}
                   onMouseEnter={() => setHoveredCard(card.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                   style={isDesktop ? { position: 'absolute', ...card.pos, zIndex: isHovered ? 40 : 30, width: '100%', maxWidth: '300px', perspective: '1000px' } : {}}
                   className="w-full relative lg:absolute"
                 >
-                  <motion.div 
-                    initial={{ opacity: 0, y: 40, scale: 0.9 }} 
-                    whileInView={{ opacity: 1, y: 0, scale: 1, rotate: isDesktop ? card.rotation : 0 }} 
-                    viewport={{ once: true, margin: "-5%" }} 
+                  <motion.div
+                    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1, rotate: isDesktop ? card.rotation : 0 }}
+                    viewport={{ once: true, margin: "-5%" }}
                     transition={{ duration: 0.8, delay: isDesktop ? 0.3 + idx * 0.12 : 0.2, type: "spring", bounce: 0.4 }}
                   >
                     <motion.div
@@ -560,14 +563,14 @@ export default function Section3() {
                           transition={{ duration: 0.3, ease: "easeOut" }}
                           className="flex flex-col h-full relative border-2 p-4 sm:p-5 rounded-[20px] sm:rounded-[28px] shadow-[0_12px_40px_rgba(0,0,0,0.06)] overflow-hidden"
                         >
-                          <motion.div 
+                          <motion.div
                             animate={{ color: isHovered ? "#FFFFFF" : "#2D2A26" }}
-                            style={{ transform: isDesktop ? "translateZ(40px)" : "none" }} 
+                            style={{ transform: isDesktop ? "translateZ(40px)" : "none" }}
                             className="flex flex-col h-full relative z-10"
                           >
                             <div className="flex items-start justify-between mb-2">
-                              <motion.div 
-                                animate={{ 
+                              <motion.div
+                                animate={{
                                   backgroundColor: isHovered ? "rgba(255,255,255,0.2)" : "rgba(244,243,238,1)",
                                   color: isHovered ? "#FFFFFF" : card.color,
                                   rotate: isHovered ? [0, -10, 10, -10, 0] : 0
@@ -583,7 +586,7 @@ export default function Section3() {
                             </div>
 
                             <div className="mt-1 relative">
-                              <motion.h3 
+                              <motion.h3
                                 animate={{ color: isHovered ? "rgba(255,255,255,0.7)" : "rgba(45,42,38,0.5)" }}
                                 className="text-[10px] font-black uppercase tracking-[0.15em] mb-0.5"
                               >
@@ -594,17 +597,17 @@ export default function Section3() {
                                   <AnimatedNumber value={card.value} />
                                 </span>
                               </div>
-                              <motion.p 
-                                animate={{ color: isHovered ? "#FFFFFF" : "#F28F3B" }}
+                              <motion.p
+                                animate={{ color: isHovered ? "#FFFFFF" : "#065ce1" }}
                                 className="text-[9px] font-bold uppercase tracking-wider mb-1.5"
                               >
                                 {card.unit}
                               </motion.p>
-                              <motion.div 
+                              <motion.div
                                 animate={{ background: isHovered ? "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%)" : "linear-gradient(90deg, rgba(45,42,38,0.1) 0%, transparent 100%)" }}
-                                className="w-full h-px mb-1.5" 
+                                className="w-full h-px mb-1.5"
                               />
-                              <motion.p 
+                              <motion.p
                                 animate={{ color: isHovered ? "rgba(255,255,255,0.9)" : "rgba(45,42,38,0.6)" }}
                                 className="text-xs font-medium leading-relaxed"
                               >
@@ -621,8 +624,8 @@ export default function Section3() {
 
                               <motion.div
                                 initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                                animate={{ 
-                                  height: isHovered ? "auto" : 0, 
+                                animate={{
+                                  height: isHovered ? "auto" : 0,
                                   opacity: isHovered ? 1 : 0,
                                   marginTop: isHovered ? 12 : 0
                                 }}
@@ -636,8 +639,8 @@ export default function Section3() {
                                   <Image
                                     width={0}
                                     height={0}
-                                    src={card.bgImage} 
-                                    alt={card.title} 
+                                    src={card.bgImage}
+                                    alt={card.title}
                                     className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700"
                                   />
                                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
@@ -660,7 +663,7 @@ export default function Section3() {
 
       <div className="w-full h-[5vh] lg:h-[12vh] pointer-events-none z-10 relative" />
 
-      <motion.section 
+      <motion.section
         style={isDesktop ? { scale: sec2Scale, rotate: sec2Rotate, transformOrigin: "bottom center" } : {}}
         className="relative z-10 w-full max-w-full overflow-hidden lg:h-[120vh] flex items-center justify-center px-4 md:px-6 pt-16 pb-24 lg:py-0"
       >
@@ -679,19 +682,19 @@ export default function Section3() {
               <iframe className="w-full h-full pointer-events-none scale-105" src="https://www.youtube.com/embed/ishA6kry8nc?autoplay=1&mute=1&loop=1&playlist=ishA6kry8nc&controls=0&modestbranding=1&rel=0" allow="autoplay; encrypted-media" title='Food Saving Education Video' />
             </div>
             <div className="absolute inset-0 bg-linear-to-t from-[#2D2A26]/90 via-[#2D2A26]/20 to-transparent z-10 pointer-events-none" />
-            
+
             <div className="absolute bottom-6 md:bottom-24 left-6 md:left-12 right-6 md:right-12 z-20 text-white pointer-events-none">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="flex items-center gap-3 mb-4 md:mb-5"
               >
-                <div className="h-1.5 w-10 md:w-14 bg-[#F28F3B] rounded-full" />
+                <div className="h-1.5 w-10 md:w-14 bg-accent-light rounded-full" />
                 <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] text-white/80">Click to Play with Sound</span>
               </motion.div>
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -699,12 +702,12 @@ export default function Section3() {
                 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9]"
               >
                 Saving Food,<br />
-                <span className="text-[#F28F3B]">Empowering Locals.</span>
+                <span className="text-accent-light">Empowering Locals.</span>
               </motion.h3>
             </div>
 
             {!isDesktop && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#F28F3B] rounded-full flex items-center justify-center text-white shadow-lg pointer-events-none z-20">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-accent-light rounded-full flex items-center justify-center text-white shadow-lg pointer-events-none z-20">
                 <Play fill="white" size={24} className="ml-1" />
               </div>
             )}
@@ -715,7 +718,7 @@ export default function Section3() {
       <AnimatePresence>
         {showModal && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-200 bg-[#F4F3EE]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10">
-            <button onClick={() => setShowModal(false)} className="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#2D2A26] hover:text-[#F28F3B] transition-colors z-210 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl"><X size={20} className="sm:w-6 sm:h-6"/></button>
+            <button onClick={() => setShowModal(false)} className="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#2D2A26] hover:text-accent-light transition-colors z-210 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl"><X size={20} className="sm:w-6 sm:h-6" /></button>
             <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="relative w-full max-w-6xl aspect-video rounded-2xl sm:rounded-4xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border border-white/50">
               <iframe className="w-full h-full bg-[#2D2A26]" src="https://www.youtube.com/embed/ishA6kry8nc?autoplay=1&mute=0&controls=1&rel=0" allow="autoplay; encrypted-media" allowFullScreen title='Food Saving Education Video' />
             </motion.div>

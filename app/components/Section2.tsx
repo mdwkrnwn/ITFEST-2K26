@@ -46,7 +46,7 @@ const Section2 = () => {
     { letter: " ", color: "#2D2A26" },
     { letter: "m", color: "#2D2A26" }, { letter: "e", color: "#2D2A26" }, { letter: "a", color: "#2D2A26" }, { letter: "l", color: "#2D2A26" },
     { letter: " ", color: "#2D2A26" },
-    { letter: "r", color: "#F28F3B" }, { letter: "e", color: "#F28F3B" }, { letter: "s", color: "#F28F3B" }, { letter: "c", color: "#F28F3B" }, { letter: "u", color: "#F28F3B" }, { letter: "e", color: "#F28F3B" }, { letter: "d", color: "#F28F3B" },
+    { letter: "r", color: "#065ce1" }, { letter: "e", color: "#065ce1" }, { letter: "s", color: "#065ce1" }, { letter: "c", color: "#065ce1" }, { letter: "u", color: "#065ce1" }, { letter: "e", color: "#065ce1" }, { letter: "d", color: "#065ce1" },
     { letter: " ", color: "#2D2A26" },
     { letter: "m", color: "#2D2A26" }, { letter: "a", color: "#2D2A26" }, { letter: "k", color: "#2D2A26" }, { letter: "e", color: "#2D2A26" }, { letter: "s", color: "#2D2A26" },
     { letter: " ", color: "#2D2A26" },
@@ -208,12 +208,12 @@ const Section2 = () => {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative w-full h-auto min-h-screen md:h-screen bg-[#F4F3EE] overflow-hidden font-[family:var(--font-jakarta)] select-none py-24 md:py-0"
       onMouseMove={handleMouseMove}
     >
-      <div 
+      <div
         className="absolute inset-0 z-0 opacity-[0.25]"
         style={{
           backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)',
@@ -221,26 +221,26 @@ const Section2 = () => {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#F4F3EE]/40 via-transparent to-[#F4F3EE] pointer-events-none z-[1]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-[#F28F3B] rounded-full blur-[120px] sm:blur-[160px] opacity-15 z-0 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-accent-light rounded-full blur-[120px] sm:blur-[160px] opacity-15 z-0 pointer-events-none" />
 
       <div className="relative w-full h-full md:h-screen flex flex-col justify-between items-center z-10 px-4">
 
         <div className="w-full flex-1 flex flex-col justify-center items-center py-12 md:py-0 relative">
-          
+
           <div className="w-full max-w-4xl flex justify-center mb-6 md:mb-0 md:absolute md:-top-24 md:left-1/2 md:-translate-x-1/2 drop-shadow-[0_15px_30px_rgba(242,143,59,0.25)] z-20">
-            <svg 
+            <svg
               ref={arrowRef}
-              xmlns="http://www.w3.org/2000/svg" 
+              xmlns="http://www.w3.org/2000/svg"
               className="w-16 sm:w-24 md:w-32 lg:w-[200px]"
-              viewBox="0 0 386 127" 
+              viewBox="0 0 386 127"
               fill="none"
             >
-              <path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118L356.5 105.5" stroke="#F28F3B" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118L384 97" stroke="#F28F3B" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118L356.5 105.5" stroke="#065ce1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118L384 97" stroke="#065ce1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          
-          <div 
+
+          <div
             ref={textRef}
             className="w-full md:absolute md:top-1/2 md:left-0 md:-translate-y-1/2 whitespace-normal md:whitespace-nowrap flex items-center justify-center md:justify-start"
             style={{ paddingLeft: '0', paddingRight: typeof window !== 'undefined' && window.innerWidth >= 768 ? '50vw' : '0' }}
@@ -260,14 +260,14 @@ const Section2 = () => {
 
         </div>
 
-        <div 
+        <div
           ref={bottomTextRef}
           className="w-full px-4 mb-4 md:mb-0 md:absolute md:left-1/2 md:bottom-[12%] md:-translate-x-1/2 text-center z-20"
         >
           <div className="bg-white/80 backdrop-blur-xl border border-white p-5 sm:p-6 md:p-8 rounded-[24px] sm:rounded-[32px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.06)] max-w-[280px] sm:max-w-md md:max-w-2xl mx-auto transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(242,143,59,0.1)]">
             <p className="text-[#2D2A26]/80 text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed">
-              Every rescued meal creates a ripple effect of positive environmental change. 
-              Join us in making <span className="text-[#F28F3B] font-black uppercase tracking-tight">sustainable choices</span> that benefit both you and the planet.
+              Every rescued meal creates a ripple effect of positive environmental change.
+              Join us in making <span className="text-accent font-black uppercase tracking-tight">sustainable choices</span> that benefit both you and the planet.
             </p>
           </div>
         </div>

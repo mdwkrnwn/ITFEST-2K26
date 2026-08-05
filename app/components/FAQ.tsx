@@ -25,8 +25,8 @@ export default function FAQ() {
 
   return (
     <section id="faq-section" className="relative w-full min-h-screen py-24 lg:py-32 bg-[#F4F3EE] overflow-hidden font-[family:var(--font-jakarta)] select-none">
-      
-      <div 
+
+      <div
         className="absolute inset-0 z-0 opacity-[0.2] pointer-events-none"
         style={{
           backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)',
@@ -34,10 +34,10 @@ export default function FAQ() {
         }}
       />
 
-      <motion.div 
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }} 
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#F28F3B] blur-[150px] z-0 pointer-events-none" 
+        className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-accent-light blur-[150px] z-0 pointer-events-none"
       />
 
       <div className="absolute top-0 right-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03] z-0">
@@ -48,12 +48,12 @@ export default function FAQ() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
+
           <div className="lg:col-span-5">
             <div className="sticky top-24 lg:top-32">
-              
+
               <div className="lg:hidden w-full flex flex-col items-start mb-10">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.4, rotate: -15, y: 30 }}
                   whileInView={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
                   viewport={{ once: true }}
@@ -62,7 +62,7 @@ export default function FAQ() {
                 >
                   Support Center
                 </motion.div>
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, scale: 0.7, y: 40 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -70,14 +70,14 @@ export default function FAQ() {
                   className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[36px] min-[400px]:text-[44px]"
                 >
                   GOT <br />
-                  <span className="bg-gradient-to-r from-[#F28F3B] to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
+                  <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
                     QUESTIONS?
                   </span>
                 </motion.h2>
               </div>
 
               <div className="hidden lg:flex flex-col items-start mb-8">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.4, rotate: -12, y: 40 }}
                   whileInView={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
                   viewport={{ once: true }}
@@ -86,7 +86,7 @@ export default function FAQ() {
                 >
                   Support Center
                 </motion.div>
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, scale: 0.8, y: 50, rotate: 5 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
                   viewport={{ once: true }}
@@ -94,13 +94,13 @@ export default function FAQ() {
                   className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-start text-[#2D2A26] text-[72px] xl:text-[80px]"
                 >
                   <span>GOT</span>
-                  <span className="bg-gradient-to-r from-[#F28F3B] to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
+                  <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
                     QUESTIONS?
                   </span>
                 </motion.h2>
               </div>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -110,18 +110,18 @@ export default function FAQ() {
                 Everything you need to know about our mission to end food waste and how you can be a part of the change.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.4, type: "spring" }}
                 className="p-6 sm:p-8 bg-[#2D2A26] rounded-[24px] sm:rounded-[32px] text-white shadow-2xl relative overflow-hidden group border border-white/10"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#F28F3B]/20 rounded-bl-full blur-2xl pointer-events-none" />
-                <MessageCircle className="mb-4 sm:mb-6 text-[#F28F3B]" size={32} />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-light/20 rounded-bl-full blur-2xl pointer-events-none" />
+                <MessageCircle className="mb-4 sm:mb-6 text-accent-light" size={32} />
                 <h4 className="text-lg sm:text-xl font-black uppercase tracking-tight mb-2">Still confused?</h4>
                 <p className="text-white/60 text-xs sm:text-sm mb-6 font-medium">Our team is ready to help you with anything you need.</p>
-                <button className="flex items-center gap-2 text-[#F28F3B] font-black text-[10px] sm:text-xs uppercase tracking-widest hover:text-white transition-colors group/btn">
+                <button className="flex items-center gap-2 text-accent-light font-black text-[10px] sm:text-xs uppercase tracking-widest hover:text-white transition-colors group/btn">
                   Contact Support <ArrowRight size={16} className="group-hover/btn:translate-x-1.5 transition-transform" />
                 </button>
               </motion.div>
@@ -140,20 +140,17 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full flex items-center justify-between p-5 sm:p-6 md:p-8 rounded-[24px] sm:rounded-[32px] text-left transition-all duration-500 border ${
-                    openIndex === index 
-                    ? "bg-white shadow-xl border-white" 
-                    : "bg-white/40 backdrop-blur-md border-white/50 hover:bg-white/60"
-                  }`}
+                  className={`w-full flex items-center justify-between p-5 sm:p-6 md:p-8 rounded-[24px] sm:rounded-[32px] text-left transition-all duration-500 border ${openIndex === index
+                      ? "bg-white shadow-xl border-white"
+                      : "bg-white/40 backdrop-blur-md border-white/50 hover:bg-white/60"
+                    }`}
                 >
-                  <span className={`font-black text-sm sm:text-base md:text-xl uppercase tracking-tighter transition-colors duration-500 max-w-[85%] ${
-                    openIndex === index ? "text-[#F28F3B]" : "text-[#2D2A26]"
-                  }`}>
+                  <span className={`font-black text-sm sm:text-base md:text-xl uppercase tracking-tighter transition-colors duration-500 max-w-[85%] ${openIndex === index ? "text-accent-light" : "text-[#2D2A26]"
+                    }`}>
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${
-                    openIndex === index ? "bg-[#F28F3B] text-white rotate-180 shadow-md" : "bg-[#2D2A26]/5 text-[#2D2A26]"
-                  }`}>
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === index ? "bg-accent-light text-white rotate-180 shadow-md" : "bg-[#2D2A26]/5 text-[#2D2A26]"
+                    }`}>
                     <ChevronDown size={18} className="sm:w-5 sm:h-5" />
                   </div>
                 </button>

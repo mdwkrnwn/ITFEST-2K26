@@ -100,24 +100,22 @@ export default function Navbar() {
     <>
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-1 bg-[#F28F3B] origin-left z-300"
+        className="fixed top-0 left-0 right-0 h-1 bg-accent-light origin-left z-300"
       />
 
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed left-1/2 -translate-x-1/2 w-full z-100 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex justify-center ${
-          isScrolled
-            ? "top-4 max-w-6xl px-4"
-            : "top-0 max-w-full px-6 md:px-10 py-6 md:py-8"
-        }`}
+        className={`fixed left-1/2 -translate-x-1/2 w-full z-100 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex justify-center ${isScrolled
+          ? "top-4 max-w-6xl px-4"
+          : "top-0 max-w-full px-6 md:px-10 py-6 md:py-8"
+          }`}
       >
         <div
-          className={`w-full grid grid-cols-2 xl:grid-cols-3 items-center transition-all duration-700 ${
-            isScrolled
-              ? "bg-white/80 backdrop-blur-2xl border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-full px-6 py-3"
-              : "bg-white/40 backdrop-blur-md border-b border-[#2D2A26]/5 px-4 py-3 rounded-[24px] md:rounded-none md:bg-transparent md:backdrop-blur-none md:border-none"
-          }`}
+          className={`w-full grid grid-cols-2 xl:grid-cols-3 items-center transition-all duration-700 ${isScrolled
+            ? "bg-white/80 backdrop-blur-2xl border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-full px-6 py-3"
+            : "bg-white/40 backdrop-blur-md border-b border-[#2D2A26]/5 px-4 py-3 rounded-[24px] md:rounded-none md:bg-transparent md:backdrop-blur-none md:border-none"
+            }`}
         >
           <div className="flex justify-start">
             <a
@@ -127,10 +125,10 @@ export default function Navbar() {
             >
               <motion.div
                 whileHover={{ rotate: -10, scale: 1.05 }}
-                className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center font-black text-white bg-[#F28F3B] shadow-lg shadow-[#F28F3B]/30 shrink-0"
+                className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center font-black text-white bg-accent-light shadow-lg shadow-accent-light/30 shrink-0"
               >
                 <Image
-                  src="https://images.unsplash.com/vector-1778639108685-395007c80714?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D"
+                  src="/SaSVG.png"
                   alt="Saverish Custom Logo"
                   fill
                   sizes="(max-width: 768px) 40px, 48px"
@@ -139,7 +137,7 @@ export default function Navbar() {
                 />
               </motion.div>
               <span className="text-xl md:text-2xl font-black uppercase tracking-tighter text-[#2D2A26]">
-                Saverish<span className="text-[#F28F3B]">.</span>
+                Saverish<span className="text-accent-light">.</span>
               </span>
             </a>
           </div>
@@ -153,20 +151,18 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleScrollTo(e, link.href)}
-                    className={`relative overflow-hidden flex items-center gap-1 px-4 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-colors duration-200 ${
-                      isActive
-                        ? "text-white"
-                        : "text-[#2D2A26]/70 hover:text-[#2D2A26] hover:bg-[#2D2A26]/5"
-                    }`}
+                    className={`relative overflow-hidden flex items-center gap-1 px-4 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-colors duration-200 ${isActive
+                      ? "text-white"
+                      : "text-[#2D2A26]/70 hover:text-[#2D2A26] hover:bg-[#2D2A26]/5"
+                      }`}
                   >
                     <motion.div
                       className="absolute inset-0 highlight rotate-4"
                       animate={{ opacity: isActive ? 1 : 0 }}
                       transition={{ duration: 0.2 }}
                     />
-                    <span className={`relative z-10 ${
-                      isActive ? "rotate-4" : ""
-                    }`}>{link.label}</span>
+                    <span className={`relative z-10 ${isActive ? "rotate-4" : ""
+                      }`}>{link.label}</span>
                   </a>
                 );
               })}
@@ -184,14 +180,14 @@ export default function Navbar() {
 
               <button className="relative p-3 rounded-full text-[#2D2A26] hover:bg-[#2D2A26]/5 transition-all">
                 <RiShoppingBag3Line size={20} />
-                <span className="absolute top-1 right-1 w-5 h-5 bg-[#F28F3B] text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white/20 shadow-lg">
+                <span className="absolute top-1 right-1 w-5 h-5 bg-accent-light text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white/20 shadow-lg">
                   3
                 </span>
               </button>
             </div>
 
             <Link href="/login">
-              <button className="hidden md:flex items-center gap-2 px-3 py-3.5 rounded-full text-[10px] uppercase tracking-widest font-black transition-all bg-[#2D2A26] text-white hover:bg-[#F28F3B] hover:shadow-[0_10px_20px_rgba(242,143,59,0.3)] shadow-xl shadow-black/5">
+              <button className="hidden md:flex items-center gap-2 px-3 py-3.5 rounded-full text-[10px] uppercase tracking-widest font-black transition-all bg-[#2D2A26] text-white hover:bg-accent-light hover:shadow-[0_10px_20px_rgba(242,143,59,0.3)] shadow-xl shadow-black/5">
                 <CiLogin size={16} />
                 <span className={isScrolled ? "hidden" : ""}>Sign In</span>
               </button>
@@ -217,7 +213,7 @@ export default function Navbar() {
           >
             <button
               onClick={() => setIsSearchOpen(false)}
-              className="absolute top-8 right-8 p-4 bg-white rounded-full text-[#2D2A26] hover:text-[#F28F3B] transition-colors shadow-lg border border-white/50"
+              className="absolute top-8 right-8 p-4 bg-white rounded-full text-[#2D2A26] hover:text-accent-light transition-colors shadow-lg border border-white/50"
             >
               <RiCloseLine size={32} />
             </button>
@@ -229,7 +225,7 @@ export default function Navbar() {
               className="w-full max-w-5xl"
             >
               <div className="flex items-center gap-6 border-b-4 border-[#2D2A26] pb-8">
-                <RiSearchLine className="text-[#F28F3B] size-10 md:size-16 shrink-0" />
+                <RiSearchLine className="text-accent-light size-10 md:size-16 shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
@@ -256,7 +252,7 @@ export default function Navbar() {
             <div className="relative z-10 h-full flex flex-col p-6">
               <div className="flex items-center justify-between mb-16">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#F28F3B] rounded-2xl flex items-center justify-center text-white">
+                  <div className="w-12 h-12 bg-accent-light rounded-2xl flex items-center justify-center text-white">
                     <RiLeafLine size={24} />
                   </div>
                   <span className="text-2xl font-black uppercase tracking-tighter text-[#2D2A26]">
@@ -282,14 +278,13 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={(e) => handleScrollTo(e, link.href)}
-                      className={`text-[40px] font-black uppercase tracking-tighter transition-colors flex items-center justify-between group ${
-                        activeSection === link.href.replace("#", "")
-                          ? "text-[#F28F3B]"
-                          : "text-[#2D2A26] hover:text-[#F28F3B]"
-                      }`}
+                      className={`text-[40px] font-black uppercase tracking-tighter transition-colors flex items-center justify-between group ${activeSection === link.href.replace("#", "")
+                        ? "text-accent-light"
+                        : "text-[#2D2A26] hover:text-accent-light"
+                        }`}
                     >
                       {link.label}
-                      <RiArrowRightLine className="text-[#F28F3B]" />
+                      <RiArrowRightLine className="text-accent-light" />
                     </a>
                   </motion.div>
                 ))}

@@ -43,7 +43,7 @@ const cardsData: CardData[] = [
     title1: "Reserve",
     title2: "Your Bag",
     description: "Found something delicious? Reserve your Surprise Bag or specific items instantly through our platform. Secure your meal before it sells out.",
-    linkText: "Payment Options", 
+    linkText: "Payment Options",
     href: "/payment",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
     icon: <CreditCard size={28} />,
@@ -56,7 +56,7 @@ const cardsData: CardData[] = [
     title1: "Pick Up",
     title2: "In-Store",
     description: "Head to the store during the specified pickup window. Simply show your digital receipt to the staff, grab your rescued food, and say hi to local business owners.",
-    linkText: "Pickup Guide", 
+    linkText: "Pickup Guide",
     href: "/pickup-guide",
     image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=800",
     icon: <ShoppingBag size={28} />,
@@ -106,20 +106,20 @@ const SmoothImageCard = ({ card, index, progress }: ComponentProps) => {
         transformOrigin: "center right",
       }}
     >
-      <motion.img 
-        src={card.image} 
-        className="w-full h-full object-cover" 
-        alt={card.title1} 
+      <motion.img
+        src={card.image}
+        className="w-full h-full object-cover"
+        alt={card.title1}
         style={{ filter: imageFilter }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute inset-0 bg-black pointer-events-none"
         style={{ opacity: overlayOpacity }}
       />
-      
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-      
+
       <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6 flex items-center gap-2">
         <div style={{ color: card.accentColor === "#2D2A26" ? "#FFFFFF" : card.accentColor }}>{card.statIcon}</div>
         <span className="text-white font-bold text-xs lg:text-sm tracking-wide">{card.stats}</span>
@@ -142,7 +142,7 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
       style={{ opacity, y, pointerEvents }}
     >
       <div className="absolute left-[-10px] top-1/2 -translate-y-1/2 pointer-events-none overflow-hidden z-0">
-        <span 
+        <span
           className="text-[140px] sm:text-[180px] md:text-[250px] font-black leading-none text-transparent"
           style={{ WebkitTextStroke: '3px rgba(45,42,38,0.05)' }}
         >
@@ -157,15 +157,15 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
             {card.title2}
           </span>
         </h3>
-        
+
         <p className="text-[#2D2A26]/75 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-md mb-8">
           {card.description}
         </p>
 
-        <Link 
-          href={card.href || "#"} 
+        <Link
+          href={card.href || "#"}
           className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-[11px] sm:text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 group/btn text-white w-max shadow-xl"
-          style={{ 
+          style={{
             background: `linear-gradient(to right, ${card.accentColor}, ${card.accentColor}ee)`,
             boxShadow: `0 10px 30px ${card.accentColor}40`
           }}
@@ -197,14 +197,14 @@ export default function Section4() {
     <section id="guide" ref={containerRef} className="relative w-full h-[400vh] bg-[#F4F3EE] font-(--font-jakarta) select-none">
       <div className="fixed inset-0 z-0 opacity-[0.2] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none max-w-full">
-        <motion.div animate={{ x: [0, -50, 0], y: [0, 100, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[10%] left-[5%] w-75 lg:w-125 h-[300px] lg:h-[500px] bg-[#F28F3B] rounded-full blur-[140px] opacity-20" />
+        <motion.div animate={{ x: [0, -50, 0], y: [0, 100, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[10%] left-[5%] w-75 lg:w-125 h-[300px] lg:h-[500px] bg-accent-light rounded-full blur-[140px] opacity-20" />
         <motion.div animate={{ x: [0, 80, 0], y: [0, -80, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[20%] right-[5%] w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-[#2D2A26] rounded-full blur-[140px] opacity-10" />
       </div>
 
       <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row max-w-350 mx-auto px-6 md:px-10 z-10 pt-[10vh] pb-[5vh]">
-        
+
         <div className="lg:hidden w-full flex flex-col items-center text-center mb-6 shrink-0 z-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.4, rotate: -20, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -3, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -222,19 +222,19 @@ export default function Section4() {
             >
               HOW IT
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 20 }}
               whileInView={{ scale: 1, opacity: 1, rotate: 1.5, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
-              className="bg-gradient-to-r from-[#F28F3B] to-[#FF6B35] text-white px-4 py-1 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white inline-block text-[28px] sm:text-[36px]"
+              className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-1 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white inline-block text-[28px] sm:text-[36px]"
             >
               WORKS
             </motion.span>
           </h2>
         </div>
 
-        <div 
+        <div
           className="w-full lg:w-1/2 h-[35vh] lg:h-full flex items-center justify-center relative border-b lg:border-b-0 lg:border-r border-black/5"
           style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}
         >
@@ -246,10 +246,10 @@ export default function Section4() {
         </div>
 
         <div className="w-full lg:w-1/2 h-[45vh] lg:h-full flex flex-col justify-center lg:pl-16 relative">
-          
+
           {/* DESKTOP HEADER */}
           <div className="hidden lg:flex flex-col items-start mb-6 relative z-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.4, rotate: -20, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, rotate: -3, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -267,7 +267,7 @@ export default function Section4() {
               >
                 HOW IT
               </motion.span>
-              <motion.span 
+              <motion.span
                 initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 30 }}
                 whileInView={{ scale: 1, opacity: 1, rotate: 1.5, y: 0 }}
                 viewport={{ once: true }}
@@ -278,7 +278,7 @@ export default function Section4() {
               </motion.span>
             </h2>
           </div>
-          
+
           <div className="relative w-full h-[320px] lg:h-[400px]">
             {cardsData.map((card, index) => (
               <SmoothTextContent key={card.id} card={card} index={index} progress={smoothProgress} />

@@ -38,12 +38,12 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F28F3B]/10 rounded-full mb-4">
-            <span className="text-[#F28F3B] font-black text-[8px] sm:text-[9px] uppercase tracking-[0.2em]">Testimonials</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-light/10 rounded-full mb-4">
+            <span className="text-accent-light font-black text-[8px] sm:text-[9px] uppercase tracking-[0.2em]">Testimonials</span>
           </div>
-          
+
           <h2 className="text-[#2D2A26] text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] font-black">
-            What Our<span className="text-[#F28F3B]"> Community</span> Says
+            What Our<span className="text-accent-light"> Community</span> Says
           </h2>
         </motion.div>
 
@@ -58,24 +58,24 @@ export default function Testimonials() {
               className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
             >
               <div className="p-6 sm:p-8 md:p-10">
-                <Quote className="text-[#F28F3B]/20 w-10 h-10 sm:w-12 sm:h-12 mb-4" />
-                
+                <Quote className="text-accent-light/20 w-10 h-10 sm:w-12 sm:h-12 mb-4" />
+
                 <p className="text-[#2D2A26]/80 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
                   "{testimonials[currentIndex].text}"
                 </p>
-                
+
                 <div className="flex items-center gap-1 mb-4 sm:mb-5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className={i < testimonials[currentIndex].rating ? "text-[#F28F3B] fill-[#F28F3B]" : "text-gray-300"} />
+                    <Star key={i} size={16} className={i < testimonials[currentIndex].rating ? "text-accent-light fill-accent-light" : "text-gray-300"} />
                   ))}
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover" />
                   <div>
                     <h4 className="text-base sm:text-lg text-[#2D2A26] font-extrabold">{testimonials[currentIndex].name}</h4>
                     <p className="text-[#2D2A26]/50 text-xs sm:text-sm">{testimonials[currentIndex].role} • {testimonials[currentIndex].location}</p>
-                    <div className="inline-block mt-1 px-2 py-0.5 bg-[#F28F3B]/10 rounded-full text-[#F28F3B] text-[8px] sm:text-[9px] font-black uppercase tracking-wider">
+                    <div className="inline-block mt-1 px-2 py-0.5 bg-accent-light/10 rounded-full text-accent-light text-[8px] sm:text-[9px] font-black uppercase tracking-wider">
                       {testimonials[currentIndex].type === 'consumer' ? 'Food Rescuer' : 'Business Partner'}
                     </div>
                   </div>
@@ -84,11 +84,11 @@ export default function Testimonials() {
             </motion.div>
           </AnimatePresence>
 
-          <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 sm:-translate-x-4 md:-translate-x-6 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2D2A26] hover:bg-[#F28F3B] hover:text-white transition-all duration-300 z-10">
+          <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 sm:-translate-x-4 md:-translate-x-6 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2D2A26] hover:bg-accent-light hover:text-white transition-all duration-300 z-10">
             <ChevronLeft size={18} />
           </button>
-          
-          <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 sm:translate-x-4 md:translate-x-6 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2D2A26] hover:bg-[#F28F3B] hover:text-white transition-all duration-300 z-10">
+
+          <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 sm:translate-x-4 md:translate-x-6 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2D2A26] hover:bg-accent-light hover:text-white transition-all duration-300 z-10">
             <ChevronRight size={18} />
           </button>
 
@@ -97,7 +97,7 @@ export default function Testimonials() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`transition-all duration-300 rounded-full ${idx === currentIndex ? 'w-6 h-2 bg-[#F28F3B]' : 'w-2 h-2 bg-[#2D2A26]/20 hover:bg-[#2D2A26]/40'}`}
+                className={`transition-all duration-300 rounded-full ${idx === currentIndex ? 'w-6 h-2 bg-accent-light' : 'w-2 h-2 bg-[#2D2A26]/20 hover:bg-[#2D2A26]/40'}`}
               />
             ))}
           </div>
@@ -112,10 +112,10 @@ export default function Testimonials() {
         >
           {stats.map((stat, idx) => (
             <div key={idx} className="text-center">
-              <div className="text-2xl sm:text-3xl text-[#F28F3B] font-black">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl text-accent-light font-black">{stat.value}</div>
               {idx === 0 && (
                 <div className="flex justify-center gap-0.5 mt-1">
-                  {[...Array(5)].map((_, j) => <Star key={j} size={12} className="text-[#F28F3B] fill-[#F28F3B]" />)}
+                  {[...Array(5)].map((_, j) => <Star key={j} size={12} className="text-accent-light fill-accent-light" />)}
                 </div>
               )}
               <p className="text-[#2D2A26]/50 text-[10px] sm:text-xs mt-1">{stat.label}</p>

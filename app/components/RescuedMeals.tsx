@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, ChevronRight, Star, MapPin, Clock, Leaf } from 'lucide-react';
 
 const categories = [
-  "All", "Bakery", "Restaurant", "Grocery", 
+  "All", "Bakery", "Restaurant", "Grocery",
   "Café", "Sushi", "Healthy", "Dessert"
 ];
 
@@ -22,7 +22,7 @@ const rescuedMeals = [
     distance: "0.2 mi",
     pickupTime: "5:00–6:00 PM",
     badge: "🔥 Popular",
-    badgeColor: "bg-[#F28F3B] text-white",
+    badgeColor: "bg-accent-light text-white",
     discount: 69,
     co2Saved: "93kg",
     totalRescued: 1240,
@@ -79,7 +79,7 @@ const rescuedMeals = [
     distance: "0.3 mi",
     pickupTime: "4:00–5:00 PM",
     badge: "☕ Fan Fave",
-    badgeColor: "bg-[#F28F3B]/10 text-[#F28F3B]",
+    badgeColor: "bg-accent-light/10 text-accent-light",
     discount: 68,
     co2Saved: "78kg",
     totalRescued: 892,
@@ -136,7 +136,7 @@ const rescuedMeals = [
     distance: "0.4 mi",
     pickupTime: "6:00–7:00 PM",
     badge: "✨ New",
-    badgeColor: "bg-[#F28F3B] text-white",
+    badgeColor: "bg-accent-light text-white",
     discount: 72,
     co2Saved: "31kg",
     totalRescued: 156,
@@ -170,7 +170,7 @@ function StarRating({ rating }: { rating: number }) {
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
           key={star}
-          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${star <= Math.round(rating) ? "text-[#F28F3B] fill-[#F28F3B]" : "text-[#2D2A26]/20 fill-[#2D2A26]/20"}`}
+          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${star <= Math.round(rating) ? "text-accent-light fill-accent-light" : "text-[#2D2A26]/20 fill-[#2D2A26]/20"}`}
         />
       ))}
     </div>
@@ -198,9 +198,9 @@ export default function RescuedMeals() {
 
   return (
     <section id="marketplace" className="relative w-full bg-[#F4F3EE] py-24 lg:py-32 overflow-hidden font-[family:var(--font-jakarta)] select-none">
-      
+
       <div className="absolute inset-0 z-0 opacity-[0.2] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#F28F3B] rounded-full blur-[150px] opacity-10 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-light rounded-full blur-[150px] opacity-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#2D2A26] rounded-full blur-[150px] opacity-[0.03] pointer-events-none" />
 
       <div className="absolute top-[10%] left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03] z-0">
@@ -210,9 +210,9 @@ export default function RescuedMeals() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-        
+
         <div className="lg:hidden w-full flex flex-col items-center text-center mb-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.4, rotate: -15, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
             viewport={{ once: true }}
@@ -221,7 +221,7 @@ export default function RescuedMeals() {
           >
             Live Marketplace
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.7, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
@@ -229,14 +229,14 @@ export default function RescuedMeals() {
             className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[36px] min-[400px]:text-[44px]"
           >
             RESCUE MEALS <br />
-            <span className="bg-gradient-to-r from-[#F28F3B] to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
+            <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
               NEAR YOU
             </span>
           </motion.h2>
         </div>
 
         <div className="hidden lg:flex flex-col items-center text-center mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.4, rotate: -12, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
             viewport={{ once: true }}
@@ -245,7 +245,7 @@ export default function RescuedMeals() {
           >
             Live Marketplace
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.8, y: 50, rotate: 5 }}
             whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
             viewport={{ once: true }}
@@ -253,7 +253,7 @@ export default function RescuedMeals() {
             className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center text-[#2D2A26] text-[72px] xl:text-[80px]"
           >
             <span>RESCUE MEALS</span>
-            <span className="bg-gradient-to-r from-[#F28F3B] to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
+            <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
               NEAR YOU
             </span>
           </motion.h2>
@@ -274,11 +274,10 @@ export default function RescuedMeals() {
                 setVisibleCount(8);
               }}
               whileTap={{ scale: 0.95 }}
-              className={`shrink-0 snap-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
-                activeCategory === cat
+              className={`shrink-0 snap-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
                   ? "bg-[#2D2A26] border-[#2D2A26] text-white shadow-xl"
                   : "bg-white/60 backdrop-blur-md text-[#2D2A26]/60 hover:bg-white border-white/50"
-              }`}
+                }`}
             >
               {cat}
             </motion.button>
@@ -309,15 +308,15 @@ export default function RescuedMeals() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  
+
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2D2A26]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex gap-2">
                     <span className={`text-[8px] sm:text-[9px] font-black uppercase tracking-wider px-2 py-1 sm:px-3 sm:py-1.5 rounded-full ${meal.badgeColor} shadow-md backdrop-blur-md`}>
                       {meal.badge}
                     </span>
                   </div>
-                  
+
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-[#2D2A26] text-[8px] sm:text-[10px] font-black px-2 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-md">
                     -{meal.discount}%
                   </div>
@@ -339,21 +338,21 @@ export default function RescuedMeals() {
                     <h3 className="font-black text-[#2D2A26] text-xs sm:text-lg uppercase tracking-tighter leading-tight truncate pr-2">
                       {meal.store}
                     </h3>
-                    <div className="flex items-center gap-1 bg-[#F28F3B]/10 px-1.5 py-1 rounded-lg shrink-0">
+                    <div className="flex items-center gap-1 bg-accent-light/10 px-1.5 py-1 rounded-lg shrink-0">
                       <StarRating rating={meal.rating} />
-                      <span className="text-[8px] sm:text-[9px] text-[#F28F3B] font-black">
+                      <span className="text-[8px] sm:text-[9px] text-accent-light font-black">
                         {meal.rating}
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                     <span className="text-[8px] sm:text-[10px] text-[#2D2A26]/50 font-bold uppercase tracking-widest truncate">
                       {meal.category}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-[#2D2A26]/20 shrink-0" />
                     <span className="flex items-center gap-1 text-[8px] sm:text-[10px] text-[#2D2A26]/50 font-bold shrink-0">
-                      <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#F28F3B]" />
+                      <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-light" />
                       {meal.co2Saved} saved
                     </span>
                   </div>
@@ -366,7 +365,7 @@ export default function RescuedMeals() {
                         Total Price
                       </p>
                       <div className="flex items-baseline gap-1.5 sm:gap-2">
-                        <span className="text-sm sm:text-2xl font-black text-[#F28F3B] leading-none tracking-tighter">
+                        <span className="text-sm sm:text-2xl font-black text-accent-light leading-none tracking-tighter">
                           ${meal.price.toFixed(2)}
                         </span>
                         <span className="text-[9px] sm:text-xs text-[#2D2A26]/30 line-through font-bold">
@@ -374,8 +373,8 @@ export default function RescuedMeals() {
                         </span>
                       </div>
                     </div>
-                    
-                    <button className="bg-[#2D2A26] hover:bg-[#F28F3B] text-white text-[9px] sm:text-xs font-bold uppercase tracking-widest px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl transition-all duration-300 group-hover:shadow-[0_10px_20px_rgba(242,143,59,0.2)] w-full sm:w-auto text-center shadow-md">
+
+                    <button className="bg-[#2D2A26] hover:bg-accent-light text-white text-[9px] sm:text-xs font-bold uppercase tracking-widest px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl transition-all duration-300 group-hover:shadow-[0_10px_20px_rgba(242,143,59,0.2)] w-full sm:w-auto text-center shadow-md">
                       Rescue
                     </button>
                   </div>

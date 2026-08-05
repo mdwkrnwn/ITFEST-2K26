@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: 'https://images.unsplash.com/vector-1778639108685-395007c80714?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D',
+    icon: '/SaSVG.png',
   },
 };
 

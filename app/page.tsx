@@ -24,7 +24,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="bg-[#F4F3EE] min-h-screen selection:bg-[#F28F3B] selection:text-white cursor-none">
+    <div className="bg-[#F4F3EE] min-h-screen selection:bg-accent-light selection:text-white cursor-none">
       <LoadingBar />
       <CustomCursor />
       <AnimatePresence mode="wait">

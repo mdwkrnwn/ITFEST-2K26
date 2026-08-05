@@ -86,7 +86,7 @@ const DotGrid: React.FC<DotGridProps> = ({
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  
+
   const isInView = useInView(wrapperRef, { margin: "0px" });
   const dotsRef = useRef<Dot[]>([]);
   const pointerRef = useRef({
@@ -308,7 +308,7 @@ const floatingCards = [
     content: (
       <div className="w-56 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center gap-3 mb-3 border-b border-[#2D2A26]/5 pb-3">
-          <div className="w-8 h-8 rounded-xl bg-[#F28F3B]/10 flex items-center justify-center text-[#F28F3B]">
+          <div className="w-8 h-8 rounded-xl bg-accent-light/10 flex items-center justify-center text-accent-light">
             <RiLeafLine size={16} />
           </div>
           <div>
@@ -334,7 +334,7 @@ const floatingCards = [
       <div className="w-52 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center justify-between mb-4">
           <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">CO₂ Prevented</p>
-          <RiPieChart2Line className="text-[#F28F3B]" size={16} />
+          <RiPieChart2Line className="text-accent-light" size={16} />
         </div>
         <div className="flex items-end gap-1 mb-2">
           <span className="text-3xl font-black text-[#2D2A26] tracking-tighter">
@@ -343,11 +343,11 @@ const floatingCards = [
           <span className="text-sm font-black text-[#2D2A26] mb-1">kg</span>
         </div>
         <div className="w-full h-1.5 bg-[#F4F3EE] rounded-full overflow-hidden">
-          <motion.div 
-            initial={{ width: 0 }} 
-            animate={{ width: '75%' }} 
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '75%' }}
             transition={{ duration: 1.5, delay: 1 }}
-            className="h-full bg-[#F28F3B] rounded-full" 
+            className="h-full bg-accent-light rounded-full"
           />
         </div>
       </div>
@@ -374,7 +374,7 @@ const floatingCards = [
                 <span className="text-[11px] font-bold text-[#2D2A26]/40">{item.time}</span>
                 <span className="text-[11px] font-black text-[#2D2A26]">{item.label}</span>
               </div>
-              <span className={`text-[9px] font-bold px-2 py-1 rounded-md ${item.status === 'Ready' ? 'bg-[#F28F3B]/10 text-[#F28F3B]' : 'bg-[#2D2A26]/5 text-[#2D2A26]/40'}`}>
+              <span className={`text-[9px] font-bold px-2 py-1 rounded-md ${item.status === 'Ready' ? 'bg-accent-light/10 text-accent-light' : 'bg-[#2D2A26]/5 text-[#2D2A26]/40'}`}>
                 {item.status}
               </span>
             </div>
@@ -392,7 +392,7 @@ const floatingCards = [
       <div className="w-56 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center justify-between mb-4 border-b border-[#2D2A26]/5 pb-3">
           <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">Partner Revenue</p>
-          <RiLineChartLine className="text-[#F28F3B]" size={16} />
+          <RiLineChartLine className="text-accent-light" size={16} />
         </div>
         <div className="flex items-center gap-3">
           <div className="flex-1">
@@ -405,7 +405,7 @@ const floatingCards = [
             </div>
             <p className="text-[10px] font-bold text-[#2D2A26]/40 mt-1">Extra income generated</p>
           </div>
-          <div className="w-10 h-10 rounded-full bg-[#F28F3B]/10 flex items-center justify-center text-[#F28F3B]">
+          <div className="w-10 h-10 rounded-full bg-accent-light/10 flex items-center justify-center text-accent-light">
             <RiArrowRightUpLine size={20} />
           </div>
         </div>
@@ -427,9 +427,9 @@ const containerVariants: Variants = {
 
 const itemFadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  show: { 
-    opacity: 1, 
-    y: 0, 
+  show: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     transition: { type: "spring" as const, stiffness: 100, damping: 20 }
   }
@@ -437,10 +437,10 @@ const itemFadeUpVariants: Variants = {
 
 const stickerVariants: Variants = {
   hidden: { opacity: 0, scale: 0.4, rotate: -15, y: 30 },
-  show: { 
-    opacity: 1, 
-    scale: 1, 
-    rotate: 0, 
+  show: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
     y: 0,
     transition: { type: "spring" as const, stiffness: 150, damping: 12, mass: 0.8 }
   }
@@ -451,9 +451,9 @@ export default function Hero() {
   const searchFieldRef = useRef<HTMLDivElement | null>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
   const triggerShockwaveRef = useRef<((cx: number, cy: number) => void) | null>(null);
-  
+
   const [isMounted, setIsMounted] = useState(false);
-  
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const searchMagnetX = useMotionValue(0);
@@ -469,7 +469,7 @@ export default function Hero() {
     const rect = e.currentTarget.getBoundingClientRect();
     const currentX = e.clientX - rect.left - rect.width / 2;
     const currentY = e.clientY - rect.top - rect.height / 2;
-    
+
     mouseX.set(currentX);
     mouseY.set(currentY);
 
@@ -536,11 +536,11 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
     >
       <div className="absolute inset-0 z-0">
-        <DotGrid 
-          baseColor="#C2C1BC" 
-          activeColor="#F28F3B" 
-          dotSize={2} 
-          gap={32} 
+        <DotGrid
+          baseColor="#C2C1BC"
+          activeColor="#F28F3B"
+          dotSize={2}
+          gap={32}
           proximity={150}
           speedTrigger={50}
           triggerShockwaveRef={triggerShockwaveRef}
@@ -549,10 +549,10 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-linear-to-b from-[#F4F3EE]/40 via-transparent to-[#F4F3EE] pointer-events-none" />
 
-      <motion.div 
-        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }} 
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-[#F28F3B] rounded-full blur-[140px] z-0 pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-accent-light rounded-full blur-[140px] z-0 pointer-events-none"
       />
 
       <div className="hidden lg:block absolute inset-0 z-20 pointer-events-none">
@@ -580,7 +580,7 @@ export default function Hero() {
         })}
       </div>
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -618,8 +618,8 @@ export default function Hero() {
           <div className="flex -space-x-3">
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm">
-                <Image 
-                  src={`https://i.pravatar.cc/100?img=${i + 15}`} 
+                <Image
+                  src={`https://i.pravatar.cc/100?img=${i + 15}`}
                   alt="user" width={32} height={32} className="w-full h-full object-cover" unoptimized
                 />
               </div>
@@ -633,12 +633,12 @@ export default function Hero() {
           style={{ x: searchSpringX, y: searchSpringY }}
           className="w-full flex flex-col items-center gap-3 relative z-50 mb-10"
         >
-          <div 
+          <div
             ref={searchFieldRef}
-            className="flex items-center w-125 max-w-70 sm:max-w-90 bg-white rounded-full p-1 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-[#2D2A26]/5 focus-within:ring-4 focus-within:ring-[#F28F3B]/20 transition-all duration-300"
+            className="flex items-center w-125 max-w-70 sm:max-w-90 bg-white rounded-full p-1 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-[#2D2A26]/5 focus-within:ring-4 focus-within:ring-accent-light/20 transition-all duration-300"
           >
             <div className="flex-1 flex items-center gap-1.5 pl-3">
-              <RiMapPinLine className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F28F3B] shrink-0" />
+              <RiMapPinLine className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-light shrink-0" />
               <input
                 type="text"
                 onChange={handleInputInteraction}
@@ -646,9 +646,9 @@ export default function Hero() {
                 className="w-full text-xs sm:text-sm text-[#2D2A26] placeholder-[#2D2A26]/40 outline-none bg-transparent font-semibold py-1.5"
               />
             </div>
-            <button 
+            <button
               onClick={handleInputInteraction}
-              className="bg-linear-to-r from-[#F28F3B] to-[#FF6B35] text-white font-bold px-4 py-2 rounded-full transition-all hover:shadow-[0_10px_25px_-5px_rgba(242,143,59,0.4)] flex items-center justify-center gap-1.5 text-xs whitespace-nowrap shrink-0 group"
+              className="bg-linear-to-r from-accent-light to-[#065ce1] text-white font-bold px-4 py-2 rounded-full transition-all hover:shadow-[0_10px_25px_-5px_rgba(242,143,59,0.4)] flex items-center justify-center gap-1.5 text-xs whitespace-nowrap shrink-0 group"
             >
               <RiSearchLine className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline-block">Search</span>
@@ -662,7 +662,7 @@ export default function Hero() {
       </motion.div>
 
       <div className="w-full bg-[#2D2A26] py-3 sm:py-2 overflow-hidden border-t border-b border-white/5 relative z-40 block shadow-[0_-15px_40px_rgba(0,0,0,0.05)] whitespace-nowrap">
-        <motion.div 
+        <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 55, ease: "linear", repeat: Infinity }}
           className="flex w-max shrink-0 max-w-none"
@@ -673,10 +673,10 @@ export default function Hero() {
                 <React.Fragment key={`set-${blockIdx}-${setIdx}`}>
                   {marqueeTexts.map((text, idx) => (
                     <div key={`item-${blockIdx}-${setIdx}-${idx}`} className="flex items-center gap-10 sm:gap-16 px-5 sm:px-8 shrink-0 group max-w-none">
-                      <span className="text-white/90 text-sm sm:text-base font-black tracking-[0.25em] uppercase transition-colors group-hover:text-[#F28F3B] whitespace-nowrap max-w-none">
+                      <span className="text-white/90 text-sm sm:text-base font-black tracking-[0.25em] uppercase transition-colors group-hover:text-accent-light whitespace-nowrap max-w-none">
                         {text}
                       </span>
-                      <div className="w-2 h-2 rounded-full bg-white/10 shrink-0 group-hover:bg-[#F28F3B]/50 transition-colors duration-300" />
+                      <div className="w-2 h-2 rounded-full bg-white/10 shrink-0 group-hover:bg-accent-light/50 transition-colors duration-300" />
                     </div>
                   ))}
                 </React.Fragment>
@@ -686,5 +686,5 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
-  ); 
+  );
 }
