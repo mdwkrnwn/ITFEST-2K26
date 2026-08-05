@@ -39,7 +39,7 @@ const ArrivingAvatar = ({ progress }: ArrivingAvatarProps) => {
         }}
         className="absolute bottom-[85px] bg-accent-light text-white text-[10px] font-black uppercase tracking-wider px-5 py-2.5 rounded-2xl w-max max-w-[240px] sm:max-w-none whitespace-normal text-center shadow-[0_4px_12px_rgba(242,143,59,0.3)] border border-white/10 flex flex-col items-center z-40 animate-bounce"
       >
-        <span className="leading-tight">I'll handle it from here!</span>
+        <span className="leading-tight">I&apos;ll handle it from here!</span>
         <div className="w-2 h-2 bg-accent-light rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
       </motion.div>
 
@@ -210,7 +210,7 @@ export default function Footer() {
                     type="submit"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-br from-accent-light to-[#FF6B35] text-white p-3 rounded-xl shadow-lg transition-colors shrink-0"
+                    className="bg-gradient-to-br from-accent-light to-[#0026ff] text-white p-3 rounded-xl shadow-lg transition-colors shrink-0"
                   >
                     <RiArrowRightUpLine size={20} />
                   </motion.button>

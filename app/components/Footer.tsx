@@ -164,7 +164,7 @@ export default function Footer() {
                     type="submit"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-accent-light text-white p-2.5 rounded-xl hover:bg-[#e07a2e] transition-colors shrink-0"
+                    className="bg-accent-light text-white p-2.5 rounded-xl hover:bg-[#283db2] transition-colors shrink-0"
                   >
                     <RiArrowRightUpLine size={18} />
                   </motion.button>

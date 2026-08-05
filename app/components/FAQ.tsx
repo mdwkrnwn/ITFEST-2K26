@@ -70,7 +70,7 @@ export default function FAQ() {
                   className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[36px] min-[400px]:text-[44px]"
                 >
                   GOT <br />
-                  <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
+                  <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
                     QUESTIONS?
                   </span>
                 </motion.h2>
