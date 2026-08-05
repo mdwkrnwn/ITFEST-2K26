@@ -34,7 +34,7 @@ const cardsData: CardData[] = [
     linkText: "Find Food Near Me",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
     icon: <Search size={28} />,
-    accentColor: "#F28F3B",
+    accentColor: "#065ce1",
     stats: "Real-time Map",
     statIcon: <Search size={16} />
   },
@@ -44,7 +44,6 @@ const cardsData: CardData[] = [
     title2: "Your Bag",
     description: "Found something delicious? Reserve your Surprise Bag or specific items instantly through our platform. Secure your meal before it sells out.",
     linkText: "Payment Options",
-    href: "/payment",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
     icon: <CreditCard size={28} />,
     accentColor: "#2D2A26",
@@ -57,10 +56,9 @@ const cardsData: CardData[] = [
     title2: "In-Store",
     description: "Head to the store during the specified pickup window. Simply show your digital receipt to the staff, grab your rescued food, and say hi to local business owners.",
     linkText: "Pickup Guide",
-    href: "/pickup-guide",
     image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=800",
     icon: <ShoppingBag size={28} />,
-    accentColor: "#F28F3B",
+    accentColor: "#065ce1",
     stats: "Quick & Easy",
     statIcon: <Clock size={16} />
   },
@@ -70,7 +68,6 @@ const cardsData: CardData[] = [
     title2: "The Impact",
     description: "Enjoy your delicious rescued meal. Check your dashboard to see exactly how much CO2, water, and money you've saved by making a sustainable choice.",
     linkText: "View Dashboard",
-    href: "/dashboard",
     image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=800",
     icon: <Leaf size={28} />,
     accentColor: "#2D2A26",
@@ -163,7 +160,7 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
         </p>
 
         <Link
-          href={card.href || "#"}
+          href={"#"}
           className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-[11px] sm:text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 group/btn text-white w-max shadow-xl"
           style={{
             background: `linear-gradient(to right, ${card.accentColor}, ${card.accentColor}ee)`,
@@ -227,7 +224,7 @@ export default function Section4() {
               whileInView={{ scale: 1, opacity: 1, rotate: 1.5, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
-              className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-1 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white inline-block text-[28px] sm:text-[36px]"
+              className="bg-gradient-to-r from-accent-light to-[#065ce1] text-white px-4 py-1 rounded-[12px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-2 border-white inline-block text-[28px] sm:text-[36px]"
             >
               WORKS
             </motion.span>
