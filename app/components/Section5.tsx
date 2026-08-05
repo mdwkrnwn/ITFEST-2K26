@@ -321,7 +321,7 @@ export default function Section5() {
 
           <motion.div
             style={{ scaleX: smoothProgress, originX: 0 }}
-            className="absolute inset-0 bg-linear-to-r from-accent-light to-[#FF6B35] rounded-l-full shadow-[0_0_20px_rgba(242,143,59,0.5)]"
+            className="absolute inset-0 bg-linear-to-r from-accent-light to-[#0026ff] rounded-l-full shadow-[0_0_20px_rgba(6,122,225,0.5)]"
           />
 
           <RunningAvatar progress={smoothProgress} isReversing={isReversing} />
