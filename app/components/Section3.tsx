@@ -97,7 +97,7 @@ const MiniGaugeChart = ({ isHovered, color }: ChartProps) => (
           rotate: isHovered ? [0, 180, 0] : 0,
           stroke: isHovered ? '#FFFFFF' : '#2D2A26'
         }}
-        className={'origin-[32px_0px]!'}
+        className={'origin-[100%_0%]!'}
         transition={{ duration: isHovered ? 0.5 : 1.5, repeat: isHovered ? Infinity : 0, type: isHovered ? "tween" : "spring", bounce: 0.4 }}
         // style={{ originX: '0.5', originY: '0.5' }}
         x1="50" y1="50"
