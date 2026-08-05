@@ -375,7 +375,7 @@ export default function RescuedMeals() {
                       </div>
                     </div>
 
-                    <button className="bg-[#2D2A26] hover:bg-accent-light text-white text-[9px] sm:text-xs font-bold uppercase tracking-widest px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl transition-all duration-300 group-hover:shadow-[0_10px_20px_rgba(242,143,59,0.2)] w-full sm:w-auto text-center shadow-md">
+                    <button className="bg-[#2D2A26] hover:bg-accent-light text-white text-[9px] sm:text-xs font-bold uppercase tracking-widest px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl transition-all duration-300 group-hover:shadow-[0_10px_20px_rgba(6,122,225,0.2)] w-full sm:w-auto text-center shadow-md">
                       Rescue
                     </button>
                   </div>

@@ -37,7 +37,7 @@ const ArrivingAvatar = ({ progress }: ArrivingAvatarProps) => {
           opacity: bubbleOpacity,
           animationDuration: '2s'
         }}
-        className="absolute bottom-[85px] bg-accent-light text-white text-[10px] font-black uppercase tracking-wider px-5 py-2.5 rounded-2xl w-max max-w-[240px] sm:max-w-none whitespace-normal text-center shadow-[0_4px_12px_rgba(242,143,59,0.3)] border border-white/10 flex flex-col items-center z-40 animate-bounce"
+        className="absolute bottom-[85px] bg-accent-light text-white text-[10px] font-black uppercase tracking-wider px-5 py-2.5 rounded-2xl w-max max-w-[240px] sm:max-w-none whitespace-normal text-center shadow-[0_4px_12px_rgba(6,122,225,0.3)] border border-white/10 flex flex-col items-center z-40 animate-bounce"
       >
         <span className="leading-tight">I&apos;ll handle it from here!</span>
         <div className="w-2 h-2 bg-accent-light rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
@@ -181,7 +181,7 @@ export default function Footer() {
               <div className="flex items-center gap-2.5 mb-6">
                 <motion.div
                   whileHover={{ rotate: -10, scale: 1.1 }}
-                  className="w-12 h-12 bg-accent-light rounded-xl flex items-center justify-center shadow-[0_10px_20px_rgba(242,143,59,0.2)]"
+                  className="w-12 h-12 bg-accent-light rounded-xl flex items-center justify-center shadow-[0_10px_20px_rgba(6,122,225,0.2)]"
                 >
                   <RiLeafLine className="text-white size-6" />
                 </motion.div>
