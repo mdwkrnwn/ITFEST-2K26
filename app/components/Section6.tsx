@@ -14,7 +14,7 @@ const b2bFeatures = [
     metric: "+24%",
     metricLabel: "Daily Revenue",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200",
-    color: "#F28F3B",
+    color: "#065ce1",
     icon: <TrendingUp size={24} />
   },
   {
