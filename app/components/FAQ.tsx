@@ -94,7 +94,7 @@ export default function FAQ() {
                   className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-start text-[#2D2A26] text-[72px] xl:text-[80px]"
                 >
                   <span>GOT</span>
-                  <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
+                  <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
                     QUESTIONS?
                   </span>
                 </motion.h2>
@@ -141,15 +141,15 @@ export default function FAQ() {
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className={`w-full flex items-center justify-between p-5 sm:p-6 md:p-8 rounded-[24px] sm:rounded-[32px] text-left transition-all duration-500 border ${openIndex === index
-                      ? "bg-white shadow-xl border-white"
-                      : "bg-white/40 backdrop-blur-md border-white/50 hover:bg-white/60"
+                    ? "bg-white shadow-xl border-white"
+                    : "bg-white/40 backdrop-blur-md border-white/50 hover:bg-white/60"
                     }`}
                 >
-                  <span className={`font-black text-sm sm:text-base md:text-xl uppercase tracking-tighter transition-colors duration-500 max-w-[85%] ${openIndex === index ? "text-accent-light" : "text-[#2D2A26]"
+                  <span className={`font-black text-sm sm:text-base md:text-xl uppercase tracking-tighter transition-colors duration-500 max-w-[85%] ${openIndex === index ? "text-accent" : "text-[#2D2A26]"
                     }`}>
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === index ? "bg-accent-light text-white rotate-180 shadow-md" : "bg-[#2D2A26]/5 text-[#2D2A26]"
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${openIndex === index ? "bg-accent text-white rotate-180 shadow-md" : "bg-[#2D2A26]/5 text-[#2D2A26]"
                     }`}>
                     <ChevronDown size={18} className="sm:w-5 sm:h-5" />
                   </div>
