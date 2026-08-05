@@ -295,20 +295,20 @@ export default function Section5() {
           <motion.div style={{ opacity: stat1Opacity, y: stat1Y }} className="absolute inset-0 flex flex-col items-center justify-center">
             <p className="text-[#2D2A26]/80 text-base sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
               This impact is equivalent to planting <br />
-              <span className="font-black text-accent-light">50 mature trees</span><br />
+              <span className="font-black text-[#0026ff]">50 mature trees</span><br />
               and letting them grow for 10 years.
             </p>
           </motion.div>
           <motion.div style={{ opacity: stat2Opacity, y: stat2Y }} className="absolute inset-0 flex flex-col items-center justify-center">
             <p className="text-[#2D2A26]/80 text-base sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
               The water saved is enough to completely fill <br />
-              <span className="font-black text-accent-light">1 Olympic swimming pool!</span>
+              <span className="font-black text-[#0026ff]">1 Olympic swimming pool!</span>
             </p>
           </motion.div>
           <motion.div style={{ opacity: stat3Opacity, y: stat3Y }} className="absolute inset-0 flex flex-col items-center justify-center">
             <p className="text-[#2D2A26]/80 text-base sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
               The preserved land equals the area of <br />
-              <span className="font-black text-accent-light">2 international football fields.</span>
+              <span className="font-black text-[#0026ff]">2 international football fields.</span>
             </p>
           </motion.div>
         </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, ChevronRight, Star, MapPin, Clock, Leaf } from 'lucide-react';
+import Image from 'next/image';
 
 const categories = [
   "All", "Bakery", "Restaurant", "Grocery",
@@ -203,14 +204,13 @@ export default function RescuedMeals() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-light rounded-full blur-[150px] opacity-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#2D2A26] rounded-full blur-[150px] opacity-[0.03] pointer-events-none" />
 
-      <div className="absolute top-[10%] left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03] z-0">
+      <div className="absolute left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03] z-0">
         <h2 className="text-[18vw] font-black uppercase leading-none whitespace-nowrap -ml-20 tracking-tighter">
           LIVE MARKETPLACE • LIVE
         </h2>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-
         <div className="lg:hidden w-full flex flex-col items-center text-center mb-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.4, rotate: -15, y: 30 }}
@@ -229,7 +229,7 @@ export default function RescuedMeals() {
             className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[36px] min-[400px]:text-[44px]"
           >
             RESCUE MEALS <br />
-            <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
+            <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
               NEAR YOU
             </span>
           </motion.h2>
@@ -253,7 +253,7 @@ export default function RescuedMeals() {
             className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center text-[#2D2A26] text-[72px] xl:text-[80px]"
           >
             <span>RESCUE MEALS</span>
-            <span className="bg-gradient-to-r from-accent-light to-[#FF6B35] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(242,143,59,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
+            <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
               NEAR YOU
             </span>
           </motion.h2>
@@ -275,8 +275,8 @@ export default function RescuedMeals() {
               }}
               whileTap={{ scale: 0.95 }}
               className={`shrink-0 snap-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
-                  ? "bg-[#2D2A26] border-[#2D2A26] text-white shadow-xl"
-                  : "bg-white/60 backdrop-blur-md text-[#2D2A26]/60 hover:bg-white border-white/50"
+                ? "bg-[#2D2A26] border-[#2D2A26] text-white shadow-xl"
+                : "bg-white/60 backdrop-blur-md text-[#2D2A26]/60 hover:bg-white border-white/50"
                 }`}
             >
               {cat}
@@ -302,7 +302,8 @@ export default function RescuedMeals() {
                 className="group bg-white/70 backdrop-blur-xl rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(242,143,59,0.15)] border border-white/60 transition-all duration-500 flex flex-col p-2"
               >
                 <div className="relative overflow-hidden rounded-[16px] sm:rounded-[24px] aspect-[4/3] bg-[#2D2A26]/5">
-                  <img
+                  <Image
+                    fill
                     src={meal.img}
                     alt={meal.store}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
