@@ -55,8 +55,8 @@ const CustomCursor = () => {
         }}
         animate={{
           scale: isHovered ? 2.5 : 1,
-          backgroundColor: isHovered ? "rgba(242, 143, 59, 0.2)" : "rgba(242, 143, 59, 0)",
-          border: isHovered ? "0px solid #F28F3B" : "1.5px solid #F28F3B"
+          backgroundColor: isHovered ? "rgba(6, 122, 225, 0.2)" : "rgba(242, 143, 59, 0)",
+          border: isHovered ? "0px solid #0026ff" : "1.5px solid #0026ff"
         }}
         className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-99998"
       />
