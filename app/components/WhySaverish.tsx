@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Shield, TrendingUp, Globe, Clock, Users, Leaf } from 'lucide-react';
 
-const WhySaverish = () => {
+const WhyUFinder = () => {
   const uniquePoints = [
     {
       icon: <Shield size={24} />,
@@ -64,7 +64,7 @@ const WhySaverish = () => {
           </div>
 
           <h2 className="text-[#2D2A26] font-[family:var(--font-jakarta)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] font-black">
-            What Makes <span className="text-accent-light">Saverish</span>
+            What Makes <span className="text-accent-light">UFinder</span>
             <br className="hidden sm:block" />
             Different?
           </h2>
@@ -113,7 +113,7 @@ const WhySaverish = () => {
           className="mt-12 sm:mt-16 md:mt-20 p-4 sm:p-6 bg-accent-light/5 rounded-2xl sm:rounded-3xl border border-accent-light/10 text-center"
         >
           <p className="text-[#2D2A26]/70 font-[family:var(--font-jakarta)] text-sm sm:text-base">
-            ⚡ Unlike other platforms, Saverish doesn't take commission from rescued meals.
+            ⚡ Unlike other platforms, UFinder doesn't take commission from rescued meals.
             <span className="font-extrabold text-accent-light"> 100% goes to reducing food waste.</span>
           </p>
         </motion.div>
@@ -123,4 +123,4 @@ const WhySaverish = () => {
   );
 };
 
-export default WhySaverish;
+export default WhyUFinder;

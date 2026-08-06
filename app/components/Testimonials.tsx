@@ -6,9 +6,9 @@ import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
 const testimonials = [
   { name: "Sarah Chen", role: "Regular Customer", location: "Surabaya", image: "https://i.pravatar.cc/150?img=1", text: "I've saved over Rp 500,000 on amazing meals from my favorite cafes! The app is super easy to use and I love knowing I'm helping reduce food waste.", rating: 5, type: "consumer" },
-  { name: "Budi Santoso", role: "Owner, Kopi Kita", location: "Surabaya", image: "https://i.pravatar.cc/150?img=3", text: "Partnering with Saverish has reduced our daily food waste by 60%. We've attracted new customers who care about sustainability.", rating: 5, type: "business" },
+  { name: "Budi Santoso", role: "Owner, Kopi Kita", location: "Surabaya", image: "https://i.pravatar.cc/150?img=3", text: "Partnering with UFinder has reduced our daily food waste by 60%. We've attracted new customers who care about sustainability.", rating: 5, type: "business" },
   { name: "Jessica Wijaya", role: "Regular Customer", location: "Jakarta", image: "https://i.pravatar.cc/150?img=5", text: "The impact tracker is my favorite feature! Seeing how much CO₂ I've saved just by buying surplus food is incredibly satisfying.", rating: 5, type: "consumer" },
-  { name: "Michael Tan", role: "Operations Manager, Bakery Bliss", location: "Bandung", image: "https://i.pravatar.cc/150?img=8", text: "We've recovered over 2,000 meals that would have gone to landfill. The team at Saverish is incredibly supportive.", rating: 4, type: "business" }
+  { name: "Michael Tan", role: "Operations Manager, Bakery Bliss", location: "Bandung", image: "https://i.pravatar.cc/150?img=8", text: "We've recovered over 2,000 meals that would have gone to landfill. The team at UFinder is incredibly supportive.", rating: 4, type: "business" }
 ];
 
 const stats = [

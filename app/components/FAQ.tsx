@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
 
 const faqs = [
-  { question: "Is the food safe to eat?", answer: "Yes! All partner stores and restaurants are vetted and certified. Surplus food listed on Saverish is always within its safe consumption period. We follow strict food safety guidelines to ensure every rescued meal is fresh and delicious." },
-  { question: "How does Saverish make money?", answer: "We believe in transparency. Saverish takes zero commission from rescued meals. Instead, we generate revenue through premium features for businesses (analytics dashboard, sustainability reporting) and corporate partnerships." },
+  { question: "Is the food safe to eat?", answer: "Yes! All partner stores and restaurants are vetted and certified. Surplus food listed on UFinder is always within its safe consumption period. We follow strict food safety guidelines to ensure every rescued meal is fresh and delicious." },
+  { question: "How does UFinder make money?", answer: "We believe in transparency. UFinder takes zero commission from rescued meals. Instead, we generate revenue through premium features for businesses (analytics dashboard, sustainability reporting) and corporate partnerships." },
   { question: "Can I partner my restaurant or cafe?", answer: "Absolutely! We welcome restaurants, cafes, bakeries, and grocery stores to join our mission. Sign up is free, and you'll get access to our real-time waste tracking dashboard. Contact our partnership team to get started." },
   { question: "What happens to food that isn't rescued?", answer: "We work with local food banks and composting facilities to ensure zero food goes to landfill. If surplus isn't claimed by pickup time, we redirect it to community fridges or composting partners." },
   { question: "How do I track my environmental impact?", answer: "Every time you rescue a meal, your personal impact dashboard updates automatically. You can see exactly how much CO₂, water, and land you've saved. Share your impact on social media and inspire others!" },
-  { question: "Is Saverish available in my city?", answer: "We're currently operating in Surabaya, Jakarta, and Bandung. We're expanding rapidly! Follow our Instagram @saverish.id for updates on new city launches." }
+  { question: "Is UFinder available in my city?", answer: "We're currently operating in Surabaya, Jakarta, and Bandung. We're expanding rapidly! Follow our Instagram @ufinder.id for updates on new city launches." }
 ];
 
 export default function FAQ() {

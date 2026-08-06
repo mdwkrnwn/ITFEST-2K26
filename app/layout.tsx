@@ -15,12 +15,12 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Saverish - Rescue Delicious Food. Save Our Planet.",
+  title: "UFinder - Rescue Delicious Food. Save Our Planet.",
   description: "Turning daily surplus into sustainable value. Join the movement to end food waste while enjoying your favorite treats at flash-sale prices.",
   keywords: ["food waste", "sustainability", "flash sale", "rescue food", "save planet", "zero waste"],
-  authors: [{ name: "Saverish" }],
+  authors: [{ name: "UFinder" }],
   openGraph: {
-    title: "Saverish - Rescue Delicious Food. Save Our Planet.",
+    title: "UFinder - Rescue Delicious Food. Save Our Planet.",
     description: "Turning daily surplus into sustainable value. Join the movement to end food waste.",
     type: "website",
   },

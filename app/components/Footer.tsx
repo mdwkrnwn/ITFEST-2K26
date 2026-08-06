@@ -140,7 +140,7 @@ export default function Footer() {
                   <RiLeafLine className="text-white size-5" />
                 </motion.div>
                 <h3 className="text-2xl font-black text-white tracking-tight">
-                  Saverish<span className="text-accent-light">.</span>
+                  UFinder<span className="text-accent-light">.</span>
                 </h3>
               </div>
 
@@ -227,9 +227,9 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a href="mailto:hello@saverish.com" className="flex items-center gap-1.5 text-white/30 hover:text-accent-light transition-colors text-xs sm:text-sm">
+              <a href="mailto:hello@ufinder.com" className="flex items-center gap-1.5 text-white/30 hover:text-accent-light transition-colors text-xs sm:text-sm">
                 <RiMailLine size={14} />
-                <span>hello@saverish.com</span>
+                <span>hello@ufinder.com</span>
               </a>
               <span className="text-white/10 hidden sm:block">|</span>
               <span className="flex items-center gap-1.5 text-white/30 text-xs sm:text-sm">
@@ -254,7 +254,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] sm:text-xs text-white/15">
-            <span>© 2026 Saverish. All rights reserved.</span>
+            <span>© 2026 UFinder. All rights reserved.</span>
             <div className="flex items-center gap-1.5">
               <span>Made with</span>
               <RiHeartFill className="text-accent-light size-3" />

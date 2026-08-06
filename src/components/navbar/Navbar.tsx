@@ -131,7 +131,7 @@ export default function Navbar() {
               >
                 <Image
                   src="/SaSVG.png"
-                  alt="Saverish Custom Logo"
+                  alt="UFinder Custom Logo"
                   fill
                   sizes="(max-width: 768px) 40px, 48px"
                   priority={true}
@@ -139,7 +139,7 @@ export default function Navbar() {
                 />
               </motion.div>
               <span className="text-xl md:text-2xl font-black uppercase tracking-tighter text-[#2D2A26]">
-                Saverish<span className="text-accent-light">.</span>
+                UFinder<span className="text-accent-light">.</span>
               </span>
             </a>
           </div>
@@ -263,7 +263,7 @@ export default function Navbar() {
                     <RiLeafLine size={24} />
                   </div>
                   <span className="text-2xl font-black uppercase tracking-tighter text-[#2D2A26]">
-                    Saverish.
+                    UFinder.
                   </span>
                 </div>
                 <button
