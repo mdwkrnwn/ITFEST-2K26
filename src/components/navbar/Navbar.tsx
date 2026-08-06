@@ -130,7 +130,7 @@ export default function Navbar() {
                 className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center font-black text-white bg-accent-light shadow-lg shadow-accent-light/30 shrink-0"
               >
                 <Image
-                  src="/SaSVG.png"
+                  src="/log.png"
                   alt="UFinder Custom Logo"
                   fill
                   sizes="(max-width: 768px) 40px, 48px"

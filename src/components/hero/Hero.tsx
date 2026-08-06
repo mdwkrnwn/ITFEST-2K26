@@ -10,9 +10,12 @@ import {
   RiMapPinLine,
   RiSearchLine,
   RiPieChart2Line,
+  RiStore2Line,
+  RiMapPin2Line,
   RiLineChartLine,
   RiArrowRightUpLine
 } from 'react-icons/ri';
+
 import { gsap } from 'gsap';
 import { InertiaPlugin } from 'gsap/InertiaPlugin';
 import { AnimatedCounter } from './AnimatedCounter';
@@ -285,67 +288,86 @@ const DotGrid: React.FC<DotGridProps> = ({
 };
 
 const marqueeTexts = [
-  "RESCUE SURPLUS FOOD",
-  "10X ENVIRONMENTAL IMPACT",
-  "ZERO WASTE MOVEMENT",
-  "FLASH SALE EVERYDAY",
-  "SAVE OUR PLANET",
-  "SUPPORT LOCAL BUSINESS",
-  "RESCUE SURPLUS FOOD",
-  "10X ENVIRONMENTAL IMPACT",
-  "ZERO WASTE MOVEMENT",
-  "FLASH SALE EVERYDAY",
-  "SAVE OUR PLANET",
-  "SUPPORT LOCAL BUSINESS"
+  "DIGITALISASI UMKM INDONESIA",
+  "TEMUKAN UMKM LOKAL",
+  "DUKUNG PRODUK LOKAL",
+  "PETA UMKM INTERAKTIF",
+  "BANGUN EKOSISTEM UMKM",
+  "PROMOSI USAHA LOKAL",
+  "DIGITALISASI UMKM INDONESIA",
+  "TEMUKAN UMKM LOKAL",
+  "DUKUNG PRODUK LOKAL",
+  "PETA UMKM INTERAKTIF",
+  "BANGUN EKOSISTEM UMKM",
+  "PROMOSI USAHA LOKAL"
 ];
 
 const floatingCards = [
   {
-    id: 'card-1',
-    position: 'top-[15%] left-[10%] xl:left-[8%]',
+    id: "card-1",
+    position: "top-[15%] left-[10%] xl:left-[8%]",
     parallaxFactor: 25,
     delay: 0,
     content: (
       <div className="w-56 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center gap-3 mb-3 border-b border-[#2D2A26]/5 pb-3">
           <div className="w-8 h-8 rounded-xl bg-accent-light/10 flex items-center justify-center text-accent-light">
-            <RiLeafLine size={16} />
+            <RiStore2Line size={16} />
           </div>
+
           <div>
-            <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">Meals Rescued</p>
-            <p className="text-[10px] font-bold text-[#2D2A26]/40">Last 30 Days</p>
+            <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">
+              UMKM TERDAFTAR
+            </p>
+
+            <p className="text-[10px] font-bold text-[#2D2A26]/40">
+              Seluruh Indonesia
+            </p>
           </div>
         </div>
+
         <div className="flex items-end gap-2">
           <span className="text-2xl font-black text-[#2D2A26] tracking-tighter">
             <AnimatedCounter to={50000} />
           </span>
-          <span className="text-sm font-black text-[#2D2A26] mb-1">+</span>
+
+          <span className="text-sm font-black text-[#2D2A26] mb-1">
+            +
+          </span>
         </div>
       </div>
     ),
   },
+
   {
-    id: 'card-2',
-    position: 'top-[16%] right-[5%] xl:right-[10%]',
+    id: "card-2",
+    position: "top-[16%] right-[5%] xl:right-[10%]",
     parallaxFactor: -20,
     delay: 0.2,
     content: (
       <div className="w-52 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">CO₂ Prevented</p>
-          <RiPieChart2Line className="text-accent-light" size={16} />
+          <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">
+            KOTA TERJANGKAU
+          </p>
+
+          <RiMapPin2Line className="text-accent-light" size={16} />
         </div>
+
         <div className="flex items-end gap-1 mb-2">
           <span className="text-3xl font-black text-[#2D2A26] tracking-tighter">
-            <AnimatedCounter to={1250} />
+            <AnimatedCounter to={150} />
           </span>
-          <span className="text-sm font-black text-[#2D2A26] mb-1">kg</span>
+
+          <span className="text-sm font-black text-[#2D2A26] mb-1">
+            Kota
+          </span>
         </div>
+
         <div className="w-full h-1.5 bg-[#F4F3EE] rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: '75%' }}
+            animate={{ width: "72%" }}
             transition={{ duration: 1.5, delay: 1 }}
             className="h-full bg-accent-light rounded-full"
           />
@@ -353,28 +375,56 @@ const floatingCards = [
       </div>
     ),
   },
+
   {
-    id: 'card-3',
-    position: 'bottom-[35%] left-[4%] xl:left-[8%]',
+    id: "card-3",
+    position: "bottom-[35%] left-[4%] xl:left-[8%]",
     parallaxFactor: 15,
     delay: 0.4,
     content: (
       <div className="w-60 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center gap-2 mb-3">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">Live Schedule</span>
+
+          <span className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">
+            UMKM TERBARU
+          </span>
         </div>
+
         <div className="space-y-2">
           {[
-            { time: '18:00', label: 'Bakery Surplus', status: 'Ready' },
-            { time: '20:30', label: 'Sushi Boxes', status: 'Soon' }
+            {
+              time: "Hari Ini",
+              label: "Kopi Titik",
+              status: "Baru",
+            },
+            {
+              time: "Hari Ini",
+              label: "Batik Heritage",
+              status: "Verified",
+            },
           ].map((item, idx) => (
-            <div key={idx} className="flex items-center justify-between bg-[#F4F3EE]/50 p-2 rounded-xl border border-[#2D2A26]/5">
+            <div
+              key={idx}
+              className="flex items-center justify-between bg-[#F4F3EE]/50 p-2 rounded-xl border border-[#2D2A26]/5"
+            >
               <div className="flex items-center gap-3">
-                <span className="text-[11px] font-bold text-[#2D2A26]/40">{item.time}</span>
-                <span className="text-[11px] font-black text-[#2D2A26]">{item.label}</span>
+                <span className="text-[11px] font-bold text-[#2D2A26]/40">
+                  {item.time}
+                </span>
+
+                <span className="text-[11px] font-black text-[#2D2A26]">
+                  {item.label}
+                </span>
               </div>
-              <span className={`text-[9px] font-bold px-2 py-1 rounded-md ${item.status === 'Ready' ? 'bg-accent-light/10 text-accent-light' : 'bg-[#2D2A26]/5 text-[#2D2A26]/40'}`}>
+
+              <span
+                className={`text-[9px] font-bold px-2 py-1 rounded-md ${
+                  item.status === "Baru"
+                    ? "bg-accent-light/10 text-accent-light"
+                    : "bg-green-100 text-green-700"
+                }`}
+              >
                 {item.status}
               </span>
             </div>
@@ -383,28 +433,46 @@ const floatingCards = [
       </div>
     ),
   },
+
   {
-    id: 'card-4',
-    position: 'bottom-[32%] right-[4%] xl:right-[8%]',
+    id: "card-4",
+    position: "bottom-[32%] right-[4%] xl:right-[8%]",
     parallaxFactor: -25,
     delay: 0.6,
     content: (
       <div className="w-56 bg-white/95 backdrop-blur-xl border border-white rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] p-4 cursor-none">
         <div className="flex items-center justify-between mb-4 border-b border-[#2D2A26]/5 pb-3">
-          <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">Partner Revenue</p>
-          <RiLineChartLine className="text-accent-light" size={16} />
+          <p className="text-[10px] font-black uppercase tracking-wider text-[#2D2A26]/50">
+            TRANSAKSI UMKM
+          </p>
+
+          <RiLineChartLine
+            className="text-accent-light"
+            size={16}
+          />
         </div>
+
         <div className="flex items-center gap-3">
           <div className="flex-1">
             <div className="flex items-end gap-1">
-              <span className="text-xl font-black text-[#2D2A26] tracking-tighter">Rp</span>
+              <span className="text-xl font-black text-[#2D2A26] tracking-tighter">
+                Rp
+              </span>
+
               <span className="text-3xl font-black text-[#2D2A26] tracking-tighter">
                 <AnimatedCounter to={150} />
               </span>
-              <span className="text-sm font-black text-[#2D2A26] mb-1">M+</span>
+
+              <span className="text-sm font-black text-[#2D2A26] mb-1">
+                M+
+              </span>
             </div>
-            <p className="text-[10px] font-bold text-[#2D2A26]/40 mt-1">Extra income generated</p>
+
+            <p className="text-[10px] font-bold text-[#2D2A26]/40 mt-1">
+              Total transaksi UMKM
+            </p>
           </div>
+
           <div className="w-10 h-10 rounded-full bg-accent-light/10 flex items-center justify-center text-accent-light">
             <RiArrowRightUpLine size={20} />
           </div>
@@ -591,16 +659,16 @@ export default function Hero() {
           variants={stickerVariants}
           className="bg-[#2D2A26] text-white text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-md shadow-md mb-8 w-max relative z-40"
         >
-          Eco Platform
+          Platform Digital UMKM
         </motion.div>
 
         <motion.h1
           variants={itemFadeUpVariants}
           className="text-[#2D2A26] text-[40px] sm:text-[52px] md:text-[64px] xl:text-[72px] leading-[0.9] font-black uppercase tracking-tighter flex flex-col items-center"
         >
-          <span>Rescue Delicious Food</span>
+          <span>Hubungkan UMKM</span>
           <span className="highlight">
-            Save Our Planet
+            Dengan Pelanggan
           </span>
         </motion.h1>
 
@@ -608,7 +676,7 @@ export default function Hero() {
           variants={itemFadeUpVariants}
           className="text-[#2D2A26]/75 text-xs min-[400px]:text-sm sm:text-base md:text-lg max-w-2xl mt-8 mb-8 font-medium leading-relaxed"
         >
-          A circular economy platform that connects conscious consumers with local eateries to save perfectly good food at flash-sale prices. 10x Impact. Automated.
+          UFinder adalah platform digital yang membantu masyarakat menemukan UMKM lokal terpercaya sekaligus membantu pelaku usaha menjangkau lebih banyak pelanggan melalui pencarian cerdas, peta interaktif, dan informasi usaha yang lengkap.
         </motion.p>
 
         <motion.div
@@ -625,7 +693,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <span className="text-[#2D2A26]/80 text-[11px] font-bold">12,000+ trusted users</span>
+          <span className="text-[#2D2A26]/80 text-[11px] font-bold">1,000+ masyarakat telah bergabung</span>
         </motion.div>
 
         <motion.div
