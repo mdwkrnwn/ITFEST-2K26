@@ -530,7 +530,7 @@ export default function Section5() {
             unit="+"
             icon={Store}
             iconColor="#10B981"
-            imageSrc="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=400&q=80"
+            imageSrc="/assets/1.jpg"
             position={{ left: "15%", top: "calc(50% + 20px)" }}
             style={{
               opacity: co2Opacity,
@@ -546,7 +546,7 @@ export default function Section5() {
             unit="+"
             icon={Grid3X3}
             iconColor="#3B82F6"
-            imageSrc="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&w=400&q=80"
+            imageSrc="/assets/2.jpg"
             position={{ left: "50%", top: "calc(50% + 20px)" }}
             style={{
               opacity: waterOpacity,
@@ -562,7 +562,7 @@ export default function Section5() {
             unit="m²"
             icon={MapPinned}
             iconColor="#F59E0B"
-            imageSrc="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80"
+             imageSrc="/assets/3.jpg"
             position={{ left: "85%", top: "calc(50% + 20px)" }}
             style={{
               opacity: landOpacity,

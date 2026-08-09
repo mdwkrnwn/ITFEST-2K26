@@ -15,20 +15,32 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "UFinder - Rescue Delicious Food. Save Our Planet.",
-  description: "Turning daily surplus into sustainable value. Join the movement to end food waste while enjoying your favorite treats at flash-sale prices.",
-  keywords: ["food waste", "sustainability", "flash sale", "rescue food", "save planet", "zero waste"],
+  title: "UFinder - Platform Pencarian UMKM Berbasis Lokasi",
+  description:
+    "Temukan UMKM terdekat, jelajahi berbagai kategori usaha, dan bantu pelaku usaha lokal berkembang melalui platform digital berbasis lokasi.",
+  keywords: [
+    "UMKM",
+    "LBS",
+    "Location Based Service",
+    "UMKM Indonesia",
+    "UMKM Digital",
+    "Direktori UMKM",
+    "Pencarian UMKM",
+    "Usaha Lokal",
+    "Produk Lokal",
+    "UFinder"
+  ],
   authors: [{ name: "UFinder" }],
   openGraph: {
-    title: "UFinder - Rescue Delicious Food. Save Our Planet.",
-    description: "Turning daily surplus into sustainable value. Join the movement to end food waste.",
+    title: "UFinder - Platform Pencarian UMKM Berbasis Lokasi",
+    description:
+      "Temukan UMKM terdekat dan dukung pertumbuhan ekonomi lokal melalui teknologi berbasis lokasi.",
     type: "website",
   },
   icons: {
-    icon: '/log.png',
+    icon: "/log.png",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

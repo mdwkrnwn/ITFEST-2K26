@@ -1,19 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/purity */
-'use client';
+"use client";
 
-import { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { motion, useMotionValue, useTransform, animate, useScroll, useSpring, AnimatePresence, useMotionTemplate } from 'framer-motion';
-import { Trash2, Flame, CloudRain, DollarSign, Play, X, ArrowUpRight } from 'lucide-react';
-import { RiLeafLine } from 'react-icons/ri';
-import Image from 'next/image';
+import { useRef, useEffect, useState } from "react";
+import { gsap } from "gsap";
 import {
-  Search,
-  MonitorSmartphone,
-  Megaphone,
-  MapPinned,
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useScroll,
+  useSpring,
+  AnimatePresence,
+  useMotionTemplate,
+} from "framer-motion";
+import {
+  Trash2,
+  Flame,
+  CloudRain,
+  DollarSign,
+  Play,
+  X,
+  ArrowUpRight,
 } from "lucide-react";
+import { RiLeafLine } from "react-icons/ri";
+import Image from "next/image";
+import { Search, MonitorSmartphone, Megaphone, MapPinned } from "lucide-react";
 interface ChartProps {
   isHovered: boolean;
   color: string;
@@ -26,14 +38,16 @@ const MiniBarChart = ({ isHovered, color }: ChartProps) => (
         key={i}
         initial={{ height: 0 }}
         animate={{
-          height: isHovered ? [`${height}%`, `${Math.random() * 50 + 50}%`, `${height}%`] : `${height}%`,
-          backgroundColor: isHovered ? '#FFFFFF' : color
+          height: isHovered
+            ? [`${height}%`, `${Math.random() * 50 + 50}%`, `${height}%`]
+            : `${height}%`,
+          backgroundColor: isHovered ? "#FFFFFF" : color,
         }}
         transition={{
           duration: isHovered ? 0.3 : 1,
-          delay: isHovered ? i * 0.05 : 0.5 + (i * 0.1),
+          delay: isHovered ? i * 0.05 : 0.5 + i * 0.1,
           repeat: isHovered ? Infinity : 0,
-          ease: isHovered ? "circInOut" : "easeOut"
+          ease: isHovered ? "circInOut" : "easeOut",
         }}
         className="w-3 sm:w-4 rounded-t-sm"
       />
@@ -44,18 +58,39 @@ const MiniBarChart = ({ isHovered, color }: ChartProps) => (
 const MiniRingChart = ({ isHovered, color }: ChartProps) => (
   <motion.div
     animate={{ rotate: isHovered ? 360 : 0 }}
-    transition={{ duration: isHovered ? 1.5 : 1, repeat: isHovered ? Infinity : 0, ease: "linear" }}
+    transition={{
+      duration: isHovered ? 1.5 : 1,
+      repeat: isHovered ? Infinity : 0,
+      ease: "linear",
+    }}
     className="relative w-10 h-10 sm:w-12 sm:h-12 mt-2"
   >
     <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-      <path className="text-white/20" strokeWidth="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+      <path
+        className="text-white/20"
+        strokeWidth="4"
+        stroke="currentColor"
+        fill="none"
+        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
       <motion.path
         animate={{
-          strokeDasharray: isHovered ? ["10, 100", "90, 100", "10, 100"] : "75, 100",
-          color: isHovered ? '#FFFFFF' : color
+          strokeDasharray: isHovered
+            ? ["10, 100", "90, 100", "10, 100"]
+            : "75, 100",
+          color: isHovered ? "#FFFFFF" : color,
         }}
-        transition={{ duration: isHovered ? 1 : 1.5, repeat: isHovered ? Infinity : 0, ease: "easeInOut" }}
-        className="text-[#2D2A26]" strokeWidth="4" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+        transition={{
+          duration: isHovered ? 1 : 1.5,
+          repeat: isHovered ? Infinity : 0,
+          ease: "easeInOut",
+        }}
+        className="text-[#2D2A26]"
+        strokeWidth="4"
+        strokeLinecap="round"
+        stroke="currentColor"
+        fill="none"
+        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
       />
     </svg>
   </motion.div>
@@ -67,19 +102,30 @@ const MiniTrendLine = ({ isHovered }: ChartProps) => (
       <motion.path
         animate={{
           pathLength: isHovered ? [0.2, 1, 0.2] : 1,
-          stroke: isHovered ? '#FFFFFF' : '#2D2A26'
+          stroke: isHovered ? "#FFFFFF" : "#2D2A26",
         }}
-        transition={{ duration: isHovered ? 0.8 : 1.5, repeat: isHovered ? Infinity : 0, ease: "easeInOut" }}
+        transition={{
+          duration: isHovered ? 0.8 : 1.5,
+          repeat: isHovered ? Infinity : 0,
+          ease: "easeInOut",
+        }}
         d="M0,40 Q20,30 40,35 T80,15 T100,0"
-        fill="none" strokeWidth="3" strokeLinecap="round"
+        fill="none"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <motion.circle
         animate={{
           scale: isHovered ? [1, 1.5, 1] : 1,
-          fill: isHovered ? '#FFFFFF' : '#0026ff'
+          fill: isHovered ? "#FFFFFF" : "#0026ff",
         }}
-        transition={{ duration: isHovered ? 0.4 : 2, repeat: isHovered ? Infinity : 0 }}
-        cx="100" cy="0" r="4"
+        transition={{
+          duration: isHovered ? 0.4 : 2,
+          repeat: isHovered ? Infinity : 0,
+        }}
+        cx="100"
+        cy="0"
+        r="4"
       />
     </svg>
   </div>
@@ -88,30 +134,53 @@ const MiniTrendLine = ({ isHovered }: ChartProps) => (
 const MiniGaugeChart = ({ isHovered, color }: ChartProps) => (
   <div className="relative w-14 h-7 sm:w-16 sm:h-8 mt-4 overflow-visible">
     <svg viewBox="0 0 100 50" className="w-full h-full overflow-visible">
-      <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke={isHovered ? "rgba(255,255,255,0.3)" : "rgba(242,143,59,0.2)"} strokeWidth="8" strokeLinecap="round" />
+      <path
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        stroke={isHovered ? "rgba(255,255,255,0.3)" : "rgba(242,143,59,0.2)"}
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
       <motion.path
         animate={{
-          stroke: isHovered ? '#FFFFFF' : '#0026ff',
-          pathLength: isHovered ? [0, 1, 0] : 0.85
+          stroke: isHovered ? "#FFFFFF" : "#0026ff",
+          pathLength: isHovered ? [0, 1, 0] : 0.85,
         }}
-        transition={{ duration: isHovered ? 0.5 : 1.5, repeat: isHovered ? Infinity : 0, ease: "easeInOut" }}
-        d="M 10 50 A 40 40 0 0 1 90 50" fill="none" strokeWidth="8" strokeLinecap="round"
+        transition={{
+          duration: isHovered ? 0.5 : 1.5,
+          repeat: isHovered ? Infinity : 0,
+          ease: "easeInOut",
+        }}
+        d="M 10 50 A 40 40 0 0 1 90 50"
+        fill="none"
+        strokeWidth="8"
+        strokeLinecap="round"
       />
       <motion.line
         animate={{
           rotate: isHovered ? [0, 180, 0] : 0,
-          stroke: isHovered ? '#FFFFFF' : '#2D2A26'
+          stroke: isHovered ? "#FFFFFF" : "#2D2A26",
         }}
-        className={'origin-[100%_0%]!'}
-        transition={{ duration: isHovered ? 0.5 : 1.5, repeat: isHovered ? Infinity : 0, type: isHovered ? "tween" : "spring", bounce: 0.4 }}
+        className={"origin-[100%_0%]!"}
+        transition={{
+          duration: isHovered ? 0.5 : 1.5,
+          repeat: isHovered ? Infinity : 0,
+          type: isHovered ? "tween" : "spring",
+          bounce: 0.4,
+        }}
         // style={{ originX: '0.5', originY: '0.5' }}
-        x1="50" y1="50"
-        x2="15" y2="50"
-        strokeWidth="3" strokeLinecap="round"
+        x1="50"
+        y1="50"
+        x2="15"
+        y2="50"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <motion.circle
-        cx="50" cy="50" r="6"
-        animate={{ fill: isHovered ? '#FFFFFF' : '#2D2A26' }}
+        cx="50"
+        cy="50"
+        r="6"
+        animate={{ fill: isHovered ? "#FFFFFF" : "#2D2A26" }}
       />
     </svg>
   </div>
@@ -126,8 +195,8 @@ const problemCardData = [
     description: "Belum memiliki visibilitas digital yang optimal.",
     fullExplanation:
       "Banyak UMKM berkualitas belum dikenal masyarakat karena keterbatasan promosi digital, sehingga sulit menjangkau pelanggan baru.",
-    bgImage:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=600",
+    bgImage: "/assets/4.jpg",
+
     color: "#2563EB",
     icon: <Search size={24} />,
     pos: { left: "4%", top: "10%" },
@@ -147,8 +216,7 @@ const problemCardData = [
     description: "Digitalisasi UMKM belum merata.",
     fullExplanation:
       "Sebagian pelaku usaha masih mengandalkan promosi konvensional sehingga jangkauan pasar menjadi terbatas.",
-    bgImage:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600",
+    bgImage: "/assets/5.jpg",
     color: "#2D2A26",
     icon: <MonitorSmartphone size={24} />,
     pos: { right: "4%", top: "10%" },
@@ -168,8 +236,7 @@ const problemCardData = [
     description: "Persaingan semakin tinggi setiap hari.",
     fullExplanation:
       "UMKM membutuhkan media promosi yang lebih efektif agar dapat bersaing dan menjangkau pelanggan secara berkelanjutan.",
-    bgImage:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=600",
+    bgImage: "/assets/6.jpg",
     color: "#2D2A26",
     icon: <Megaphone size={24} />,
     pos: { left: "6%", bottom: "16%" },
@@ -189,8 +256,7 @@ const problemCardData = [
     description: "Pelanggan membutuhkan informasi yang lengkap.",
     fullExplanation:
       "Calon pelanggan membutuhkan lokasi, kategori, jam operasional, foto, dan ulasan agar lebih percaya sebelum berkunjung atau bertransaksi.",
-    bgImage:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600",
+    bgImage: "/assets/7.jpg",
     color: "#2563EB",
     icon: <MapPinned size={24} />,
     pos: { right: "5%", bottom: "18%" },
@@ -209,31 +275,55 @@ const reelImages1 = [
   "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=800",
   "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800",
 ];
-const repeatedReel1 = [...reelImages1, ...reelImages1, ...reelImages1, ...reelImages1];
+const repeatedReel1 = [
+  ...reelImages1,
+  ...reelImages1,
+  ...reelImages1,
+  ...reelImages1,
+];
 
 const AnimatedNumber = ({ value }: { value: number }) => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) =>
-    value % 1 === 0 ? Math.floor(latest).toLocaleString() : latest.toFixed(1)
+    value % 1 === 0 ? Math.floor(latest).toLocaleString() : latest.toFixed(1),
   );
 
   useEffect(() => {
-    const controls = animate(count, value, { duration: 2, ease: [0.16, 1, 0.3, 1] });
+    const controls = animate(count, value, {
+      duration: 2,
+      ease: [0.16, 1, 0.3, 1],
+    });
     return () => controls.stop();
   }, [count, value]);
 
   return <motion.span>{rounded}</motion.span>;
 };
 
-const TiltCard = ({ children, className, isDesktop }: { children: React.ReactNode; className?: string; isDesktop: boolean }) => {
+const TiltCard = ({
+  children,
+  className,
+  isDesktop,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  isDesktop: boolean;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], isDesktop ? ["12deg", "-12deg"] : ["0deg", "0deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], isDesktop ? ["-12deg", "12deg"] : ["0deg", "0deg"]);
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    isDesktop ? ["12deg", "-12deg"] : ["0deg", "0deg"],
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    isDesktop ? ["-12deg", "12deg"] : ["0deg", "0deg"],
+  );
 
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["100%", "0%"]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["100%", "0%"]);
@@ -286,16 +376,30 @@ export default function Section3() {
 
   const magnetX = useMotionValue(0);
   const magnetY = useMotionValue(0);
-  const smoothMagnetX = useSpring(magnetX, { stiffness: 100, damping: 15, mass: 0.5 });
-  const smoothMagnetY = useSpring(magnetY, { stiffness: 100, damping: 15, mass: 0.5 });
+  const smoothMagnetX = useSpring(magnetX, {
+    stiffness: 100,
+    damping: 15,
+    mass: 0.5,
+  });
+  const smoothMagnetY = useSpring(magnetY, {
+    stiffness: 100,
+    damping: 15,
+    mass: 0.5,
+  });
 
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const cursorSpringX = useSpring(cursorX, { stiffness: 300, damping: 25 });
   const cursorSpringY = useSpring(cursorY, { stiffness: 300, damping: 25 });
 
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-  const springScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const springScroll = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
 
   const reel1X = useTransform(springScroll, [0, 1], ["0%", "-40%"]);
   const reel2X = useTransform(springScroll, [0, 1], ["-40%", "0%"]);
@@ -306,7 +410,7 @@ export default function Section3() {
   useEffect(() => {
     const checkDevice = () => setIsDesktop(window.innerWidth >= 1024);
     checkDevice();
-    window.addEventListener('resize', checkDevice);
+    window.addEventListener("resize", checkDevice);
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDesktop) return;
@@ -315,7 +419,8 @@ export default function Section3() {
       cursorY.set(e.clientY);
 
       if (smileyContainerRef.current) {
-        const { left, top, width, height } = smileyContainerRef.current.getBoundingClientRect();
+        const { left, top, width, height } =
+          smileyContainerRef.current.getBoundingClientRect();
         const centerX = left + width / 2;
         const centerY = top + height / 2;
         const distX = e.clientX - centerX;
@@ -334,22 +439,34 @@ export default function Section3() {
         eyes.forEach((eye) => {
           if (!eye) return;
           const rect = eye.getBoundingClientRect();
-          const angle = Math.atan2(e.clientY - (rect.top + rect.height / 2), e.clientX - (rect.left + rect.width / 2));
+          const angle = Math.atan2(
+            e.clientY - (rect.top + rect.height / 2),
+            e.clientX - (rect.left + rect.width / 2),
+          );
           const eyeDist = Math.min(8, distance / 10);
-          gsap.to(eye, { x: Math.cos(angle) * eyeDist, y: Math.sin(angle) * eyeDist, duration: 0.3, ease: "power2.out" });
+          gsap.to(eye, {
+            x: Math.cos(angle) * eyeDist,
+            y: Math.sin(angle) * eyeDist,
+            duration: 0.3,
+            ease: "power2.out",
+          });
         });
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener('resize', checkDevice);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("resize", checkDevice);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isDesktop, magnetX, magnetY, cursorX, cursorY]);
 
   return (
-    <div id="problem" ref={containerRef} className="relative w-full max-w-full overflow-x-hidden font-(--font-jakarta) bg-[#F4F3EE] lg:h-[220vh] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
+    <div
+      id="problem"
+      ref={containerRef}
+      className="relative w-full max-w-full overflow-x-hidden font-(--font-jakarta) bg-[#F4F3EE] lg:h-[220vh] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
+    >
       <style jsx global>{`
         #problem *::-webkit-scrollbar {
           display: none !important;
@@ -362,7 +479,12 @@ export default function Section3() {
 
       {isDesktop && (
         <motion.div
-          style={{ x: cursorSpringX, y: cursorSpringY, translateX: "-50%", translateY: "-50%" }}
+          style={{
+            x: cursorSpringX,
+            y: cursorSpringY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
           animate={{
             scale: isHoveringVideo && !showModal ? 1 : 0,
             opacity: isHoveringVideo && !showModal ? 1 : 0,
@@ -370,12 +492,13 @@ export default function Section3() {
           className="fixed top-0 left-0 z-150 w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-accent-light to-[#0026ff] rounded-full flex flex-col items-center justify-center text-white shadow-[0_10px_30px_rgba(6,92,225,0.5)] pointer-events-none"
         >
           <Play fill="white" size={32} className="ml-1" />
-          <span className="text-[10px] font-black uppercase tracking-widest mt-1">Play</span>
+          <span className="text-[10px] font-black uppercase tracking-widest mt-1">
+            Play
+          </span>
         </motion.div>
       )}
 
       <section className="relative lg:sticky lg:top-0 w-full max-w-full overflow-hidden min-h-screen z-20 flex flex-col pt-12 lg:pt-8 px-4 lg:px-0 pb-10">
-
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <motion.div
             initial={{ opacity: 0 }}
@@ -384,26 +507,60 @@ export default function Section3() {
             transition={{ duration: 1.5 }}
             className="absolute inset-0 flex flex-col justify-center gap-10"
           >
-            <motion.div style={{ x: reel1X }} className="flex gap-6 w-max max-w-none -rotate-6 transform-gpu">
+            <motion.div
+              style={{ x: reel1X }}
+              className="flex gap-6 w-max max-w-none -rotate-6 transform-gpu"
+            >
               {repeatedReel1.map((src, idx) => (
-                <div key={`reel1-${idx}`} className="w-75 md:w-100 h-50 md:h-62.5 rounded-3xl overflow-hidden shrink-0 shadow-sm border border-black/5 max-w-none">
-                  <img src={src} alt="Background Reel" className="w-full h-full object-cover max-w-none" />
+                <div
+                  key={`reel1-${idx}`}
+                  className="w-75 md:w-100 h-50 md:h-62.5 rounded-3xl overflow-hidden shrink-0 shadow-sm border border-black/5 max-w-none"
+                >
+                  <img
+                    src={src}
+                    alt="Background Reel"
+                    className="w-full h-full object-cover max-w-none"
+                  />
                 </div>
               ))}
             </motion.div>
-            <motion.div style={{ x: reel2X }} className="flex gap-6 w-max max-w-none -rotate-3 transform-gpu">
+            <motion.div
+              style={{ x: reel2X }}
+              className="flex gap-6 w-max max-w-none -rotate-3 transform-gpu"
+            >
               {repeatedReel1.map((src, idx) => (
-                <div key={`reel2-${idx}`} className="w-75 md:w-100 h-50 md:h-62.5 rounded-3xl overflow-hidden shrink-0 shadow-sm border border-black/5 max-w-none">
-                  <img src={src} alt="Background Reel" className="w-full h-full object-cover max-w-none" />
+                <div
+                  key={`reel2-${idx}`}
+                  className="w-75 md:w-100 h-50 md:h-62.5 rounded-3xl overflow-hidden shrink-0 shadow-sm border border-black/5 max-w-none"
+                >
+                  <img
+                    src={src}
+                    alt="Background Reel"
+                    className="w-full h-full object-cover max-w-none"
+                  />
                 </div>
               ))}
             </motion.div>
           </motion.div>
 
           <div className="absolute inset-0 bg-[#F4F3EE]/85 z-0" />
-          <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-          <motion.div animate={{ x: [0, 100, 0], y: [0, -50, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[5%] right-[5%] w-75 lg:w-150 h-75 lg:h-150 bg-accent-light rounded-full blur-[100px] lg:blur-[150px] opacity-20" />
-          <motion.div animate={{ x: [0, -100, 0], y: [0, 50, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[20%] left-[5%] w-75 lg:w-125 h-75 lg:h-125 bg-[#2D2A26] rounded-full blur-[100px] lg:blur-[150px] opacity-10" />
+          <div
+            className="absolute inset-0 opacity-[0.2]"
+            style={{
+              backgroundImage: "radial-gradient(#2D2A26 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+          <motion.div
+            animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[5%] right-[5%] w-75 lg:w-150 h-75 lg:h-150 bg-accent-light rounded-full blur-[100px] lg:blur-[150px] opacity-20"
+          />
+          <motion.div
+            animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[20%] left-[5%] w-75 lg:w-125 h-75 lg:h-125 bg-[#2D2A26] rounded-full blur-[100px] lg:blur-[150px] opacity-10"
+          />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -412,7 +569,10 @@ export default function Section3() {
             transition={{ duration: 1 }}
             className="hidden lg:block absolute top-[30%] left-[25%] text-accent-light/10 z-0 pointer-events-none"
           >
-            <motion.div animate={{ y: [0, -30, 0], rotate: [0, 15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+            <motion.div
+              animate={{ y: [0, -30, 0], rotate: [0, 15, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
               <RiLeafLine size={80} />
             </motion.div>
           </motion.div>
@@ -423,10 +583,15 @@ export default function Section3() {
             initial={{ opacity: 0, scale: 0.4, rotate: -20, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -3, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 12,
+              mass: 0.8,
+            }}
             className="bg-[#2D2A26] text-white text-[9px] sm:text-xs font-black uppercase tracking-[0.3em] px-3 py-1 rounded-md shadow-md mb-2"
           >
-              Tantangan UMKM
+            Tantangan UMKM
           </motion.div>
 
           <h2 className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center">
@@ -444,7 +609,13 @@ export default function Section3() {
               initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 30 }}
               whileInView={{ scale: 1, opacity: 1, rotate: -1.5, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 150, damping: 12 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+                type: "spring",
+                stiffness: 150,
+                damping: 12,
+              }}
               className="highlight text-[20px] sm:text-[32px] md:text-[40px] lg:text-[44px] mt-2"
             >
               YANG DIHADAPI
@@ -453,14 +624,27 @@ export default function Section3() {
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto flex flex-col lg:block h-auto lg:h-180 justify-center z-20 pt-20 lg:pt-36 overflow-hidden">
-
           {isDesktop && (
-            <svg viewBox="0 0 1200 800" className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
+            <svg
+              viewBox="0 0 1200 800"
+              className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
+            >
               <defs>
                 {problemCardData.map((card) => (
-                  <linearGradient key={`grad-${card.id}`} id={`cableGrad-${card.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    key={`grad-${card.id}`}
+                    id={`cableGrad-${card.id}`}
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#065ce1" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor={card.color} stopOpacity="1" />
+                    <stop
+                      offset="100%"
+                      stopColor={card.color}
+                      stopOpacity="1"
+                    />
                   </linearGradient>
                 ))}
               </defs>
@@ -475,14 +659,23 @@ export default function Section3() {
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: card.floatDelay }}
                   >
-                    <path d={card.cablePath} fill="none" stroke="#2D2A26" strokeWidth="2" strokeOpacity="0.1" />
+                    <path
+                      d={card.cablePath}
+                      fill="none"
+                      stroke="#2D2A26"
+                      strokeWidth="2"
+                      strokeOpacity="0.1"
+                    />
                     <motion.path
                       d={card.cablePath}
                       fill="none"
                       stroke={`url(#cableGrad-${card.id})`}
                       strokeWidth={isHovered ? "4" : "0"}
                       initial={{ pathLength: 0 }}
-                      animate={{ pathLength: isHovered ? 1 : 0, strokeDasharray: isHovered ? "10, 5" : "0" }}
+                      animate={{
+                        pathLength: isHovered ? 1 : 0,
+                        strokeDasharray: isHovered ? "10, 5" : "0",
+                      }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="drop-shadow-[0_0_8px_rgba(6,92,225,0.5)]"
                     />
@@ -494,15 +687,33 @@ export default function Section3() {
                         strokeWidth="2"
                         strokeDasharray="15, 150"
                         animate={{ strokeDashoffset: [-165, 0] }}
-                        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 0.8,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                       />
                     )}
-                    <circle cx={card.nodeX} cy={card.nodeY} r="8" fill="#2D2A26" fillOpacity="0.1" />
+                    <circle
+                      cx={card.nodeX}
+                      cy={card.nodeY}
+                      r="8"
+                      fill="#2D2A26"
+                      fillOpacity="0.1"
+                    />
                     <motion.circle
-                      cx={card.nodeX} cy={card.nodeY} r="4"
+                      cx={card.nodeX}
+                      cy={card.nodeY}
+                      r="4"
                       fill={isHovered ? card.color : "#2D2A26"}
-                      animate={{ scale: isHovered ? [1, 1.5, 1] : 1, opacity: isHovered ? 1 : 0.3 }}
-                      transition={{ duration: 1, repeat: isHovered ? Infinity : 0 }}
+                      animate={{
+                        scale: isHovered ? [1, 1.5, 1] : 1,
+                        opacity: isHovered ? 1 : 0.3,
+                      }}
+                      transition={{
+                        duration: 1,
+                        repeat: isHovered ? Infinity : 0,
+                      }}
                     />
                   </motion.g>
                 );
@@ -515,16 +726,34 @@ export default function Section3() {
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.5, delay: 0.3 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.5,
+              delay: 0.3,
+            }}
             style={isDesktop ? { x: smoothMagnetX, y: smoothMagnetY } : {}}
             className="relative lg:absolute lg:left-1/2 lg:top-[50%] lg:-translate-x-1/2 lg:-translate-y-1/2 z-20 flex items-center justify-center mb-16 sm:mb-20 lg:mb-0 mt-8 sm:mt-12 lg:mt-0"
           >
             {isDesktop && (
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute w-70 h-70 pointer-events-none opacity-20">
-                <svg viewBox="0 0 200 200" className="w-full h-full fill-[#2D2A26]">
-                  <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-70 h-70 pointer-events-none opacity-20"
+              >
+                <svg
+                  viewBox="0 0 200 200"
+                  className="w-full h-full fill-[#2D2A26]"
+                >
+                  <path
+                    id="textPath"
+                    d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                    fill="none"
+                  />
                   <text className="text-[14px] font-black uppercase tracking-[0.2em]">
-                    <textPath href="#textPath" startOffset="0%">SAVE FOOD • PROTECT PLANET • REDUCE WASTE • </textPath>
+                    <textPath href="#textPath" startOffset="0%">
+                      SAVE FOOD • PROTECT PLANET • REDUCE WASTE •{" "}
+                    </textPath>
                   </text>
                 </svg>
               </motion.div>
@@ -533,18 +762,44 @@ export default function Section3() {
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 xl:w-48 xl:h-48 rounded-full bg-linear-to-br from-accent-light to-[#0026ff] shadow-[0_25px_50px_rgba(6,92, 225,0.3)] flex flex-col items-center justify-center border-4 sm:border-[5px] border-white backdrop-blur-md cursor-none z-20 transition-transform duration-300">
               <div className="flex gap-4 sm:gap-5 xl:gap-6 mb-2 sm:mb-3">
                 <div className="w-7 h-7 sm:w-9 sm:h-9 xl:w-10 xl:h-10 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden border border-black/5">
-                  <div ref={leftEyeRef} className="flex items-center justify-center w-full h-full">
-                    <motion.div animate={{ scale: hoveredCard ? 2.5 : 1 }} transition={{ duration: 0.3, type: "spring", bounce: 0.5 }} className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 xl:w-4 bg-[#2D2A26] rounded-full" />
+                  <div
+                    ref={leftEyeRef}
+                    className="flex items-center justify-center w-full h-full"
+                  >
+                    <motion.div
+                      animate={{ scale: hoveredCard ? 2.5 : 1 }}
+                      transition={{
+                        duration: 0.3,
+                        type: "spring",
+                        bounce: 0.5,
+                      }}
+                      className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 xl:w-4 bg-[#2D2A26] rounded-full"
+                    />
                   </div>
                 </div>
                 <div className="w-7 h-7 sm:w-9 sm:h-9 xl:w-10 xl:h-10 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden border border-black/5">
-                  <div ref={rightEyeRef} className="flex items-center justify-center w-full h-full">
-                    <motion.div animate={{ scale: hoveredCard ? 2.5 : 1 }} transition={{ duration: 0.3, type: "spring", bounce: 0.5 }} className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 xl:w-4 bg-[#2D2A26] rounded-full" />
+                  <div
+                    ref={rightEyeRef}
+                    className="flex items-center justify-center w-full h-full"
+                  >
+                    <motion.div
+                      animate={{ scale: hoveredCard ? 2.5 : 1 }}
+                      transition={{
+                        duration: 0.3,
+                        type: "spring",
+                        bounce: 0.5,
+                      }}
+                      className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 xl:w-4 bg-[#2D2A26] rounded-full"
+                    />
                   </div>
                 </div>
               </div>
               <motion.div
-                animate={{ width: hoveredCard ? "1.25rem" : "2.5rem", height: hoveredCard ? "1.75rem" : "0.65rem", borderRadius: hoveredCard ? "50%" : "9999px" }}
+                animate={{
+                  width: hoveredCard ? "1.25rem" : "2.5rem",
+                  height: hoveredCard ? "1.75rem" : "0.65rem",
+                  borderRadius: hoveredCard ? "50%" : "9999px",
+                }}
                 transition={{ duration: 0.3, type: "spring", bounce: 0.5 }}
                 className="mt-1.5 opacity-80 xl:h-3.5 sm:h-3 bg-[#2D2A26]"
               />
@@ -560,20 +815,49 @@ export default function Section3() {
                   key={card.id}
                   onMouseEnter={() => setHoveredCard(card.id)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  style={isDesktop ? { position: 'absolute', ...card.pos, zIndex: isHovered ? 40 : 30, width: '100%', maxWidth: '300px', perspective: '1000px' } : {}}
+                  style={
+                    isDesktop
+                      ? {
+                          position: "absolute",
+                          ...card.pos,
+                          zIndex: isHovered ? 40 : 30,
+                          width: "100%",
+                          maxWidth: "300px",
+                          perspective: "1000px",
+                        }
+                      : {}
+                  }
                   className="w-full relative lg:absolute"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1, rotate: isDesktop ? card.rotation : 0 }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      rotate: isDesktop ? card.rotation : 0,
+                    }}
                     viewport={{ once: true, margin: "-5%" }}
-                    transition={{ duration: 0.8, delay: isDesktop ? 0.3 + idx * 0.12 : 0.2, type: "spring", bounce: 0.4 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: isDesktop ? 0.3 + idx * 0.12 : 0.2,
+                      type: "spring",
+                      bounce: 0.4,
+                    }}
                   >
                     <motion.div
                       animate={isDesktop ? { y: [0, -12, 0] } : {}}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: card.floatDelay }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: card.floatDelay,
+                      }}
                     >
-                      <TiltCard isDesktop={isDesktop} className="w-full rounded-[20px] sm:rounded-[28px]">
+                      <TiltCard
+                        isDesktop={isDesktop}
+                        className="w-full rounded-[20px] sm:rounded-[28px]"
+                      >
                         <motion.div
                           animate={{
                             backgroundColor: isHovered ? card.color : "#FFFFFF",
@@ -584,30 +868,49 @@ export default function Section3() {
                           className="flex flex-col h-full relative border-2 p-4 sm:p-5 rounded-[20px] sm:rounded-[28px] shadow-[0_12px_40px_rgba(0,0,0,0.06)] overflow-hidden"
                         >
                           <motion.div
-                            animate={{ color: isHovered ? "#FFFFFF" : "#2D2A26" }}
-                            style={{ transform: isDesktop ? "translateZ(40px)" : "none" }}
+                            animate={{
+                              color: isHovered ? "#FFFFFF" : "#2D2A26",
+                            }}
+                            style={{
+                              transform: isDesktop
+                                ? "translateZ(40px)"
+                                : "none",
+                            }}
                             className="flex flex-col h-full relative z-10"
                           >
                             <div className="flex items-start justify-between mb-2">
                               <motion.div
                                 animate={{
-                                  backgroundColor: isHovered ? "rgba(255,255,255,0.2)" : "rgba(244,243,238,1)",
+                                  backgroundColor: isHovered
+                                    ? "rgba(255,255,255,0.2)"
+                                    : "rgba(244,243,238,1)",
                                   color: isHovered ? "#FFFFFF" : card.color,
-                                  rotate: isHovered ? [0, -10, 10, -10, 0] : 0
+                                  rotate: isHovered ? [0, -10, 10, -10, 0] : 0,
                                 }}
-                                transition={{ duration: 0.5, repeat: isHovered ? Infinity : 0, repeatDelay: 1 }}
+                                transition={{
+                                  duration: 0.5,
+                                  repeat: isHovered ? Infinity : 0,
+                                  repeatDelay: 1,
+                                }}
                                 className="p-2 sm:p-2.5 rounded-xl shadow-inner"
                               >
                                 {card.icon}
                               </motion.div>
                               <div className="h-8 sm:h-10 flex items-center">
-                                <card.Visual isHovered={isHovered} color={card.color} />
+                                <card.Visual
+                                  isHovered={isHovered}
+                                  color={card.color}
+                                />
                               </div>
                             </div>
 
                             <div className="mt-1 relative">
                               <motion.h3
-                                animate={{ color: isHovered ? "rgba(255,255,255,0.7)" : "rgba(45,42,38,0.5)" }}
+                                animate={{
+                                  color: isHovered
+                                    ? "rgba(255,255,255,0.7)"
+                                    : "rgba(45,42,38,0.5)",
+                                }}
                                 className="text-[10px] font-black uppercase tracking-[0.15em] mb-0.5"
                               >
                                 {card.title}
@@ -618,17 +921,27 @@ export default function Section3() {
                                 </span>
                               </div>
                               <motion.p
-                                animate={{ color: isHovered ? "#FFFFFF" : "#065ce1" }}
+                                animate={{
+                                  color: isHovered ? "#FFFFFF" : "#065ce1",
+                                }}
                                 className="text-[9px] font-bold uppercase tracking-wider mb-1.5"
                               >
                                 {card.unit}
                               </motion.p>
                               <motion.div
-                                animate={{ background: isHovered ? "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%)" : "linear-gradient(90deg, rgba(45,42,38,0.1) 0%, transparent 100%)" }}
+                                animate={{
+                                  background: isHovered
+                                    ? "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%)"
+                                    : "linear-gradient(90deg, rgba(45,42,38,0.1) 0%, transparent 100%)",
+                                }}
                                 className="w-full h-px mb-1.5"
                               />
                               <motion.p
-                                animate={{ color: isHovered ? "rgba(255,255,255,0.9)" : "rgba(45,42,38,0.6)" }}
+                                animate={{
+                                  color: isHovered
+                                    ? "rgba(255,255,255,0.9)"
+                                    : "rgba(45,42,38,0.6)",
+                                }}
                                 className="text-xs font-medium leading-relaxed"
                               >
                                 {card.description}
@@ -643,13 +956,20 @@ export default function Section3() {
                               </motion.div>
 
                               <motion.div
-                                initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                                initial={{
+                                  height: 0,
+                                  opacity: 0,
+                                  marginTop: 0,
+                                }}
                                 animate={{
                                   height: isHovered ? "auto" : 0,
                                   opacity: isHovered ? 1 : 0,
-                                  marginTop: isHovered ? 12 : 0
+                                  marginTop: isHovered ? 12 : 0,
                                 }}
-                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                transition={{
+                                  duration: 0.4,
+                                  ease: [0.16, 1, 0.3, 1],
+                                }}
                                 className="overflow-hidden flex flex-col gap-2.5"
                               >
                                 <p className="text-[12px] leading-relaxed text-white/90 font-medium bg-black/10 p-2.5 rounded-xl border border-white/10">
@@ -666,7 +986,6 @@ export default function Section3() {
                                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                                 </div>
                               </motion.div>
-
                             </div>
                           </motion.div>
                         </motion.div>
@@ -677,17 +996,27 @@ export default function Section3() {
               );
             })}
           </div>
-
         </div>
       </section>
 
       <div className="w-full h-[5vh] lg:h-[12vh] pointer-events-none z-10 relative" />
 
       <motion.section
-        style={isDesktop ? { scale: sec2Scale, rotate: sec2Rotate, transformOrigin: "bottom center" } : {}}
+        style={
+          isDesktop
+            ? {
+                scale: sec2Scale,
+                rotate: sec2Rotate,
+                transformOrigin: "bottom center",
+              }
+            : {}
+        }
         className="relative z-10 w-full max-w-full overflow-hidden lg:h-[120vh] flex items-center justify-center px-4 md:px-6 pt-16 pb-24 lg:py-0"
       >
-        <TiltCard isDesktop={isDesktop} className="w-full max-w-6xl mx-auto aspect-4/3 sm:aspect-video rounded-3xl sm:rounded-4xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] border border-white/50">
+        <TiltCard
+          isDesktop={isDesktop}
+          className="w-full max-w-6xl mx-auto aspect-4/3 sm:aspect-video rounded-3xl sm:rounded-4xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] border border-white/50"
+        >
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -699,7 +1028,12 @@ export default function Section3() {
             className="w-full h-full lg:cursor-none transition-transform hover:scale-[1.01] duration-500 relative"
           >
             <div className="absolute inset-0 w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-500">
-              <iframe className="w-full h-full pointer-events-none scale-105" src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?" allow="autoplay; encrypted-media" title='UMKM GO-DIGITAL' />
+              <iframe
+                className="w-full h-full pointer-events-none scale-105"
+                src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?"
+                allow="autoplay; encrypted-media"
+                title="UMKM GO-DIGITAL"
+              />
             </div>
             <div className="absolute inset-0 bg-linear-to-t from-[#2D2A26]/90 via-[#2D2A26]/20 to-transparent z-10 pointer-events-none" />
 
@@ -712,7 +1046,9 @@ export default function Section3() {
                 className="flex items-center gap-3 mb-4 md:mb-5"
               >
                 <div className="h-1.5 w-10 md:w-14 bg-accent-light rounded-full" />
-                <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] text-white/80">Click to Play with Sound</span>
+                <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] text-white/80">
+                  Click to Play with Sound
+                </span>
               </motion.div>
               <motion.h3
                 initial={{ opacity: 0, y: 30 }}
@@ -721,7 +1057,8 @@ export default function Section3() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9]"
               >
-                Grow Your Business,<br />
+                Grow Your Business,
+                <br />
                 <span className="text-blue-800">Reach More Customers.</span>
               </motion.h3>
             </div>
@@ -737,10 +1074,31 @@ export default function Section3() {
 
       <AnimatePresence>
         {showModal && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-200 bg-[#F4F3EE]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10">
-            <button onClick={() => setShowModal(false)} className="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#2D2A26] hover:text-accent-light transition-colors z-210 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl"><X size={20} className="sm:w-6 sm:h-6" /></button>
-            <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="relative w-full max-w-6xl aspect-video rounded-2xl sm:rounded-4xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border border-white/50">
-              <iframe className="w-full h-full bg-[#2D2A26]" src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?" allow="autoplay; encrypted-media" allowFullScreen title='UMKM GO-DIGITAL' />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-200 bg-[#F4F3EE]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10"
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#2D2A26] hover:text-accent-light transition-colors z-210 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl"
+            >
+              <X size={20} className="sm:w-6 sm:h-6" />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative w-full max-w-6xl aspect-video rounded-2xl sm:rounded-4xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border border-white/50"
+            >
+              <iframe
+                className="w-full h-full bg-[#2D2A26]"
+                src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title="UMKM GO-DIGITAL"
+              />
             </motion.div>
           </motion.div>
         )}
