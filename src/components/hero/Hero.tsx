@@ -1,10 +1,23 @@
 /* eslint-disable react-hooks/immutability */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-hooks/rules-of-hooks */
-'use client';
+"use client";
 
-import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
-import { motion, useTransform, useSpring, useInView, useMotionValue, Variants } from 'framer-motion';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
+import {
+  motion,
+  useTransform,
+  useSpring,
+  useInView,
+  useMotionValue,
+  Variants,
+} from "framer-motion";
 import {
   RiLeafLine,
   RiMapPinLine,
@@ -13,19 +26,22 @@ import {
   RiStore2Line,
   RiMapPin2Line,
   RiLineChartLine,
-  RiArrowRightUpLine
-} from 'react-icons/ri';
+  RiArrowRightUpLine,
+} from "react-icons/ri";
 
-import { gsap } from 'gsap';
-import { InertiaPlugin } from 'gsap/InertiaPlugin';
-import { AnimatedCounter } from './AnimatedCounter';
-import Image from 'next/image';
+import { gsap } from "gsap";
+import { InertiaPlugin } from "gsap/InertiaPlugin";
+import { AnimatedCounter } from "./AnimatedCounter";
+import Image from "next/image";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(InertiaPlugin);
 }
 
-const throttle = <T extends Event>(func: (this: Window, event: T) => void, limit: number) => {
+const throttle = <T extends Event>(
+  func: (this: Window, event: T) => void,
+  limit: number,
+) => {
   let lastCall = 0;
   return function (this: Window, event: T) {
     const now = performance.now();
@@ -58,7 +74,9 @@ export interface DotGridProps {
   returnDuration?: number;
   className?: string;
   style?: React.CSSProperties;
-  triggerShockwaveRef?: React.MutableRefObject<((cx: number, cy: number) => void) | null>;
+  triggerShockwaveRef?: React.MutableRefObject<
+    ((cx: number, cy: number) => void) | null
+  >;
 }
 
 function hexToRgb(hex: string) {
@@ -67,15 +85,15 @@ function hexToRgb(hex: string) {
   return {
     r: Number.parseInt(m[1], 16),
     g: Number.parseInt(m[2], 16),
-    b: Number.parseInt(m[3], 16)
+    b: Number.parseInt(m[3], 16),
   };
 }
 
 const DotGrid: React.FC<DotGridProps> = ({
   dotSize = 16,
   gap = 32,
-  baseColor = '#5227FF',
-  activeColor = '#5227FF',
+  baseColor = "#5227FF",
+  activeColor = "#5227FF",
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,
@@ -83,9 +101,9 @@ const DotGrid: React.FC<DotGridProps> = ({
   maxSpeed = 5000,
   resistance = 750,
   returnDuration = 1.5,
-  className = '',
+  className = "",
   style,
-  triggerShockwaveRef
+  triggerShockwaveRef,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -93,14 +111,21 @@ const DotGrid: React.FC<DotGridProps> = ({
   const isInView = useInView(wrapperRef, { margin: "0px" });
   const dotsRef = useRef<Dot[]>([]);
   const pointerRef = useRef({
-    x: 0, y: 0, vx: 0, vy: 0, speed: 0, lastTime: 0, lastX: 0, lastY: 0
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
+    speed: 0,
+    lastTime: 0,
+    lastX: 0,
+    lastY: 0,
   });
 
   const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
   const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
 
   const circlePath = useMemo(() => {
-    if (typeof window === 'undefined' || !window.Path2D) return null;
+    if (typeof window === "undefined" || !window.Path2D) return null;
     const p = new Path2D();
     p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
     return p;
@@ -118,7 +143,7 @@ const DotGrid: React.FC<DotGridProps> = ({
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
 
     const cols = Math.floor((width + gap) / (dotSize + gap));
@@ -144,27 +169,37 @@ const DotGrid: React.FC<DotGridProps> = ({
     dotsRef.current = dots;
   }, [dotSize, gap]);
 
-  const triggerShockwave = useCallback((cx: number, cy: number) => {
-    for (const dot of dotsRef.current) {
-      const dist = Math.hypot(dot.cx - cx, dot.cy - cy);
-      if (dist < shockRadius && !dot._inertiaApplied) {
-        dot._inertiaApplied = true;
-        gsap.killTweensOf(dot);
-        const falloff = Math.max(0, 1 - dist / shockRadius);
-        const pushX = (dot.cx - cx) * (shockStrength * 2.5) * falloff;
-        const pushY = (dot.cy - cy) * (shockStrength * 2.5) * falloff;
-        gsap.to(dot, {
-          inertia: { xOffset: pushX, yOffset: pushY, resistance: resistance * 0.5 },
-          onComplete: () => {
-            gsap.to(dot, {
-              xOffset: 0, yOffset: 0, duration: returnDuration * 1.2, ease: 'elastic.out(1, 0.5)'
-            });
-            dot._inertiaApplied = false;
-          }
-        });
+  const triggerShockwave = useCallback(
+    (cx: number, cy: number) => {
+      for (const dot of dotsRef.current) {
+        const dist = Math.hypot(dot.cx - cx, dot.cy - cy);
+        if (dist < shockRadius && !dot._inertiaApplied) {
+          dot._inertiaApplied = true;
+          gsap.killTweensOf(dot);
+          const falloff = Math.max(0, 1 - dist / shockRadius);
+          const pushX = (dot.cx - cx) * (shockStrength * 2.5) * falloff;
+          const pushY = (dot.cy - cy) * (shockStrength * 2.5) * falloff;
+          gsap.to(dot, {
+            inertia: {
+              xOffset: pushX,
+              yOffset: pushY,
+              resistance: resistance * 0.5,
+            },
+            onComplete: () => {
+              gsap.to(dot, {
+                xOffset: 0,
+                yOffset: 0,
+                duration: returnDuration * 1.2,
+                ease: "elastic.out(1, 0.5)",
+              });
+              dot._inertiaApplied = false;
+            },
+          });
+        }
       }
-    }
-  }, [shockRadius, shockStrength, resistance, returnDuration]);
+    },
+    [shockRadius, shockStrength, resistance, returnDuration],
+  );
 
   useEffect(() => {
     if (triggerShockwaveRef) {
@@ -180,7 +215,7 @@ const DotGrid: React.FC<DotGridProps> = ({
     const draw = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext("2d");
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -219,15 +254,15 @@ const DotGrid: React.FC<DotGridProps> = ({
   useEffect(() => {
     buildGrid();
     let ro: ResizeObserver | null = null;
-    if ('ResizeObserver' in window && wrapperRef.current) {
+    if ("ResizeObserver" in window && wrapperRef.current) {
       ro = new ResizeObserver(buildGrid);
       ro.observe(wrapperRef.current);
     } else {
-      window.addEventListener('resize', buildGrid);
+      window.addEventListener("resize", buildGrid);
     }
     return () => {
       if (ro) ro.disconnect();
-      else window.removeEventListener('resize', buildGrid);
+      else window.removeEventListener("resize", buildGrid);
     };
   }, [buildGrid]);
 
@@ -243,10 +278,16 @@ const DotGrid: React.FC<DotGridProps> = ({
       let speed = Math.hypot(vx, vy);
       if (speed > maxSpeed) {
         const scale = maxSpeed / speed;
-        vx *= scale; vy *= scale; speed = maxSpeed;
+        vx *= scale;
+        vy *= scale;
+        speed = maxSpeed;
       }
-      pr.lastTime = now; pr.lastX = e.clientX; pr.lastY = e.clientY;
-      pr.vx = vx; pr.vy = vy; pr.speed = speed;
+      pr.lastTime = now;
+      pr.lastX = e.clientX;
+      pr.lastY = e.clientY;
+      pr.vx = vx;
+      pr.vy = vy;
+      pr.speed = speed;
 
       if (!canvasRef.current) return;
       const rect = canvasRef.current.getBoundingClientRect();
@@ -264,24 +305,40 @@ const DotGrid: React.FC<DotGridProps> = ({
             inertia: { xOffset: pushX, yOffset: pushY, resistance },
             onComplete: () => {
               gsap.to(dot, {
-                xOffset: 0, yOffset: 0, duration: returnDuration, ease: 'elastic.out(1,0.75)'
+                xOffset: 0,
+                yOffset: 0,
+                duration: returnDuration,
+                ease: "elastic.out(1,0.75)",
               });
               dot._inertiaApplied = false;
-            }
+            },
           });
         }
       }
     };
 
     const throttledMove = throttle(onMove, 50);
-    window.addEventListener('mousemove', throttledMove, { passive: true });
-    return () => window.removeEventListener('mousemove', throttledMove);
-  }, [maxSpeed, speedTrigger, proximity, resistance, returnDuration, triggerShockwave]);
+    window.addEventListener("mousemove", throttledMove, { passive: true });
+    return () => window.removeEventListener("mousemove", throttledMove);
+  }, [
+    maxSpeed,
+    speedTrigger,
+    proximity,
+    resistance,
+    returnDuration,
+    triggerShockwave,
+  ]);
 
   return (
-    <div className={`p-4 flex items-center justify-center h-full w-full relative ${className}`} style={style}>
+    <div
+      className={`p-4 flex items-center justify-center h-full w-full relative ${className}`}
+      style={style}
+    >
       <div ref={wrapperRef} className="w-full h-full relative">
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none"
+        />
       </div>
     </div>
   );
@@ -299,7 +356,7 @@ const marqueeTexts = [
   "DUKUNG PRODUK LOKAL",
   "PETA UMKM INTERAKTIF",
   "BANGUN EKOSISTEM UMKM",
-  "PROMOSI USAHA LOKAL"
+  "PROMOSI USAHA LOKAL",
 ];
 
 const floatingCards = [
@@ -331,9 +388,7 @@ const floatingCards = [
             <AnimatedCounter to={50000} />
           </span>
 
-          <span className="text-sm font-black text-[#2D2A26] mb-1">
-            +
-          </span>
+          <span className="text-sm font-black text-[#2D2A26] mb-1">+</span>
         </div>
       </div>
     ),
@@ -359,9 +414,7 @@ const floatingCards = [
             <AnimatedCounter to={150} />
           </span>
 
-          <span className="text-sm font-black text-[#2D2A26] mb-1">
-            Kota
-          </span>
+          <span className="text-sm font-black text-[#2D2A26] mb-1">Kota</span>
         </div>
 
         <div className="w-full h-1.5 bg-[#F4F3EE] rounded-full overflow-hidden">
@@ -446,10 +499,7 @@ const floatingCards = [
             TRANSAKSI UMKM
           </p>
 
-          <RiLineChartLine
-            className="text-accent-light"
-            size={16}
-          />
+          <RiLineChartLine className="text-accent-light" size={16} />
         </div>
 
         <div className="flex items-center gap-3">
@@ -463,9 +513,7 @@ const floatingCards = [
                 <AnimatedCounter to={150} />
               </span>
 
-              <span className="text-sm font-black text-[#2D2A26] mb-1">
-                M+
-              </span>
+              <span className="text-sm font-black text-[#2D2A26] mb-1">M+</span>
             </div>
 
             <p className="text-[10px] font-bold text-[#2D2A26]/40 mt-1">
@@ -489,8 +537,8 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.1,
-    }
-  }
+    },
+  },
 };
 
 const itemFadeUpVariants: Variants = {
@@ -499,8 +547,8 @@ const itemFadeUpVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring" as const, stiffness: 100, damping: 20 }
-  }
+    transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+  },
 };
 
 const stickerVariants: Variants = {
@@ -510,15 +558,22 @@ const stickerVariants: Variants = {
     scale: 1,
     rotate: 0,
     y: 0,
-    transition: { type: "spring" as const, stiffness: 150, damping: 12, mass: 0.8 }
-  }
+    transition: {
+      type: "spring" as const,
+      stiffness: 150,
+      damping: 12,
+      mass: 0.8,
+    },
+  },
 };
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const searchFieldRef = useRef<HTMLDivElement | null>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
-  const triggerShockwaveRef = useRef<((cx: number, cy: number) => void) | null>(null);
+  const triggerShockwaveRef = useRef<((cx: number, cy: number) => void) | null>(
+    null,
+  );
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -562,7 +617,10 @@ export default function Hero() {
       const indRect = scrollIndicatorRef.current.getBoundingClientRect();
       const indCenterX = indRect.left + indRect.width / 2;
       const indCenterY = indRect.top + indRect.height / 2;
-      const indDist = Math.hypot(e.clientX - indCenterX, e.clientY - indCenterY);
+      const indDist = Math.hypot(
+        e.clientX - indCenterX,
+        e.clientY - indCenterY,
+      );
 
       if (indDist < 120) {
         mouseMagnetX.set((e.clientX - indCenterX) * 0.4);
@@ -577,11 +635,11 @@ export default function Hero() {
   const handleInputInteraction = () => {
     if (searchFieldRef.current && triggerShockwaveRef.current) {
       const sRect = searchFieldRef.current.getBoundingClientRect();
-      const canvas = document.querySelector('canvas');
+      const canvas = document.querySelector("canvas");
       if (canvas) {
         const cRect = canvas.getBoundingClientRect();
-        const localX = (sRect.left + sRect.width / 2) - cRect.left;
-        const localY = (sRect.top + sRect.height / 2) - cRect.top;
+        const localX = sRect.left + sRect.width / 2 - cRect.left;
+        const localY = sRect.top + sRect.height / 2 - cRect.top;
         triggerShockwaveRef.current(localX, localY);
       }
     }
@@ -591,14 +649,23 @@ export default function Hero() {
   const mouseXSpring = useSpring(mouseX, springConfig);
   const mouseYSpring = useSpring(mouseY, springConfig);
 
-  const searchSpringX = useSpring(searchMagnetX, { stiffness: 120, damping: 14, mass: 0.6 });
-  const searchSpringY = useSpring(searchMagnetY, { stiffness: 120, damping: 14, mass: 0.6 });
+  const searchSpringX = useSpring(searchMagnetX, {
+    stiffness: 120,
+    damping: 14,
+    mass: 0.6,
+  });
+  const searchSpringY = useSpring(searchMagnetY, {
+    stiffness: 120,
+    damping: 14,
+    mass: 0.6,
+  });
 
   const mouseSpringX = useSpring(mouseMagnetX, { stiffness: 100, damping: 12 });
   const mouseSpringY = useSpring(mouseMagnetY, { stiffness: 100, damping: 12 });
 
   return (
-    <section id="hero"
+    <section
+      id="hero"
       ref={containerRef}
       className="relative w-full min-h-svh flex flex-col items-center justify-between overflow-hidden bg-[#F4F3EE] pt-24 font-(--font-jakarta) select-none cursor-none"
       onMouseMove={handleMouseMove}
@@ -625,21 +692,39 @@ export default function Hero() {
 
       <div className="hidden lg:block absolute inset-0 z-20 pointer-events-none">
         {floatingCards.map((card) => {
-          const px = useTransform(mouseXSpring, [-500, 500], [card.parallaxFactor, -card.parallaxFactor]);
-          const py = useTransform(mouseYSpring, [-500, 500], [card.parallaxFactor, -card.parallaxFactor]);
+          const px = useTransform(
+            mouseXSpring,
+            [-500, 500],
+            [card.parallaxFactor, -card.parallaxFactor],
+          );
+          const py = useTransform(
+            mouseYSpring,
+            [-500, 500],
+            [card.parallaxFactor, -card.parallaxFactor],
+          );
 
           return (
             <motion.div
               key={card.id}
               initial={{ opacity: 0, scale: 0.8, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 + card.delay, type: 'spring', bounce: 0.4 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.6 + card.delay,
+                type: "spring",
+                bounce: 0.4,
+              }}
               style={isMounted ? { x: px, y: py } : {}}
               className={`absolute ${card.position} pointer-events-auto cursor-default hover:z-50`}
             >
               <motion.div
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: card.delay }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: card.delay,
+                }}
               >
                 {card.content}
               </motion.div>
@@ -667,16 +752,17 @@ export default function Hero() {
           className="text-[#2D2A26] text-[40px] sm:text-[52px] md:text-[64px] xl:text-[72px] leading-[0.9] font-black uppercase tracking-tighter flex flex-col items-center"
         >
           <span>Hubungkan UMKM</span>
-          <span className="highlight">
-            Dengan Pelanggan
-          </span>
+          <span className="highlight">Dengan Pelanggan</span>
         </motion.h1>
 
         <motion.p
           variants={itemFadeUpVariants}
           className="text-[#2D2A26]/75 text-xs min-[400px]:text-sm sm:text-base md:text-lg max-w-2xl mt-8 mb-8 font-medium leading-relaxed"
         >
-          UFinder adalah platform digital yang membantu masyarakat menemukan UMKM lokal terpercaya sekaligus membantu pelaku usaha menjangkau lebih banyak pelanggan melalui pencarian cerdas, peta interaktif, dan informasi usaha yang lengkap.
+          UFinder adalah platform digital yang membantu masyarakat menemukan
+          UMKM lokal terpercaya sekaligus membantu pelaku usaha menjangkau lebih
+          banyak pelanggan melalui pencarian cerdas, peta interaktif, dan
+          informasi usaha yang lengkap.
         </motion.p>
 
         <motion.div
@@ -685,15 +771,24 @@ export default function Hero() {
         >
           <div className="flex -space-x-3">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm">
+              <div
+                key={i}
+                className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm"
+              >
                 <Image
                   src={`https://i.pravatar.cc/100?img=${i + 15}`}
-                  alt="user" width={32} height={32} className="w-full h-full object-cover" unoptimized
+                  alt="user"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-cover"
+                  unoptimized
                 />
               </div>
             ))}
           </div>
-          <span className="text-[#2D2A26]/80 text-[11px] font-bold">1,000+ masyarakat telah bergabung</span>
+          <span className="text-[#2D2A26]/80 text-[11px] font-bold">
+            1,000+ masyarakat telah bergabung
+          </span>
         </motion.div>
 
         <motion.div
@@ -726,7 +821,6 @@ export default function Hero() {
             No credit card required. Cancel anytime.
           </p>
         </motion.div>
-
       </motion.div>
 
       <div className="w-full bg-[#2D2A26] py-3 sm:py-2 overflow-hidden border-t border-b border-white/5 relative z-40 block shadow-[0_-15px_40px_rgba(0,0,0,0.05)] whitespace-nowrap">
@@ -736,11 +830,17 @@ export default function Hero() {
           className="flex w-max shrink-0 max-w-none"
         >
           {[0, 1].map((blockIdx) => (
-            <div key={`block-${blockIdx}`} className="flex shrink-0 items-center max-w-none">
+            <div
+              key={`block-${blockIdx}`}
+              className="flex shrink-0 items-center max-w-none"
+            >
               {[0, 1].map((setIdx) => (
                 <React.Fragment key={`set-${blockIdx}-${setIdx}`}>
                   {marqueeTexts.map((text, idx) => (
-                    <div key={`item-${blockIdx}-${setIdx}-${idx}`} className="flex items-center gap-10 sm:gap-16 px-5 sm:px-8 shrink-0 group max-w-none">
+                    <div
+                      key={`item-${blockIdx}-${setIdx}-${idx}`}
+                      className="flex items-center gap-10 sm:gap-16 px-5 sm:px-8 shrink-0 group max-w-none"
+                    >
                       <span className="text-white/90 text-sm sm:text-base font-black tracking-[0.25em] uppercase transition-colors group-hover:text-accent-light whitespace-nowrap max-w-none">
                         {text}
                       </span>

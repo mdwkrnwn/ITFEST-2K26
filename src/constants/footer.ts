@@ -2,32 +2,35 @@ import { FaInstagram, FaTwitter, FaLinkedinIn, FaTiktok, FaYoutube } from 'react
 import { FooterLinks, SocialLink } from '../types/footer';
 
 export const footerLinks: FooterLinks = {
-  Platform: [
-    { label: 'Browse Bags', href: '#' },
-    { label: 'How It Works', href: '#' },
-    { label: 'Impact Tracker', href: '#' },
-    { label: 'Download App', href: '#' },
-    { label: 'Gift Cards', href: '#' },
+   Platform: [
+    { label: "Jelajahi UMKM", href: "#" },
+    { label: "Kategori UMKM", href: "#" },
+    { label: "Peta UMKM", href: "#" },
+    { label: "Artikel UMKM", href: "#" },
+    { label: "Daftarkan UMKM", href: "#" },
   ],
+
   Company: [
-    { label: 'About Us', href: '#' },
-    { label: 'Our Mission', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Press Kit', href: '#' },
-    { label: 'Blog', href: '#' },
+    { label: "Tentang Kami", href: "#" },
+    { label: "Visi & Misi", href: "#" },
+    { label: "Tim Kami", href: "#" },
+    { label: "Partner", href: "#" },
+    { label: "Karier", href: "#" },
   ],
-  Support: [
-    { label: 'Help Center', href: '#' },
-    { label: 'Contact Us', href: '#' },
-    { label: 'FAQs', href: '#' },
-    { label: 'Report Issue', href: '#' },
-    { label: 'Partner Support', href: '#' },
+
+  Resources: [
+    { label: "Pusat Bantuan", href: "#" },
+    { label: "FAQ", href: "#" },
+    { label: "Kontak", href: "#" },
+    { label: "Panduan UMKM", href: "#" },
+    { label: "Blog", href: "#" },
   ],
+
   Legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Data Rights', href: '#' },
+    { label: "Kebijakan Privasi", href: "#" },
+    { label: "Syarat & Ketentuan", href: "#" },
+    { label: "Cookie Policy", href: "#" },
+    { label: "Hak Data Pengguna", href: "#" },
   ],
 };
 

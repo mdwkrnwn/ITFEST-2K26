@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate, MotionValue } from 'framer-motion';
-import { Search, CreditCard, ShoppingBag, Leaf, ArrowRight, Clock, ShieldCheck, BarChart3 } from 'lucide-react';
+import { Search, CreditCard, ShoppingBag, Leaf, ArrowRight, Clock, ShieldCheck, BarChart3,Store,MapPin,Star,MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
 interface CardData {
@@ -28,52 +28,63 @@ interface ComponentProps {
 const cardsData: CardData[] = [
   {
     id: 1,
-    title1: "Browse",
-    title2: "Surplus",
-    description: "Explore our interactive map or list to find bakeries, cafes, and restaurants near you offering perfectly good surplus food at 50-70% off.",
-    linkText: "Find Food Near Me",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
+    title1: "Temukan",
+    title2: "UMKM",
+    description:
+      "Cari UMKM berdasarkan lokasi, kategori, atau nama usaha. Temukan berbagai bisnis lokal di sekitarmu dengan cepat melalui pencarian cerdas dan peta interaktif.",
+    linkText: "Cari UMKM",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
     icon: <Search size={28} />,
     accentColor: "#065ce1",
-    stats: "Real-time Map",
-    statIcon: <Search size={16} />
+    stats: "Pencarian Cepat",
+    statIcon: <Search size={16} />,
   },
+
   {
     id: 2,
-    title1: "Reserve",
-    title2: "Your Bag",
-    description: "Found something delicious? Reserve your Surprise Bag or specific items instantly through our platform. Secure your meal before it sells out.",
-    linkText: "Payment Options",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
-    icon: <CreditCard size={28} />,
+    title1: "Lihat",
+    title2: "Detail",
+    description:
+      "Buka profil UMKM untuk melihat produk, informasi usaha, lokasi, jam operasional, foto, rating, dan ulasan dari pelanggan lainnya.",
+    linkText: "Lihat Detail",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
+    icon: <Store size={28} />,
     accentColor: "#2D2A26",
-    stats: "100% Secure",
-    statIcon: <ShieldCheck size={16} />
+    stats: "Info Lengkap",
+    statIcon: <ShieldCheck size={16} />,
   },
+
   {
     id: 3,
-    title1: "Pick Up",
-    title2: "In-Store",
-    description: "Head to the store during the specified pickup window. Simply show your digital receipt to the staff, grab your rescued food, and say hi to local business owners.",
-    linkText: "Pickup Guide",
-    image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=800",
+    title1: "Kunjungi",
+    title2: "Belanja",
+    description:
+      "Datangi UMKM pilihanmu atau hubungi langsung melalui kontak yang tersedia. Nikmati produk lokal berkualitas sekaligus mendukung pertumbuhan usaha di sekitarmu.",
+    linkText: "Mulai Jelajahi",
+    image:
+      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=800",
     icon: <ShoppingBag size={28} />,
     accentColor: "#065ce1",
-    stats: "Quick & Easy",
-    statIcon: <Clock size={16} />
+    stats: "Belanja Lokal",
+    statIcon: <MapPin size={16} />,
   },
+
   {
     id: 4,
-    title1: "Enjoy",
-    title2: "The Impact",
-    description: "Enjoy your delicious rescued meal. Check your dashboard to see exactly how much CO2, water, and money you've saved by making a sustainable choice.",
-    linkText: "View Dashboard",
-    image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=800",
-    icon: <Leaf size={28} />,
+    title1: "Beri",
+    title2: "Ulasan",
+    description:
+      "Bagikan pengalamanmu melalui rating dan ulasan. Setiap dukungan membantu UMKM meningkatkan kepercayaan pelanggan dan berkembang lebih luas.",
+    linkText: "Beri Ulasan",
+    image:
+      "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=800",
+    icon: <Star size={28} />,
     accentColor: "#2D2A26",
-    stats: "Track Impact",
-    statIcon: <BarChart3 size={16} />
-  }
+    stats: "Komunitas Aktif",
+    statIcon: <MessageSquare size={16} />,
+  },
 ];
 
 const SmoothImageCard = ({ card, index, progress }: ComponentProps) => {
@@ -208,7 +219,7 @@ export default function Section4() {
             transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
             className="bg-[#2D2A26] text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-md shadow-lg mb-2 w-max"
           >
-            Step By Step Guide
+            Panduan Pengguna
           </motion.div>
           <h2 className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[40px] sm:text-[50px] flex flex-col items-center gap-y-1">
             <motion.span
@@ -217,7 +228,7 @@ export default function Section4() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
             >
-              HOW IT
+              CARA
             </motion.span>
             <motion.span
               initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 20 }}
@@ -226,7 +237,7 @@ export default function Section4() {
               transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
               className="bg-gradient-to-r from-accent-light to-[#065ce1] text-white px-4 py-1 rounded-[12px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-2 border-white inline-block text-[28px] sm:text-[36px]"
             >
-              WORKS
+              KERJANYA
             </motion.span>
           </h2>
         </div>
@@ -253,7 +264,7 @@ export default function Section4() {
               transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
               className="bg-[#2D2A26] text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-md shadow-lg mb-3 w-max"
             >
-              Step By Step Guide
+              Panduan Pengguna
             </motion.div>
             <h2 className="relative font-black uppercase tracking-tighter leading-none flex flex-row items-center gap-x-4 text-[#2D2A26] text-[52px] xl:text-[64px]">
               <motion.span
@@ -262,7 +273,7 @@ export default function Section4() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
               >
-                HOW IT
+                CARA
               </motion.span>
               <motion.span
                 initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 30 }}
@@ -271,7 +282,7 @@ export default function Section4() {
                 transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
                 className="highlight text-[36px] xl:text-[44px]"
               >
-                WORKS
+                KERJANYA
               </motion.span>
             </h2>
           </div>

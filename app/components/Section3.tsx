@@ -8,7 +8,12 @@ import { motion, useMotionValue, useTransform, animate, useScroll, useSpring, An
 import { Trash2, Flame, CloudRain, DollarSign, Play, X, ArrowUpRight } from 'lucide-react';
 import { RiLeafLine } from 'react-icons/ri';
 import Image from 'next/image';
-
+import {
+  Search,
+  MonitorSmartphone,
+  Megaphone,
+  MapPinned,
+} from "lucide-react";
 interface ChartProps {
   isHovered: boolean;
   color: string;
@@ -115,72 +120,87 @@ const MiniGaugeChart = ({ isHovered, color }: ChartProps) => (
 const problemCardData = [
   {
     id: 1,
-    title: "Food Waste",
-    value: 1300,
-    unit: "Million Tons",
-    description: "Global waste produced annually.",
-    fullExplanation: "A third of the world's food is wasted due to poor logistics and excessive retail standards. This is fuelling a serious food crisis amongst a population suffering from hunger.",
-    bgImage: "https://images.unsplash.com/photo-1553787499-6f9133860278?q=80&w=600",
-    color: "#0026ff",
-    icon: <Trash2 size={24} />,
+    title: "Sulit Ditemukan",
+    value: 50000,
+    unit: "UMKM Lokal",
+    description: "Belum memiliki visibilitas digital yang optimal.",
+    fullExplanation:
+      "Banyak UMKM berkualitas belum dikenal masyarakat karena keterbatasan promosi digital, sehingga sulit menjangkau pelanggan baru.",
+    bgImage:
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=600",
+    color: "#2563EB",
+    icon: <Search size={24} />,
     pos: { left: "4%", top: "10%" },
     rotation: -4,
     floatDelay: 0,
     Visual: MiniBarChart,
     cablePath: "M 250 280 C 400 280, 500 400, 600 400",
-    nodeX: 250, nodeY: 280
+    nodeX: 250,
+    nodeY: 280,
   },
+
   {
     id: 2,
-    title: "Carbon Footprint",
-    value: 3.3,
-    unit: "Billion Tons",
-    description: "CO2 equivalent gases released.",
-    fullExplanation: "Intensive farming practices, deforestation and long global supply chains result in billions of tonnes of harmful greenhouse gas emissions being released into the atmosphere.",
-    bgImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600",
+    title: "Kurang Go Digital",
+    value: 150,
+    unit: "Kota",
+    description: "Digitalisasi UMKM belum merata.",
+    fullExplanation:
+      "Sebagian pelaku usaha masih mengandalkan promosi konvensional sehingga jangkauan pasar menjadi terbatas.",
+    bgImage:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600",
     color: "#2D2A26",
-    icon: <CloudRain size={24} />,
+    icon: <MonitorSmartphone size={24} />,
     pos: { right: "4%", top: "10%" },
     rotation: 5,
     floatDelay: 0.5,
     Visual: MiniRingChart,
     cablePath: "M 950 260 C 800 260, 700 400, 600 400",
-    nodeX: 950, nodeY: 260
+    nodeX: 950,
+    nodeY: 260,
   },
+
   {
     id: 3,
-    title: "Economic Loss",
-    value: 940,
-    unit: "Billion USD",
-    description: "Value lost due to discarded food.",
-    fullExplanation: "Food waste causes massive global financial losses, effectively wiping out the value of investments in clean water, labour and energy subsidies for nothing.",
-    bgImage: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=600",
+    title: "Promosi Terbatas",
+    value: 24,
+    unit: "Jam",
+    description: "Persaingan semakin tinggi setiap hari.",
+    fullExplanation:
+      "UMKM membutuhkan media promosi yang lebih efektif agar dapat bersaing dan menjangkau pelanggan secara berkelanjutan.",
+    bgImage:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=600",
     color: "#2D2A26",
-    icon: <DollarSign size={24} />,
+    icon: <Megaphone size={24} />,
     pos: { left: "6%", bottom: "16%" },
     rotation: 3,
     floatDelay: 1,
     Visual: MiniTrendLine,
     cablePath: "M 250 680 C 400 680, 500 400, 600 400",
-    nodeX: 250, nodeY: 680
+    nodeX: 250,
+    nodeY: 680,
   },
+
   {
     id: 4,
-    title: "Methane Impact",
-    value: 25,
-    unit: "Times Potency",
-    description: "Methane traps heat far faster.",
-    fullExplanation: "Piles of organic food waste at landfill sites decompose in the absence of oxygen, producing methane gas, which has a global warming potential 25 times greater than that of CO₂.",
-    bgImage: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=600",
-    color: "#0026ff",
-    icon: <Flame size={24} />,
+    title: "Informasi Terbatas",
+    value: 100,
+    unit: "%",
+    description: "Pelanggan membutuhkan informasi yang lengkap.",
+    fullExplanation:
+      "Calon pelanggan membutuhkan lokasi, kategori, jam operasional, foto, dan ulasan agar lebih percaya sebelum berkunjung atau bertransaksi.",
+    bgImage:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600",
+    color: "#2563EB",
+    icon: <MapPinned size={24} />,
     pos: { right: "5%", bottom: "18%" },
     rotation: -5,
     floatDelay: 1.5,
     Visual: MiniGaugeChart,
     cablePath: "M 950 660 C 800 660, 700 400, 600 400",
-    nodeX: 950, nodeY: 660
-  }
+    nodeX: 950,
+    nodeY: 660,
+  },
 ];
 
 const reelImages1 = [
@@ -406,7 +426,7 @@ export default function Section3() {
             transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
             className="bg-[#2D2A26] text-white text-[9px] sm:text-xs font-black uppercase tracking-[0.3em] px-3 py-1 rounded-md shadow-md mb-2"
           >
-            The Critical Chaos
+              Tantangan UMKM
           </motion.div>
 
           <h2 className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center">
@@ -417,7 +437,7 @@ export default function Section3() {
               transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
               className="text-[38px] sm:text-[60px] md:text-[75px] lg:text-[85px] text-[#2D2A26] block tracking-tight"
             >
-              THE PROBLEM
+              MASALAH
             </motion.span>
 
             <motion.span
@@ -427,7 +447,7 @@ export default function Section3() {
               transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 150, damping: 12 }}
               className="highlight text-[20px] sm:text-[32px] md:text-[40px] lg:text-[44px] mt-2"
             >
-              WE FACE
+              YANG DIHADAPI
             </motion.span>
           </h2>
         </div>

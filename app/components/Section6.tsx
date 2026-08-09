@@ -2,43 +2,51 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp, Users, Award, ArrowUpRight } from "lucide-react";
+import { TrendingUp, Users, Award, ArrowUpRight,Store,Star } from "lucide-react";
 import Link from 'next/link';
 
 const b2bFeatures = [
   {
     id: 1,
-    title: "Recover Sunk Costs",
-    subtitle: "Extra Revenue",
-    description: "Turn your daily surplus into pure profit. Sell food that would otherwise be wasted to a community of eager, conscious buyers.",
-    metric: "+24%",
-    metricLabel: "Daily Revenue",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200",
+    title: "Jangkau Lebih Banyak",
+    subtitle: "Pelanggan",
+    description:
+      "Tampilkan usahamu kepada ribuan pengguna yang sedang mencari produk dan layanan UMKM di sekitarnya.",
+    metric: "+3.2x",
+    metricLabel: "Eksposur Bisnis",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200",
     color: "#065ce1",
-    icon: <TrendingUp size={24} />
-  },
-  {
-    id: 2,
-    title: "Attract New Faces",
-    subtitle: "Foot Traffic",
-    description: "Reach a younger, eco-conscious demographic. 70% of users who discover a store through our app return for full-price purchases.",
-    metric: "10k+",
-    metricLabel: "Active Rescuers",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200",
-    color: "#4A7c59",
-    id_color: "#4A7c59",
     icon: <Users size={24} />
   },
+
+  {
+    id: 2,
+    title: "Kelola Profil",
+    subtitle: "Digital",
+    description:
+      "Lengkapi informasi usaha, produk, lokasi, jam operasional, promo, dan kontak dalam satu dashboard yang mudah digunakan.",
+    metric: "24/7",
+    metricLabel: "Online",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200",
+    color: "#4A7c59",
+    id_color: "#4A7c59",
+    icon: <Store size={24} />
+  },
+
   {
     id: 3,
-    title: "Brand Perception",
-    subtitle: "Eco-Certified",
-    description: "Get recognized as a sustainability leader. Every meal rescued is a story of environmental impact your customers will love.",
-    metric: "Zero",
-    metricLabel: "Waste Goal",
-    image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1200",
+    title: "Bangun",
+    subtitle: "Kepercayaan",
+    description:
+      "Kumpulkan rating dan ulasan pelanggan untuk meningkatkan reputasi usaha serta menarik lebih banyak pembeli baru.",
+    metric: "★★★★★",
+    metricLabel: "Customer Trust",
+    image:
+      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1200",
     color: "#2D2A26",
-    icon: <Award size={24} />
+    icon: <Star size={24} />
   }
 ];
 
@@ -62,7 +70,7 @@ export default function Section6() {
               transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
               className="bg-[#2D2A26] text-white text-[9px] min-[400px]:text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] px-3 py-1 rounded-lg shadow-lg mb-3 w-max"
             >
-              Partner Program
+              Partner UMKM
             </motion.div>
             <h2 className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[30px] min-[400px]:text-[36px] sm:text-[48px] flex flex-col items-start">
               <motion.span
@@ -71,7 +79,7 @@ export default function Section6() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
               >
-                SMART FOR
+                KEMBANGKAN
               </motion.span>
               <motion.span
                 initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 20 }}
@@ -80,7 +88,7 @@ export default function Section6() {
                 transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
                 className="highlight inline-block text-[22px] min-[400px]:text-[28px] sm:text-[38px] mt-1.5"
               >
-                BUSINESS
+                USAHAMU
               </motion.span>
             </h2>
           </div>
@@ -93,7 +101,7 @@ export default function Section6() {
               transition={{ type: "spring", stiffness: 150, damping: 12, mass: 0.8 }}
               className="bg-[#2D2A26] text-white text-[11px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-lg shadow-xl mb-4 w-max"
             >
-              Partner Program
+              Partner UMKM
             </motion.div>
             <h2 className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-start text-[#2D2A26] text-[56px] xl:text-[68px]">
               <motion.span
@@ -102,7 +110,7 @@ export default function Section6() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
               >
-                SMART FOR
+                KEMBANGKAN
               </motion.span>
               <motion.span
                 initial={{ scale: 0.4, opacity: 0, rotate: 15, y: 30 }}
@@ -111,7 +119,7 @@ export default function Section6() {
                 transition={{ duration: 0.6, delay: 0.15, type: "spring", stiffness: 150, damping: 12 }}
                 className="highlight text-[42px] xl:text-[52px] mt-3"
               >
-                BUSINESS
+                USAHAMU
               </motion.span>
             </h2>
           </div>
@@ -124,10 +132,10 @@ export default function Section6() {
             className="lg:text-right flex flex-col lg:items-end mt-1 lg:mt-0"
           >
             <p className="text-[#2D2A26]/75 text-xs min-[400px]:text-sm font-medium max-w-sm mb-4 lg:mb-5 leading-relaxed">
-              Join thousands of local businesses turning daily food surplus into pure profit, foot traffic, and environmental impact.
+             Bergabung bersama ribuan UMKM Indonesia untuk menjangkau lebih banyak pelanggan, membangun kepercayaan, dan mengembangkan bisnis melalui platform digital.
             </p>
             <Link href="/join" className="group inline-flex items-center gap-2 font-black text-[10px] min-[400px]:text-xs uppercase tracking-widest text-[#2D2A26] hover:text-accent-light transition-colors w-max">
-              Become a Partner
+              Daftarkan UMKM
               <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
             </Link>
           </motion.div>

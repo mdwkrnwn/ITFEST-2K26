@@ -1,167 +1,151 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, ChevronRight, Star, MapPin, Clock, Leaf } from 'lucide-react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ShoppingBag,
+  ChevronRight,
+  Star,
+  MapPin,
+  Clock,
+  Leaf,
+  Building2,
+  MessageSquare,
+  Heart
+} from "lucide-react";
+import Image from "next/image";
 
 const categories = [
-  "All", "Bakery", "Restaurant", "Grocery",
-  "Café", "Sushi", "Healthy", "Dessert"
+  "All",
+  "Kuliner",
+  "Fashion",
+  "Kerajinan",
+  "Kecantikan",
+  "Pertanian",
+  "Jasa",
+  "Oleh-Oleh",
 ];
 
-const rescuedMeals = [
+const umkmData = [
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "The Bread Factory",
-    category: "Bakery",
+    img: "/assets/umkm/kopi-nusantara.jpg",
+    store: "Kopi Nusantara",
+    category: "Kafe",
     rating: 4.9,
-    reviews: 1843,
-    price: 3.99,
-    originalValue: 13,
-    distance: "0.2 mi",
-    pickupTime: "5:00–6:00 PM",
+    reviews: 184,
+    distance: "0.8 km",
+    city: "Malang",
     badge: "🔥 Popular",
     badgeColor: "bg-accent-light text-white",
-    discount: 69,
-    co2Saved: "93kg",
-    totalRescued: 1240,
-    tags: ["Bakery"],
-    href: "#",
+    favorites: 1240,
+    tags: ["Kafe"],
+    href: "/explore/1",
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Bella Cucina",
-    category: "Restaurant",
+    img: "/assets/umkm/dapur-bunda.jpg",
+    store: "Dapur Bunda",
+    category: "Kuliner",
     rating: 4.8,
-    reviews: 922,
-    price: 5.99,
-    originalValue: 20,
-    distance: "0.5 mi",
-    pickupTime: "9:00–10:00 PM",
+    reviews: 96,
+    distance: "1.2 km",
+    city: "Malang",
     badge: "⭐ Top Rated",
     badgeColor: "bg-[#2D2A26] text-white",
-    discount: 70,
-    co2Saved: "142kg",
-    totalRescued: 856,
-    tags: ["Restaurant"],
-    href: "#",
+    favorites: 856,
+    tags: ["Kuliner"],
+    href: "/explore/2",
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Green Grocers",
-    category: "Grocery",
+    img: "/assets/umkm/batik-lokal.jpg",
+    store: "Batik Lokal",
+    category: "Fashion",
     rating: 4.7,
-    reviews: 3102,
-    price: 4.49,
-    originalValue: 15,
-    distance: "0.8 mi",
-    pickupTime: "6:30–7:30 PM",
-    badge: "🌱 Eco Pick",
+    reviews: 210,
+    distance: "2.4 km",
+    city: "Batu",
+    badge: "🛍 Featured",
     badgeColor: "bg-white text-[#2D2A26]",
-    discount: 70,
-    co2Saved: "210kg",
-    totalRescued: 2104,
-    tags: ["Grocery"],
-    href: "#",
+    favorites: 2104,
+    tags: ["Fashion"],
+    href: "/explore/3",
   },
   {
     id: 4,
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Bloom Coffee",
-    category: "Café",
+    img: "/assets/umkm/kerajinan-kayu.jpg",
+    store: "Kayu Kreatif",
+    category: "Kerajinan",
     rating: 4.9,
-    reviews: 611,
-    price: 3.49,
-    originalValue: 11,
-    distance: "0.3 mi",
-    pickupTime: "4:00–5:00 PM",
-    badge: "☕ Fan Fave",
+    reviews: 61,
+    distance: "1.5 km",
+    city: "Malang",
+    badge: "🎨 Artisan",
     badgeColor: "bg-accent-light/10 text-accent-light",
-    discount: 68,
-    co2Saved: "78kg",
-    totalRescued: 892,
-    tags: ["Café"],
-    href: "#",
+    favorites: 892,
+    tags: ["Kerajinan"],
+    href: "/explore/4",
   },
   {
     id: 5,
-    img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Sakura Sushi",
-    category: "Sushi",
+    img: "/assets/umkm/segar-farm.jpg",
+    store: "Segar Farm",
+    category: "Pertanian",
     rating: 4.8,
-    reviews: 488,
-    price: 6.99,
-    originalValue: 24,
-    distance: "0.9 mi",
-    pickupTime: "9:30–10:30 PM",
-    badge: "⚡ Limited",
+    reviews: 48,
+    distance: "3.2 km",
+    city: "Batu",
+    badge: "🌱 Organic",
     badgeColor: "bg-[#2D2A26] text-white",
-    discount: 71,
-    co2Saved: "56kg",
-    totalRescued: 342,
-    tags: ["Sushi"],
-    href: "#",
+    favorites: 342,
+    tags: ["Pertanian"],
+    href: "/explore/5",
   },
   {
     id: 6,
-    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Nourish Bowl Bar",
-    category: "Healthy",
+    img: "/assets/umkm/roti-rumah.jpg",
+    store: "Roti Rumah",
+    category: "Bakery",
     rating: 4.6,
-    reviews: 734,
-    price: 4.99,
-    originalValue: 17,
-    distance: "1.1 mi",
-    pickupTime: "7:00–8:00 PM",
-    badge: "🤍 Healthy",
+    reviews: 73,
+    distance: "0.9 km",
+    city: "Malang",
+    badge: "🥐 Fresh",
     badgeColor: "bg-white text-[#2D2A26]",
-    discount: 71,
-    co2Saved: "167kg",
-    totalRescued: 1201,
-    tags: ["Healthy"],
-    href: "#",
+    favorites: 1201,
+    tags: ["Bakery"],
+    href: "/explore/6",
   },
   {
     id: 7,
-    img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "Patisserie Lumière",
-    category: "Dessert",
+    img: "/assets/umkm/eco-craft.jpg",
+    store: "Eco Craft",
+    category: "Kerajinan",
     rating: 5.0,
-    reviews: 291,
-    price: 4.49,
-    originalValue: 16,
-    distance: "0.4 mi",
-    pickupTime: "6:00–7:00 PM",
+    reviews: 29,
+    distance: "1.8 km",
+    city: "Malang",
     badge: "✨ New",
     badgeColor: "bg-accent-light text-white",
-    discount: 72,
-    co2Saved: "31kg",
-    totalRescued: 156,
-    tags: ["Dessert", "Bakery"],
-    href: "#",
+    favorites: 156,
+    tags: ["Kerajinan"],
+    href: "/explore/7",
   },
   {
     id: 8,
-    img: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop&auto=format&q=80",
-    store: "The Garden Table",
-    category: "Restaurant",
+    img: "/assets/umkm/herbal-sehat.jpg",
+    store: "Herbal Sehat",
+    category: "Kesehatan",
     rating: 4.7,
-    reviews: 1204,
-    price: 5.49,
-    originalValue: 18,
-    distance: "0.6 mi",
-    pickupTime: "8:00–9:00 PM",
-    badge: "🌿 Vegan",
+    reviews: 120,
+    distance: "2.1 km",
+    city: "Batu",
+    badge: "🌿 Healthy",
     badgeColor: "bg-[#2D2A26]/10 text-[#2D2A26]",
-    discount: 69,
-    co2Saved: "198kg",
-    totalRescued: 1587,
-    tags: ["Restaurant", "Healthy"],
-    href: "#",
+    favorites: 1587,
+    tags: ["Kesehatan"],
+    href: "/explore/8",
   },
 ];
 
@@ -184,8 +168,8 @@ export default function RescuedMeals() {
 
   const filtered =
     activeCategory === "All"
-      ? rescuedMeals
-      : rescuedMeals.filter((m) => m.tags.includes(activeCategory));
+      ? umkmData
+      : umkmData.filter((m) => m.tags.includes(activeCategory));
 
   const visibleMeals = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
@@ -194,19 +178,27 @@ export default function RescuedMeals() {
     type: "spring" as const,
     stiffness: 150,
     damping: 12,
-    mass: 0.8
+    mass: 0.8,
   };
 
   return (
-    <section id="marketplace" className="relative w-full bg-[#F4F3EE] py-24 lg:py-32 overflow-hidden font-[family:var(--font-jakarta)] select-none">
-
-      <div className="absolute inset-0 z-0 opacity-[0.2] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2D2A26 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+    <section
+      id="marketplace"
+      className="relative w-full bg-[#F4F3EE] py-24 lg:py-32 overflow-hidden font-[family:var(--font-jakarta)] select-none"
+    >
+      <div
+        className="absolute inset-0 z-0 opacity-[0.2] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#2D2A26 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-light rounded-full blur-[150px] opacity-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#2D2A26] rounded-full blur-[150px] opacity-[0.03] pointer-events-none" />
 
       <div className="absolute left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03] z-0">
         <h2 className="text-[18vw] font-black uppercase leading-none whitespace-nowrap -ml-20 tracking-tighter">
-          LIVE MARKETPLACE • LIVE
+          LIVE DIRECTORY • LIVE
         </h2>
       </div>
 
@@ -219,7 +211,7 @@ export default function RescuedMeals() {
             transition={stickerSpringTransition}
             className="bg-[#2D2A26] text-white text-[9px] min-[400px]:text-[10px] font-black uppercase tracking-[0.3em] px-3.5 py-1.5 rounded-md shadow-md mb-3 w-max"
           >
-            Live Marketplace
+            Live Directory
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, scale: 0.7, y: 40 }}
@@ -228,7 +220,7 @@ export default function RescuedMeals() {
             transition={{ ...stickerSpringTransition, delay: 0.1 }}
             className="relative font-black uppercase tracking-tighter leading-[0.85] text-[#2D2A26] text-[36px] min-[400px]:text-[44px]"
           >
-            RESCUE MEALS <br />
+            DISCOVER UMKM <br />
             <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-4 py-0.5 rounded-[12px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-2 border-white transform rotate-1.5 inline-block text-[26px] min-[400px]:text-[32px] mt-2">
               NEAR YOU
             </span>
@@ -243,7 +235,7 @@ export default function RescuedMeals() {
             transition={stickerSpringTransition}
             className="bg-[#2D2A26] text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-md shadow-md mb-4 w-max"
           >
-            Live Marketplace
+            DISCOVER UMKM
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, scale: 0.8, y: 50, rotate: 5 }}
@@ -252,7 +244,7 @@ export default function RescuedMeals() {
             transition={{ ...stickerSpringTransition, delay: 0.15 }}
             className="relative font-black uppercase tracking-tighter leading-[0.8] flex flex-col items-center text-[#2D2A26] text-[72px] xl:text-[80px]"
           >
-            <span>RESCUE MEALS</span>
+            {/* <span>RESCUE MEALS</span> */}
             <span className="bg-gradient-to-r from-accent-light to-[#0026ff] text-white px-5 py-0.5 rounded-[18px] shadow-[0_15px_30px_rgba(6,122,225,0.25)] border-4 border-white transform rotate-1.5 inline-block text-[50px] xl:text-[60px] mt-2">
               NEAR YOU
             </span>
@@ -274,10 +266,11 @@ export default function RescuedMeals() {
                 setVisibleCount(8);
               }}
               whileTap={{ scale: 0.95 }}
-              className={`shrink-0 snap-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
-                ? "bg-[#2D2A26] border-[#2D2A26] text-white shadow-xl"
-                : "bg-white/60 backdrop-blur-md text-[#2D2A26]/60 hover:bg-white border-white/50"
-                }`}
+              className={`shrink-0 snap-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+                activeCategory === cat
+                  ? "bg-[#2D2A26] border-[#2D2A26] text-white shadow-xl"
+                  : "bg-white/60 backdrop-blur-md text-[#2D2A26]/60 hover:bg-white border-white/50"
+              }`}
             >
               {cat}
             </motion.button>
@@ -297,7 +290,12 @@ export default function RescuedMeals() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                transition={{ duration: 0.5, delay: idx * 0.05, type: "spring", bounce: 0.3 }}
+                transition={{
+                  duration: 0.5,
+                  delay: idx * 0.05,
+                  type: "spring",
+                  bounce: 0.3,
+                }}
                 whileHover={{ y: -8 }}
                 className="group bg-white/70 backdrop-blur-xl rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(242,143,59,0.15)] border border-white/60 transition-all duration-500 flex flex-col p-2"
               >
@@ -313,13 +311,15 @@ export default function RescuedMeals() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2D2A26]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex gap-2">
-                    <span className={`text-[8px] sm:text-[9px] font-black uppercase tracking-wider px-2 py-1 sm:px-3 sm:py-1.5 rounded-full ${meal.badgeColor} shadow-md backdrop-blur-md`}>
+                    <span
+                      className={`text-[8px] sm:text-[9px] font-black uppercase tracking-wider px-2 py-1 sm:px-3 sm:py-1.5 rounded-full ${meal.badgeColor} shadow-md backdrop-blur-md`}
+                    >
                       {meal.badge}
                     </span>
                   </div>
 
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-[#2D2A26] text-[8px] sm:text-[10px] font-black px-2 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-md">
-                    -{meal.discount}%
+                    ⭐ {meal.rating}
                   </div>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 text-[9px] font-bold uppercase tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
@@ -328,8 +328,8 @@ export default function RescuedMeals() {
                       {meal.distance}
                     </span>
                     <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg">
-                      <Clock size={10} />
-                      {meal.pickupTime}
+                      <Building2 size={10} />
+                      {meal.city}
                     </span>
                   </div>
                 </div>
@@ -353,8 +353,8 @@ export default function RescuedMeals() {
                     </span>
                     <span className="w-1 h-1 rounded-full bg-[#2D2A26]/20 shrink-0" />
                     <span className="flex items-center gap-1 text-[8px] sm:text-[10px] text-[#2D2A26]/50 font-bold shrink-0">
-                      <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-light" />
-                      {meal.co2Saved} saved
+                      <Heart className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-light" />
+                      {meal.favorites} favorites
                     </span>
                   </div>
 
@@ -363,20 +363,19 @@ export default function RescuedMeals() {
                   <div className="pt-3 sm:pt-4 mt-1 sm:mt-2 border-t border-[#2D2A26]/5 flex flex-col sm:flex-row sm:items-end justify-between gap-2.5">
                     <div>
                       <p className="hidden sm:block text-[9px] text-[#2D2A26]/40 font-bold uppercase tracking-wider mb-1">
-                        Total Price
+                        Reviews
                       </p>
-                      <div className="flex items-baseline gap-1.5 sm:gap-2">
+
+                      <div className="flex items-center gap-1">
+                        <MessageSquare size={14} />
                         <span className="text-sm sm:text-2xl font-black text-accent-light leading-none tracking-tighter">
-                          ${meal.price.toFixed(2)}
-                        </span>
-                        <span className="text-[9px] sm:text-xs text-[#2D2A26]/30 line-through font-bold">
-                          ${meal.originalValue}
+                          {meal.reviews}
                         </span>
                       </div>
                     </div>
 
                     <button className="bg-[#2D2A26] hover:bg-accent-light text-white text-[9px] sm:text-xs font-bold uppercase tracking-widest px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl transition-all duration-300 group-hover:shadow-[0_10px_20px_rgba(6,122,225,0.2)] w-full sm:w-auto text-center shadow-md">
-                      Rescue
+                      View Store
                     </button>
                   </div>
                 </div>
@@ -391,8 +390,12 @@ export default function RescuedMeals() {
             animate={{ opacity: 1 }}
             className="text-center py-24 bg-white/50 backdrop-blur-md rounded-[40px] border border-white/60 shadow-sm mt-8"
           >
-            <p className="text-[#2D2A26]/40 text-2xl font-black uppercase tracking-tighter mb-2">No meals found</p>
-            <p className="text-[#2D2A26]/40 text-sm font-medium">Try selecting a different category.</p>
+            <p className="text-[#2D2A26]/40 text-2xl font-black uppercase tracking-tighter mb-2">
+              No meals found
+            </p>
+            <p className="text-[#2D2A26]/40 text-sm font-medium">
+              Try selecting a different category.
+            </p>
           </motion.div>
         )}
 
@@ -405,17 +408,19 @@ export default function RescuedMeals() {
             className="text-center mt-12 sm:mt-16"
           >
             <motion.button
-              onClick={() => setVisibleCount(prev => prev + 8)}
+              onClick={() => setVisibleCount((prev) => prev + 8)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-md border border-white hover:bg-white text-[#2D2A26] font-bold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-3 sm:px-8 sm:py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-xl group"
             >
               Load More ({filtered.length - visibleCount})
-              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform w-3 h-3 sm:w-4 sm:h-4" />
+              <ChevronRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform w-3 h-3 sm:w-4 sm:h-4"
+              />
             </motion.button>
           </motion.div>
         )}
-
       </div>
     </section>
   );

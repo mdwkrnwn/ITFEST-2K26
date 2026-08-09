@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   FaInstagram,
   FaTwitter,
   FaLinkedinIn,
   FaTiktok,
-  FaYoutube
-} from 'react-icons/fa';
+  FaYoutube,
+} from "react-icons/fa";
 import {
   RiArrowRightUpLine,
   RiMailLine,
@@ -16,88 +16,93 @@ import {
   RiPhoneLine,
   RiLeafLine,
   RiArrowUpLine,
-  RiHeartFill
-} from 'react-icons/ri';
+  RiHeartFill,
+} from "react-icons/ri";
 
 const footerLinks = {
   Platform: [
-    { label: 'Browse Bags', href: '#' },
-    { label: 'How It Works', href: '#' },
-    { label: 'Impact Tracker', href: '#' },
-    { label: 'Download App', href: '#' },
-    { label: 'Gift Cards', href: '#' },
+    { label: "Jelajahi UMKM", href: "#" },
+    { label: "Kategori UMKM", href: "#" },
+    { label: "Peta UMKM", href: "#" },
+    { label: "Artikel UMKM", href: "#" },
+    { label: "Daftarkan UMKM", href: "#" },
   ],
+
   Company: [
-    { label: 'About Us', href: '#' },
-    { label: 'Our Mission', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Press Kit', href: '#' },
-    { label: 'Blog', href: '#' },
+    { label: "Tentang Kami", href: "#" },
+    { label: "Visi & Misi", href: "#" },
+    { label: "Tim Kami", href: "#" },
+    { label: "Partner", href: "#" },
+    { label: "Karier", href: "#" },
   ],
-  Support: [
-    { label: 'Help Center', href: '#' },
-    { label: 'Contact Us', href: '#' },
-    { label: 'FAQs', href: '#' },
-    { label: 'Report Issue', href: '#' },
-    { label: 'Partner Support', href: '#' },
+
+  Resources: [
+    { label: "Pusat Bantuan", href: "#" },
+    { label: "FAQ", href: "#" },
+    { label: "Kontak", href: "#" },
+    { label: "Panduan UMKM", href: "#" },
+    { label: "Blog", href: "#" },
   ],
+
   Legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Data Rights', href: '#' },
+    { label: "Kebijakan Privasi", href: "#" },
+    { label: "Syarat & Ketentuan", href: "#" },
+    { label: "Cookie Policy", href: "#" },
+    { label: "Hak Data Pengguna", href: "#" },
   ],
 };
 
 const socials = [
-  { icon: FaInstagram, label: 'Instagram', href: '#' },
-  { icon: FaTwitter, label: 'Twitter', href: '#' },
-  { icon: FaLinkedinIn, label: 'LinkedIn', href: '#' },
-  { icon: FaTiktok, label: 'TikTok', href: '#' },
-  { icon: FaYoutube, label: 'YouTube', href: '#' },
+  { icon: FaInstagram, label: "Instagram", href: "#" },
+  { icon: FaTwitter, label: "Twitter", href: "#" },
+  { icon: FaLinkedinIn, label: "LinkedIn", href: "#" },
+  { icon: FaTiktok, label: "TikTok", href: "#" },
+  { icon: FaYoutube, label: "YouTube", href: "#" },
 ];
 
 export default function Footer() {
   const footerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => entry.isIntersecting && setIsVisible(true),
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     if (footerRef.current) observer.observe(footerRef.current);
-    return () => { if (footerRef.current) observer.unobserve(footerRef.current); };
+    return () => {
+      if (footerRef.current) observer.unobserve(footerRef.current);
+    };
   }, []);
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
-    offset: ["start end", "end end"]
+    offset: ["start end", "end end"],
   });
 
   const footerY = useSpring(
     useTransform(scrollYProgress, [0, 0.5, 1], ["5%", "0%", "0%"]),
-    { stiffness: 100, damping: 25 }
+    { stiffness: 100, damping: 25 },
   );
 
   const footerOpacity = useSpring(
     useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]),
-    { stiffness: 100, damping: 25 }
+    { stiffness: 100, damping: 25 },
   );
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setIsSubscribed(false), 3000);
     }
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -123,9 +128,7 @@ export default function Footer() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24">
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 mb-16 sm:mb-20">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -145,8 +148,9 @@ export default function Footer() {
               </div>
 
               <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
-                Driving the transition towards a circular food economy.
-                Every rescued meal counts towards a sustainable future.
+                Membantu masyarakat menemukan UMKM lokal dengan lebih mudah,
+                serta mendukung transformasi digital UMKM Indonesia melalui
+                platform yang terhubung, informatif, dan mudah diakses.
               </p>
 
               <form onSubmit={handleSubscribe} className="relative max-w-sm">
@@ -156,7 +160,7 @@ export default function Footer() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Join our newsletter"
+                    placeholder="Dapatkan update UMKM terbaru"
                     className="flex-1 bg-transparent text-sm text-white placeholder-white/20 outline-none py-2"
                     required
                   />
@@ -175,7 +179,7 @@ export default function Footer() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute -bottom-6 left-0 text-accent-light text-xs font-bold"
                   >
-                    ✓ Subscribed successfully!
+                    ✓ Berhasil berlangganan!
                   </motion.p>
                 )}
               </form>
@@ -210,7 +214,6 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-white/[0.06] mb-16 sm:mb-20">
-
             <div className="flex items-center gap-2">
               {socials.map((social, i) => (
                 <motion.a
@@ -227,9 +230,12 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a href="mailto:hello@ufinder.com" className="flex items-center gap-1.5 text-white/30 hover:text-accent-light transition-colors text-xs sm:text-sm">
+              <a
+                href="mailto:hello@ufinder.com"
+                className="flex items-center gap-1.5 text-white/30 hover:text-accent-light transition-colors text-xs sm:text-sm"
+              >
                 <RiMailLine size={14} />
-                <span>hello@ufinder.com</span>
+                <span>hello@ufinder.id</span>
               </a>
               <span className="text-white/10 hidden sm:block">|</span>
               <span className="flex items-center gap-1.5 text-white/30 text-xs sm:text-sm">
@@ -258,7 +264,7 @@ export default function Footer() {
             <div className="flex items-center gap-1.5">
               <span>Made with</span>
               <RiHeartFill className="text-accent-light size-3" />
-              <span>for a greener planet</span>
+              <span>for a Indonesian UMKM</span>
             </div>
           </div>
         </div>

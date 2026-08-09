@@ -8,7 +8,7 @@ interface IntroProps {
   setFinished: (v: boolean) => void;
 }
 
-const words = ['SAVE', 'RESCUE', 'ENJOY'];
+const words = ['DISCOVER', 'EXPLORE', 'CONNECT'];
 
 export default function Intro({ setFinished }: IntroProps) {
   const [index, setIndex] = useState(0);
@@ -131,7 +131,7 @@ export default function Intro({ setFinished }: IntroProps) {
               className="relative z-10 w-[55%] max-w-[320px] md:max-w-[450px] p-2"
             >
               <Image
-                src="/HD.png"
+                src="/log.png"
                 alt="Logo"
                 width={500}
                 height={500}
