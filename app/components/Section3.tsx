@@ -699,7 +699,7 @@ export default function Section3() {
             className="w-full h-full lg:cursor-none transition-transform hover:scale-[1.01] duration-500 relative"
           >
             <div className="absolute inset-0 w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-500">
-              <iframe className="w-full h-full pointer-events-none scale-105" src="https://www.youtube.com/embed/ishA6kry8nc?autoplay=1&mute=1&loop=1&playlist=ishA6kry8nc&controls=0&modestbranding=1&rel=0" allow="autoplay; encrypted-media" title='Food Saving Education Video' />
+              <iframe className="w-full h-full pointer-events-none scale-105" src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?" allow="autoplay; encrypted-media" title='UMKM GO-DIGITAL' />
             </div>
             <div className="absolute inset-0 bg-linear-to-t from-[#2D2A26]/90 via-[#2D2A26]/20 to-transparent z-10 pointer-events-none" />
 
@@ -721,8 +721,8 @@ export default function Section3() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9]"
               >
-                Saving Food,<br />
-                <span className="text-accent-light">Empowering Locals.</span>
+                Grow Your Business,<br />
+                <span className="text-blue-800">Reach More Customers.</span>
               </motion.h3>
             </div>
 
@@ -740,7 +740,7 @@ export default function Section3() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-200 bg-[#F4F3EE]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10">
             <button onClick={() => setShowModal(false)} className="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#2D2A26] hover:text-accent-light transition-colors z-210 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl"><X size={20} className="sm:w-6 sm:h-6" /></button>
             <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="relative w-full max-w-6xl aspect-video rounded-2xl sm:rounded-4xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border border-white/50">
-              <iframe className="w-full h-full bg-[#2D2A26]" src="https://www.youtube.com/embed/ishA6kry8nc?autoplay=1&mute=0&controls=1&rel=0" allow="autoplay; encrypted-media" allowFullScreen title='Food Saving Education Video' />
+              <iframe className="w-full h-full bg-[#2D2A26]" src="https://www.youtube-nocookie.com/embed/m1ekBrYHxow?" allow="autoplay; encrypted-media" allowFullScreen title='UMKM GO-DIGITAL' />
             </motion.div>
           </motion.div>
         )}
