@@ -41,40 +41,53 @@ const Section2 = () => {
   const invertedParallaxX = useTransform(parallaxX, (v) => -v);
   const invertedParallaxY = useTransform(parallaxY, (v) => -v);
 
-const words = [
-  { letter: "E", color: "#2D2A26" },
-  { letter: "v", color: "#2D2A26" },
-  { letter: "e", color: "#2D2A26" },
-  { letter: "r", color: "#2D2A26" },
-  { letter: "y", color: "#2D2A26" },
-  { letter: " ", color: "#2D2A26" },
-
-  { letter: "l", color: "#2D2A26" },
-  { letter: "o", color: "#2D2A26" },
-  { letter: "c", color: "#2D2A26" },
-  { letter: "a", color: "#2D2A26" },
-  { letter: "l", color: "#2D2A26" },
-  { letter: " ", color: "#2D2A26" },
-
-  { letter: "b", color: "#065ce1" },
-  { letter: "u", color: "#065ce1" },
-  { letter: "s", color: "#065ce1" },
-  { letter: "i", color: "#065ce1" },
-  { letter: "n", color: "#065ce1" },
-  { letter: "e", color: "#065ce1" },
-  { letter: "s", color: "#065ce1" },
-  { letter: "s", color: "#065ce1" },
-
-  { letter: " ", color: "#2D2A26" },
-
-  { letter: "m", color: "#2D2A26" },
-  { letter: "a", color: "#2D2A26" },
-  { letter: "t", color: "#2D2A26" },
-  { letter: "t", color: "#2D2A26" },
-  { letter: "e", color: "#2D2A26" },
-  { letter: "r", color: "#2D2A26" },
-  { letter: "s", color: "#2D2A26" },
-];
+  const textData = [
+    {
+      word: "Every",
+      letters: [
+        { letter: "E", color: "#2D2A26" },
+        { letter: "v", color: "#2D2A26" },
+        { letter: "e", color: "#2D2A26" },
+        { letter: "r", color: "#2D2A26" },
+        { letter: "y", color: "#2D2A26" },
+      ],
+    },
+    {
+      word: "local",
+      letters: [
+        { letter: "l", color: "#2D2A26" },
+        { letter: "o", color: "#2D2A26" },
+        { letter: "c", color: "#2D2A26" },
+        { letter: "a", color: "#2D2A26" },
+        { letter: "l", color: "#2D2A26" },
+      ],
+    },
+    {
+      word: "business",
+      letters: [
+        { letter: "b", color: "#065ce1" },
+        { letter: "u", color: "#065ce1" },
+        { letter: "s", color: "#065ce1" },
+        { letter: "i", color: "#065ce1" },
+        { letter: "n", color: "#065ce1" },
+        { letter: "e", color: "#065ce1" },
+        { letter: "s", color: "#065ce1" },
+        { letter: "s", color: "#065ce1" },
+      ],
+    },
+    {
+      word: "matters",
+      letters: [
+        { letter: "m", color: "#2D2A26" },
+        { letter: "a", color: "#2D2A26" },
+        { letter: "t", color: "#2D2A26" },
+        { letter: "t", color: "#2D2A26" },
+        { letter: "e", color: "#2D2A26" },
+        { letter: "r", color: "#2D2A26" },
+        { letter: "s", color: "#2D2A26" },
+      ],
+    },
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -298,14 +311,18 @@ const words = [
                   : "0",
             }}
           >
-            <h2 className="text-[34px] sm:text-[64px] md:text-[100px] lg:text-[150px] font-black uppercase tracking-tighter leading-[0.95] md:leading-none flex flex-wrap md:flex-nowrap items-center justify-center text-center md:text-left gap-y-1">
-              {words.map((item, idx) => (
-                <span
-                  key={idx}
-                  className="letter inline-block"
-                  style={{ color: item.color }}
-                >
-                  {item.letter === " " ? "\u00A0" : item.letter}
+            <h2 className="text-[34px] sm:text-[64px] md:text-[100px] lg:text-[150px] font-black uppercase tracking-tighter leading-[0.95] md:leading-none flex flex-wrap md:flex-nowrap items-center justify-center text-center md:text-left gap-x-[0.25em] gap-y-1">
+              {textData.map((wordObj, wordIdx) => (
+                <span key={wordIdx} className="inline-block whitespace-nowrap">
+                  {wordObj.letters.map((item, letterIdx) => (
+                    <span
+                      key={letterIdx}
+                      className="letter inline-block"
+                      style={{ color: item.color }}
+                    >
+                      {item.letter}
+                    </span>
+                  ))}
                 </span>
               ))}
             </h2>
@@ -319,7 +336,7 @@ const words = [
           <div className="bg-white/80 backdrop-blur-xl border border-white p-5 sm:p-6 md:p-8 rounded-[24px] sm:rounded-[32px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.06)] max-w-[280px] sm:max-w-md md:max-w-2xl mx-auto transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(59,130,246,0.12)]">
             <p className="text-[#2D2A26]/80 text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed">
               UFinder membantu masyarakat menemukan{" "}
-              <span className="text-accent-light font-black uppercase tracking-tight">
+              <span className="text-accent font-black uppercase tracking-tight">
                 UMKM lokal terpercaya
               </span>
               , sekaligus membantu pelaku usaha memperluas jangkauan pelanggan

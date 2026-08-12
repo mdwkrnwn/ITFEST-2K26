@@ -158,7 +158,7 @@ const MiniGaugeChart = ({ isHovered, color }: ChartProps) => (
       />
       <motion.line
         animate={{
-          rotate: isHovered ? [0, 180, 0] : 0,
+          rotate: isHovered ? [0, 180, 0] : 85 / 100 * 180,
           stroke: isHovered ? "#FFFFFF" : "#2D2A26",
         }}
         className={"origin-[100%_0%]!"}
@@ -818,13 +818,13 @@ export default function Section3() {
                   style={
                     isDesktop
                       ? {
-                          position: "absolute",
-                          ...card.pos,
-                          zIndex: isHovered ? 40 : 30,
-                          width: "100%",
-                          maxWidth: "300px",
-                          perspective: "1000px",
-                        }
+                        position: "absolute",
+                        ...card.pos,
+                        zIndex: isHovered ? 40 : 30,
+                        width: "100%",
+                        maxWidth: "300px",
+                        perspective: "1000px",
+                      }
                       : {}
                   }
                   className="w-full relative lg:absolute"
@@ -1005,10 +1005,10 @@ export default function Section3() {
         style={
           isDesktop
             ? {
-                scale: sec2Scale,
-                rotate: sec2Rotate,
-                transformOrigin: "bottom center",
-              }
+              scale: sec2Scale,
+              rotate: sec2Rotate,
+              transformOrigin: "bottom center",
+            }
             : {}
         }
         className="relative z-10 w-full max-w-full overflow-hidden lg:h-[120vh] flex items-center justify-center px-4 md:px-6 pt-16 pb-24 lg:py-0"
