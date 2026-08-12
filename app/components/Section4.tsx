@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate, MotionValue } from 'framer-motion';
-import { Search, CreditCard, ShoppingBag, Leaf, ArrowRight, Clock, ShieldCheck, BarChart3,Store,MapPin,Star,MessageSquare } from 'lucide-react';
+import { Search, CreditCard, ShoppingBag, Leaf, ArrowRight, Clock, ShieldCheck, BarChart3, Store, MapPin, Star, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
 interface CardData {
@@ -146,7 +146,7 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col justify-center items-start w-full h-full"
+      className="absolute inset-0 flex flex-col justify-center items-center w-full h-full"
       style={{ opacity, y, pointerEvents }}
     >
       <div className="absolute left-[-10px] top-1/2 -translate-y-1/2 pointer-events-none overflow-hidden z-0">
@@ -159,7 +159,7 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
       </div>
 
       <div className="relative z-10 w-full lg:pl-6">
-        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#2D2A26] uppercase tracking-tighter leading-[0.85] mb-5">
+        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#2D2A26] uppercase tracking-tighter text-center lg:text-left leading-[0.85] mb-5">
           {card.title1}<br />
           <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(135deg, ${card.accentColor}, ${card.accentColor}90)` }}>
             {card.title2}
@@ -172,7 +172,7 @@ const SmoothTextContent = ({ card, index, progress }: ComponentProps) => {
 
         <Link
           href={"#"}
-          className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-[11px] sm:text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 group/btn text-white w-max shadow-xl"
+          className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-[11px] sm:text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 group/btn text-white w-max lg:w-full shadow-xl"
           style={{
             background: `linear-gradient(to right, ${card.accentColor}, ${card.accentColor}ee)`,
             boxShadow: `0 10px 30px ${card.accentColor}40`
