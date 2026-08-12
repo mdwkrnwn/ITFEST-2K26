@@ -260,7 +260,7 @@ const Section2 = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-auto min-h-screen md:h-screen bg-[#F4F3EE] overflow-hidden font-[family:var(--font-jakarta)] select-none py-24 md:py-0"
+      className="relative w-full h-auto md:h-screen bg-[#F4F3EE] overflow-hidden font-[family:var(--font-jakarta)] select-none md:py-0"
       onMouseMove={handleMouseMove}
     >
       <div
